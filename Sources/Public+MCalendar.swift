@@ -1,5 +1,5 @@
 //
-//  MCalendar.swift
+//  MCalendar.swift of MijickCalendarView
 //
 //  Created by Alina Petrovska on 26.10.2023.
 //    - Mail: alina.petrovskaya@mijick.com
@@ -12,7 +12,7 @@ import Foundation
 
 public class MCalendar {
     let firstWeekday: MWeekday
-    let locale: Locale
+    private let locale: Locale
     
     public init(firstWeekday: MWeekday = .monday, locale: Locale = .autoupdatingCurrent) {
         self.firstWeekday = firstWeekday
@@ -20,7 +20,7 @@ public class MCalendar {
     }
 }
 
-public extension MCalendar {
+extension MCalendar {
     func getWeekdaySymbol(_ day: MWeekday, format: WeekdaySymbolFormat) -> String { formatter.getString(for: day, format: format) }
     func getWeekdaySymbols(format: WeekdaySymbolFormat) -> [String] { weekDays.map { getWeekdaySymbol($0, format: format) }}
 }

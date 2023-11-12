@@ -1,5 +1,5 @@
 //
-//  MCalendarTests.swift of CalendarView
+//  MCalendarTests.swift of MijickCalendarView
 //
 //  Created by Tomasz Kurylik
 //    - Twitter: https://twitter.com/tkurylik

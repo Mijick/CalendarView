@@ -1,5 +1,5 @@
 //
-//  String++.swift
+//  String++.swift of MijickCalendarView
 //
 //  Created by Alina Petrovska on 04.11.2023.
 //    - Mail: alina.petrovskaya@mijick.com
@@ -10,7 +10,7 @@
 import Foundation
 
 extension String {
-    var date: Date {
+    func date() -> Date {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter.date(from: self) ?? Date()

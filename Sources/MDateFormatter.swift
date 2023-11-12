@@ -1,5 +1,5 @@
 //
-//  MDateFormatter.swift
+//  MDateFormatter.swift of MijickCalendarView
 //
 //  Created by Alina Petrovska on 26.10.2023.
 //    - Mail: alina.petrovskaya@mijick.com
@@ -12,7 +12,7 @@ import Foundation
 class MDateFormatter {
     private let locale: Locale
     
-    init(_ locale: Locale) { self.locale = locale}
+    init(_ locale: Locale) { self.locale = locale }
 }
 
 extension MDateFormatter {

@@ -1,5 +1,5 @@
 //
-//  Public+MWeekday.swift of
+//  Public+MWeekday.swift of MijickCalendarView
 //
 //  Created by Alina Petrovska on 25.10.2023.
 //    - Mail: alina.petrovskaya@mijick.com
@@ -12,7 +12,7 @@ import Foundation
 
 public enum MWeekday: Int { case sunday = 1, monday, tuesday, wednesday, thursday, friday, saturday }
 
-public extension MWeekday {
+extension MWeekday {
     static func allCases(_ calendar: MCalendar) -> [MWeekday] {
         let firstDayIndex = calendar.firstWeekday.rawValue
         let numberOfDaysInWeek = calendar.maxNumberOfDays
