@@ -55,13 +55,13 @@ private extension DayView {
         Text(getStringFromDay(format: "d"))
             .font(.system(size: 14))
             .foregroundColor(.black)
-            .opacity(isPreviousMonth() || isNextMonth() ? 0.36 : 1)
+            .opacity(isCurrentMonth() ? 1 : 0.36)
     }
     func createDefaultSelectionView() -> some View {
         Circle()
             .fill(.blue)
             .transition(.scale(scale: 0.4).combined(with: .opacity))
-            .active(if: isSelected())
+            .active(if: isSelected() && isCurrentMonth())
     }
     func createDefaultRangeSelectionView() -> some View {
         EmptyView()
@@ -71,7 +71,7 @@ private extension DayView {
 // MARK: - Handling Actions
 public extension DayView {
     func onAppear() {}
-    func onSelection() { selectedDate?.wrappedValue = date }
+    func onSelection() { if isCurrentMonth() { selectedDate?.wrappedValue = date }}
 }
 
 // MARK: - Text Formatting
@@ -81,8 +81,9 @@ public extension DayView {
 
 // MARK: - Helper Flags
 public extension DayView {
-    func isPreviousMonth() -> Bool { date.isBefore(.month, than: .init()) }
     func isToday() -> Bool { date.isSame(.day, as: .init()) }
+    func isPreviousMonth() -> Bool { date.isBefore(.month, than: .init()) }
+    func isCurrentMonth() -> Bool { date.isSame(.month, as: .init()) }
     func isNextMonth() -> Bool { date.isLater(.month, than: .init()) }
     func isSelected() -> Bool { date.isSame(.day, as: selectedDate?.wrappedValue) }
     func isWithinRange() -> Bool { false }
