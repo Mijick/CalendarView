@@ -1,5 +1,5 @@
 //
-//  MCalendarTests.swift of MijickCalendarView
+//  MCalendarTests.swift of CalendarView
 //
 //  Created by Tomasz Kurylik
 //    - Twitter: https://twitter.com/tkurylik
@@ -54,7 +54,6 @@ extension MCalendarTests {
 
         XCTAssertEqual(weekdaySymbols, expectedWeekdaySymbols)
     }
-
     func testVeryShortWeekdaySymbols_englishLocale_weekStartsOnMonday() {
         let weekdaySymbols = MCalendar(firstWeekday: .monday, locale: .english).getWeekdaySymbols(format: .veryShort)
         let expectedWeekdaySymbols = ["M", "T", "W", "T", "F", "S", "S"]

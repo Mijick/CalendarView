@@ -1,5 +1,5 @@
 //
-//  MDateRange.swift of MijickCalendarView
+//  MDateRange.swift of CalendarView
 //
 //  Created by Alina Petrovska on 26.10.2023.
 //    - Mail: alina.petrovskaya@mijick.com
