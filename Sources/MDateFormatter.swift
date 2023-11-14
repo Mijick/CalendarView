@@ -19,12 +19,12 @@ extension MDateFormatter {
     func getString(from date: Date, format: String) -> String {
         let formatter = formatter
         formatter.dateFormat = format
+
         let formattedDate = formatter
             .string(from: date)
             .split(separator: " ")
             .map { String($0).firstUppercased() }
             .joined(separator: " ")
-        
         return formattedDate
     }
     func getString(for day: MWeekday, format: WeekdaySymbolFormat) -> String {

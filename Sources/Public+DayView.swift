@@ -76,15 +76,15 @@ public extension DayView {
 
 // MARK: - Text Formatting
 public extension DayView {
-    func getStringFromDay(format: String) -> String { calendar.formatter.getString(from: date, format: format) }
+    func getStringFromDay(format: String) -> String { calendar.formatter().getString(from: date, format: format) }
 }
 
 // MARK: - Helper Flags
 public extension DayView {
-    func isToday() -> Bool { date.isSame(.day, as: .init()) }
-    func isPreviousMonth() -> Bool { date.isBefore(.month, than: .init()) }
-    func isCurrentMonth() -> Bool { date.isSame(.month, as: .init()) }
-    func isNextMonth() -> Bool { date.isLater(.month, than: .init()) }
-    func isSelected() -> Bool { date.isSame(.day, as: selectedDate?.wrappedValue) }
+    func isToday() -> Bool { calendar.mDate(date).isSame(.day, as: .init()) }
+    func isPreviousMonth() -> Bool { calendar.mDate(date).isBefore(.month, than: .init()) }
+    func isCurrentMonth() -> Bool { calendar.mDate(date).isSame(.month, as: .init()) }
+    func isNextMonth() -> Bool { calendar.mDate(date).isLater(.month, than: .init()) }
+    func isSelected() -> Bool { calendar.mDate(date).isSame(.day, as: selectedDate?.wrappedValue) }
     func isWithinRange() -> Bool { false }
 }
