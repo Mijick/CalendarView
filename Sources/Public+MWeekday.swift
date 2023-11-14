@@ -15,8 +15,7 @@ public enum MWeekday: Int { case sunday = 1, monday, tuesday, wednesday, thursda
 extension MWeekday {
     static func allCases(_ calendar: MCalendar) -> [MWeekday] {
         let firstDayIndex = calendar.firstWeekday.rawValue
-        let numberOfDaysInWeek = calendar.maxNumberOfDays
-        let weekDaysIndexes = [Int](firstDayIndex ... numberOfDaysInWeek) + [Int](1 ..< firstDayIndex)
+        let weekDaysIndexes = [Int](firstDayIndex ... 7) + [Int](1 ..< firstDayIndex)
         
         return .init(weekDaysIndexes)
     }
