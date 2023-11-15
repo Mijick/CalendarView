@@ -14,31 +14,15 @@ public struct MDateRange {
     private var upperDate: Date?
 }
 
+// MARK: - Updating Range
 extension MDateRange {
-    func getRange() -> ClosedRange<Date>? { (lowerDate...upperDate) }
-    func contains(_ date: Date) -> Bool { getRange()?.contains(date) == true }
-    mutating func remove(_ date: Date) {
-        guard upperDate != nil else { return }
-        
-        if upperDate == date {
-            upperDate = nil
-        } else if lowerDate == date {
-            lowerDate = upperDate
-            upperDate = nil
-        }
-    }
     mutating func addToRange(_ date: Date) {
         if lowerDate == nil { setLowerDate(date.getDateWithoutTime()) }
         else if upperDate == nil { setUpperDate(date.getDateWithoutTime()) }
-        else { addDateToExistedRange(date.getDateWithoutTime()) }
+        else { updateExistedRange(date.getDateWithoutTime()) }
     }
 }
-
 private extension MDateRange {
-    mutating func addDateToExistedRange(_ date: Date) {
-        if date > upperDate ?? Date() { upperDate = date }
-        else { lowerDate = date }
-    }
     mutating func setLowerDate(_ date: Date) {
         if let upperDate, date <= upperDate { lowerDate = date }
         else if upperDate == nil { lowerDate = date }
@@ -47,9 +31,25 @@ private extension MDateRange {
         if let lowerDate, date >= lowerDate { upperDate = date }
         else if let lowerDate { upperDate = lowerDate; self.lowerDate = date }
     }
+    mutating func updateExistedRange(_ date: Date) {
+        lowerDate = date
+        upperDate = nil
+    }
 }
 
-// MARK: Helpers
+// MARK: - Getting Range
+extension MDateRange {
+    func getRange() -> ClosedRange<Date>? { (lowerDate...upperDate) }
+}
+
+// MARK: - Others
+extension MDateRange {
+    func contains(_ date: Date) -> Bool { getRange()?.contains(date) == true }
+    func isRangeCompleted() -> Bool { upperDate != nil }
+}
+
+
+// MARK: - Helpers
 fileprivate extension Date {
     static func ==(_ lhs: Date?, _ rhs: Date) -> Bool {
         guard let lhs else { return false }
@@ -60,8 +60,7 @@ fileprivate extension Date {
         return Calendar.current.date(from: calendar) ?? self
     }
 }
-
 fileprivate func ...(_ lhs: Date?, _ rhs: Date?) -> ClosedRange<Date>? {
-    if let lhs, let rhs { return .init(uncheckedBounds: (lhs, rhs)) }
+    if let lhs { return .init(uncheckedBounds: (lhs, rhs ?? lhs)) }
     return nil
 }
