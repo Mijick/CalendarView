@@ -14,6 +14,7 @@ import SwiftUI
 public protocol DayView: View {
     // MARK: Attributes
     var date: Date { get }
+    var month: Date { get }
     var selectedDate: Binding<Date?>? { get }
     var selectedRange: Binding<MDateRange?>? { get }
     var calendar: MCalendar { get }
@@ -56,7 +57,7 @@ private extension DayView {
         Text(getStringFromDay(format: "d"))
             .font(.system(size: 14, weight: .medium))
             .foregroundColor(isSelected() ? .white : .black)
-            .opacity(isCurrentMonth() ? 1 : 0.36)
+            .opacity(isCurrentMonth() ? 1 : 0)
     }
     func createDefaultSelectionView() -> some View {
         Circle()
@@ -93,10 +94,9 @@ public extension DayView {
 
 // MARK: - Date Helpers
 public extension DayView {
-    func isToday() -> Bool { calendar.mDate(date).isSame(.day, as: .init()) }
-    func isPreviousMonth() -> Bool { calendar.mDate(date).isBefore(.month, than: .init()) }
-    func isCurrentMonth() -> Bool { calendar.mDate(date).isSame(.month, as: .init()) }
-    func isNextMonth() -> Bool { calendar.mDate(date).isLater(.month, than: .init()) }
+    func isPast() -> Bool { calendar.mDate(date).isBefore(.day, than: .now) }
+    func isToday() -> Bool { calendar.mDate(date).isSame(.day, as: .now) }
+    func isCurrentMonth() -> Bool { calendar.mDate(date).isSame(.month, as: month) }
 }
 
 // MARK: - Day Selection Helpers
