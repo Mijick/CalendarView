@@ -25,11 +25,11 @@ private extension MonthLabel {
             .foregroundColor(.black)
     }
 }
+private extension MonthLabel {
+    var monthText: String { getString("MMMM y") }
+}
 
 // MARK: - Helpers
 public extension MonthLabel {
     func getString(_ format: String) -> String { calendar.formatter().getString(from: month, format: format) }
-}
-private extension MonthLabel {
-    var monthText: String { getString("MMMM y") }
 }
