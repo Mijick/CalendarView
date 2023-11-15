@@ -38,7 +38,7 @@ private extension MonthView {
 }
 
 private extension MonthView {
-    func createDayView(_ date: Date) -> some View { DefaultDayView(
+    func createDayView(_ date: Date) -> some View { DefaultDaySelectionView(
         date: date,
         selectedDate: $selectedDate,
         selectedRange: $selectedRange,
