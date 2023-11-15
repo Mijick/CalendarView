@@ -1,5 +1,5 @@
 //
-//  Locale++.swift of MijickCalendarView
+//  Locale++.swift of CalendarView
 //
 //  Created by Tomasz Kurylik
 //    - Twitter: https://twitter.com/tkurylik

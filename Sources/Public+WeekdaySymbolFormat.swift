@@ -1,5 +1,5 @@
 //
-//  Public+WeekdaySymbolFormat.swift of MijickCalendarView
+//  Public+WeekdaySymbolFormat.swift of CalendarView
 //
 //  Created by Alina Petrovska on 25.10.2023.
 //    - Mail: alina.petrovskaya@mijick.com
