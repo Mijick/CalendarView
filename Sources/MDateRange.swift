@@ -9,7 +9,7 @@
 
 import Foundation
 
-class MDateRange {
+public class MDateRange {
     private var lowerDate: Date?
     private var upperDate: Date?
 }

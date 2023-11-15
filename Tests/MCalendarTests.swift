@@ -68,13 +68,3 @@ extension MCalendarTests {
         XCTAssertEqual(weekdaySymbols, expectedWeekdaySymbols)
     }
 }
-
-// MARK: - Days in week
-extension MCalendarTests {
-    func testMaxNumberOfDaysInAWeek() {
-        let numberOfDays = MCalendar(firstWeekday: .sunday, locale: .polish).maxNumberOfDays
-        let expectedNumberOfDays = 7
-
-        XCTAssertEqual(numberOfDays, expectedNumberOfDays)
-    }
-}

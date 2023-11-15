@@ -13,7 +13,7 @@ import Foundation
 public class MCalendar {
     let firstWeekday: MWeekday
     private let locale: Locale
-    
+
     public init(firstWeekday: MWeekday = .monday, locale: Locale = .autoupdatingCurrent) {
         self.firstWeekday = firstWeekday
         self.locale = locale
@@ -21,15 +21,15 @@ public class MCalendar {
 }
 
 extension MCalendar {
-    func getWeekdaySymbol(_ day: MWeekday, format: WeekdaySymbolFormat) -> String { formatter.getString(for: day, format: format) }
-    func getWeekdaySymbols(format: WeekdaySymbolFormat) -> [String] { weekDays.map { getWeekdaySymbol($0, format: format) }}
+    func formatter() -> MDateFormatter { .init(locale) }
+    func mDate(_ date: Date) -> MDate { .init(date: date, calendar, firstWeekday) }
 }
 
 extension MCalendar {
-    var maxNumberOfDays: Int { Calendar(identifier: .gregorian).weekdaySymbols.count }
+    func getWeekdaySymbol(_ day: MWeekday, format: WeekdaySymbolFormat) -> String { formatter().getString(for: day, format: format) }
+    func getWeekdaySymbols(format: WeekdaySymbolFormat) -> [String] { MWeekday.allCases(self).map { getWeekdaySymbol($0, format: format) }}
 }
 
 private extension MCalendar {
-    var formatter: MDateFormatter { .init(locale) }
-    var weekDays: [MWeekday] { MWeekday.allCases(self) }
+    var calendar: Calendar { .init(identifier: .gregorian) }
 }
