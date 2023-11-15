@@ -13,6 +13,7 @@ import SwiftUI
 
 struct DefaultDaySelectionView: DayView {
     var date: Date
+    var month: Date
     var selectedDate: Binding<Date?>?
     var selectedRange: Binding<MDateRange?>?
     var calendar: MCalendar
@@ -24,12 +25,13 @@ struct DefaultDaySelectionView: DayView {
     struct Preview: View {
         @State private var selectedDate: Date? = nil
         @State private var selectedRange: Binding<MDateRange?>? = nil
-        private let date: Date = .init()
+        private let date: Date = .now
         private let calendar: MCalendar = .init()
 
 
         var body: some View { DefaultDaySelectionView(
             date: date,
+            month: .now,
             selectedDate: $selectedDate,
             selectedRange: selectedRange,
             calendar: calendar
