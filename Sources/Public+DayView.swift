@@ -12,19 +12,19 @@
 import SwiftUI
 
 public protocol DayView: View {
-    // ATTRIBUTES
+    // MARK: Attributes
     var date: Date { get }
     var selectedDate: Binding<Date?>? { get }
     var selectedRange: Binding<MDateRange?>? { get }
     var calendar: MCalendar { get }
 
-    // VIEW CUSTOMISATION
+    // MARK: View Customisation
     func createContent() -> AnyView
     func createDayLabel() -> AnyView
     func createSelectionView() -> AnyView
     func createRangeSelectionView() -> AnyView
 
-    // LOGIC
+    // MARK: Logic
     func onAppear()
     func onSelection()
 }
@@ -41,6 +41,7 @@ public extension DayView {
 private extension DayView {
     func createBody() -> some View {
         createContent()
+            .padding(.vertical, 1)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .aspectRatio(1.0, contentMode: .fit)
             .onAppear(perform: onAppear)
@@ -53,18 +54,29 @@ private extension DayView {
     }}
     func createDefaultDayLabel() -> some View {
         Text(getStringFromDay(format: "d"))
-            .font(.system(size: 14))
-            .foregroundColor(.black)
+            .font(.system(size: 14, weight: .medium))
+            .foregroundColor(isSelected() ? .white : .black)
             .opacity(isCurrentMonth() ? 1 : 0.36)
     }
     func createDefaultSelectionView() -> some View {
         Circle()
-            .fill(.blue)
-            .transition(.scale(scale: 0.4).combined(with: .opacity))
+            .fill(.black)
+            .transition(.scale(scale: 0.6).combined(with: .opacity))
             .active(if: isSelected() && isCurrentMonth())
     }
     func createDefaultRangeSelectionView() -> some View {
-        EmptyView()
+        RoundedCorner(radius: .infinity, corners: rangeSelectionViewCorners)
+            .fill(.black.opacity(0.12))
+            .transition(.opacity)
+            .active(if: isWithinRange())
+    }
+}
+private extension DayView {
+    var rangeSelectionViewCorners: UIRectCorner { 
+        if isBeginningOfRange() { return [.topLeft, .bottomLeft] }
+        if isEndOfRange() { return [.topRight, .bottomRight] }
+
+        return []
     }
 }
 
@@ -79,12 +91,22 @@ public extension DayView {
     func getStringFromDay(format: String) -> String { calendar.formatter().getString(from: date, format: format) }
 }
 
-// MARK: - Helper Flags
+// MARK: - Date Helpers
 public extension DayView {
     func isToday() -> Bool { calendar.mDate(date).isSame(.day, as: .init()) }
     func isPreviousMonth() -> Bool { calendar.mDate(date).isBefore(.month, than: .init()) }
     func isCurrentMonth() -> Bool { calendar.mDate(date).isSame(.month, as: .init()) }
     func isNextMonth() -> Bool { calendar.mDate(date).isLater(.month, than: .init()) }
-    func isSelected() -> Bool { calendar.mDate(date).isSame(.day, as: selectedDate?.wrappedValue) }
-    func isWithinRange() -> Bool { false }
+}
+
+// MARK: - Day Selection Helpers
+public extension DayView {
+    func isSelected() -> Bool { calendar.mDate(date).isSame(.day, as: selectedDate?.wrappedValue) || isBeginningOfRange() || isEndOfRange() }
+}
+
+// MARK: - Range Selection Helpers
+public extension DayView {
+    func isBeginningOfRange() -> Bool { calendar.mDate(date).isSame(.day, as: selectedRange?.wrappedValue?.getRange()?.lowerBound) }
+    func isEndOfRange() -> Bool { calendar.mDate(date).isSame(.day, as: selectedRange?.wrappedValue?.getRange()?.upperBound) }
+    func isWithinRange() -> Bool { selectedRange?.wrappedValue?.isRangeCompleted() == true && selectedRange?.wrappedValue?.contains(date) == true }
 }
