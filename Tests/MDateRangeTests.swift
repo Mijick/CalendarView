@@ -53,9 +53,9 @@ extension MDateRangeTests {
         mDateRange.addToRange(.now)
         mDateRange.addToRange(.dayAfterTomorrow)
         mDateRange.addToRange(.tomorrow)
-        
+
         let range = mDateRange.getRange()
-        let expectedRange: ClosedRange<Date>? = (.now ... .dayAfterTomorrow)
+        let expectedRange: ClosedRange<Date>? = (.tomorrow ... .dayAfterTomorrow)
         
         XCTAssertEqual(range, expectedRange)
     }
@@ -93,10 +93,10 @@ extension MDateRangeTests {
         mDateRange.addToRange(.now)
         mDateRange.addToRange(.tomorrow)
         mDateRange.addToRange(.tomorrow)
-        
+
         let range = mDateRange.getRange()
-        let expectedRange: ClosedRange<Date>? = (.now ... .tomorrow)
-        
+        let expectedRange: ClosedRange<Date>? = (.tomorrow ... .tomorrow)
+
         XCTAssertEqual(range, expectedRange)
     }
 }

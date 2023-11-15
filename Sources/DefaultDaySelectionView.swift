@@ -1,5 +1,5 @@
 //
-//  DefaultDayView.swift of CalendarView
+//  DefaultDaySelectionView.swift of CalendarView
 //
 //  Created by Tomasz Kurylik
 //    - Twitter: https://twitter.com/tkurylik
@@ -11,7 +11,7 @@
 
 import SwiftUI
 
-struct DefaultDayView: DayView {
+struct DefaultDaySelectionView: DayView {
     var date: Date
     var selectedDate: Binding<Date?>?
     var selectedRange: Binding<MDateRange?>?
@@ -28,7 +28,7 @@ struct DefaultDayView: DayView {
         private let calendar: MCalendar = .init()
 
 
-        var body: some View { DefaultDayView(
+        var body: some View { DefaultDaySelectionView(
             date: date,
             selectedDate: $selectedDate,
             selectedRange: selectedRange,
