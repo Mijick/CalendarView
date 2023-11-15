@@ -14,6 +14,7 @@ import SwiftUI
 struct MonthView: View {
     @Binding var selectedDate: Date?
     @Binding var selectedRange: MDateRange?
+    let month: Date
     let calendar: MCalendar
     @State private var items: [[Date]] = []
 
@@ -40,6 +41,7 @@ private extension MonthView {
 private extension MonthView {
     func createDayView(_ date: Date) -> some View { DefaultDaySelectionView(
         date: date,
+        month: month,
         selectedDate: $selectedDate,
         selectedRange: $selectedRange,
         calendar: calendar
@@ -55,7 +57,7 @@ private extension MonthView {
 }
 private extension MonthView {
     func createRawDates() -> [Date] {
-        let monthStartDate = calendar.mDate(.now).startOfMonth()
+        let monthStartDate = calendar.mDate(month).startOfMonth()
         let monthStartWeekday = calendar.mDate(monthStartDate).getWeekday()
 
         let items = (0..<numberOfRows * weekdaysNumber).map { createRawDate(monthStartDate, monthStartWeekday, $0) }
@@ -104,6 +106,7 @@ private extension MonthView {
         var body: some View { MonthView(
             selectedDate: $selectedDate,
             selectedRange: $selectedRange,
+            month: .init(),
             calendar: calendar
         )}
     }
