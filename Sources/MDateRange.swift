@@ -9,7 +9,7 @@
 
 import Foundation
 
-public class MDateRange {
+public struct MDateRange {
     private var lowerDate: Date?
     private var upperDate: Date?
 }
@@ -17,7 +17,7 @@ public class MDateRange {
 extension MDateRange {
     func getRange() -> ClosedRange<Date>? { (lowerDate...upperDate) }
     func contains(_ date: Date) -> Bool { getRange()?.contains(date) == true }
-    func remove(_ date: Date) {
+    mutating func remove(_ date: Date) {
         guard upperDate != nil else { return }
         
         if upperDate == date {
@@ -27,7 +27,7 @@ extension MDateRange {
             upperDate = nil
         }
     }
-    func addToRange(_ date: Date) {
+    mutating func addToRange(_ date: Date) {
         if lowerDate == nil { setLowerDate(date.getDateWithoutTime()) }
         else if upperDate == nil { setUpperDate(date.getDateWithoutTime()) }
         else { addDateToExistedRange(date.getDateWithoutTime()) }
@@ -35,15 +35,15 @@ extension MDateRange {
 }
 
 private extension MDateRange {
-    func addDateToExistedRange(_ date: Date) {
-        if date < lowerDate ?? Date() { lowerDate = date }
-        else if date > upperDate ?? Date() { upperDate = date }
+    mutating func addDateToExistedRange(_ date: Date) {
+        if date > upperDate ?? Date() { upperDate = date }
+        else { lowerDate = date }
     }
-    func setLowerDate(_ date: Date) {
+    mutating func setLowerDate(_ date: Date) {
         if let upperDate, date <= upperDate { lowerDate = date }
         else if upperDate == nil { lowerDate = date }
     }
-    func setUpperDate(_ date: Date) {
+    mutating func setUpperDate(_ date: Date) {
         if let lowerDate, date >= lowerDate { upperDate = date }
         else if let lowerDate { upperDate = lowerDate; self.lowerDate = date }
     }

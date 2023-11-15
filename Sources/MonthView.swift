@@ -97,7 +97,7 @@ private extension MonthView {
 #Preview {
     struct Preview: View {
         @State private var selectedDate: Date? = nil
-        @State private var selectedRange: MDateRange? = nil
+        @State private var selectedRange: MDateRange? = .init()
         private let calendar: MCalendar = .init(firstWeekday: .monday)
 
 
