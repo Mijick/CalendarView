@@ -44,10 +44,7 @@ private extension DayView {
         Group {
             if isCurrentMonth { createBodyForCurrentMonth() }
             else { createBodyForOtherMonth() }
-        }                    
-        .padding(.vertical, 1)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .aspectRatio(1.0, contentMode: .fit)
+        }
     }
     func createDefaultContent() -> some View { ZStack {
         createSelectionView()
@@ -75,6 +72,9 @@ private extension DayView {
 private extension DayView {
     func createBodyForCurrentMonth() -> some View {
         createContent()
+            .padding(.vertical, 1)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .aspectRatio(1.0, contentMode: .fit)
             .onAppear(perform: onAppear)
             .onTapGesture(perform: onSelection)
     }
