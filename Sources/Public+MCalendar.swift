@@ -10,14 +10,9 @@
 
 import Foundation
 
-public class MCalendar {
-    let firstWeekday: MWeekday
-    private let locale: Locale
-
-    public init(firstWeekday: MWeekday = .monday, locale: Locale = .autoupdatingCurrent) {
-        self.firstWeekday = firstWeekday
-        self.locale = locale
-    }
+public struct MCalendar {
+    var firstWeekday: MWeekday = .monday
+    var locale: Locale = .autoupdatingCurrent
 }
 
 extension MCalendar {
