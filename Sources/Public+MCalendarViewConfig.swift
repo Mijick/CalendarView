@@ -26,6 +26,7 @@ extension MCalendarView.Config {
 // MARK: - Modifiers
 extension MCalendarView.Config {
     public func scrollTo(date: Date?) -> Self { changing(path: \.scrollDate, to: date) }
+    public func onMonthChange(_ value: @escaping (Date) -> ()) -> Self { changing(path: \.onMonthChange, to: value) }
 }
 
 
@@ -35,6 +36,7 @@ extension MCalendarView { public struct Config: Configurable { public init() {}
     private(set) var endMonth: Date? = nil
 
     private(set) var scrollDate: Date? = nil
+    private(set) var onMonthChange: (Date) -> () = {_ in}
 
     private(set) var calendar: MCalendar = .init()
 }}
