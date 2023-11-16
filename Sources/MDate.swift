@@ -42,6 +42,6 @@ extension MDate {
 // MARK: - Others
 extension MDate {
     func getWeekday() -> MWeekday { .init(rawValue: calendar.component(.weekday, from: dateToCompare)) ?? .monday }
-    func startOfMonth() -> Date { calendar.date(from: calendar.dateComponents([.year, .month], from: calendar.startOfDay(for: dateToCompare))) ?? .distantPast }
-    func endOfMonth() -> Date { calendar.date(byAdding: .init(month: 1, day: -1), to: dateToCompare) ?? .distantPast }
+    func startOfMonth() -> Date { calendar.dateInterval(of: .month, for: dateToCompare)?.start ?? .distantPast }
+    func endOfMonth() -> Date { calendar.dateInterval(of: .month, for: dateToCompare)?.end.addingTimeInterval(-1) ?? .distantPast }
 }

@@ -18,17 +18,20 @@ extension Data { struct MonthView {
 
 // MARK: - Generating Array
 extension [Data.MonthView] {
-    static func generate(_ calendar: MCalendar) -> Self {
-        let startDate = createStartDate(calendar)
-
-        return createItemsSet()
+    static func generate(startMonth: Date?, endMonth: Date?, calendar: MCalendar) -> Self {
+        let startDate = calendar.mDate(startMonth ?? .now).startOfMonth()
+        return createDatesRange(startDate, endMonth, calendar)
             .map { createMonthDate($0, startDate, calendar) }
             .map { createMonthViewData($0, calendar) }
     }
 }
 private extension [Data.MonthView] {
-    static func createStartDate(_ calendar: MCalendar) -> Date { calendar.mDate(.now).startOfMonth() }
-    static func createItemsSet() -> Range<Int> { 0 ..< 12 * 25 }
+    static func createDatesRange(_ startDate: Date, _ endDate: Date?, _ calendar: MCalendar) -> ClosedRange<Int> { let endDate = calendar.mDate(endDate ?? .now).endOfMonth()
+        guard startDate <= endDate else { fatalError("Start date must be lower than end date") }
+
+        let numberOfMonthsBetweenDates = calendar.mDate(startDate).distance(to: endDate, in: [.month]).month ?? 0
+        return 0...numberOfMonthsBetweenDates
+    }
     static func createMonthDate(_ index: Int, _ startDate: Date, _ calendar: MCalendar) -> Date { calendar.mDate(startDate).adding(index, .month) }
     static func createMonthViewData(_ monthStart: Date, _ calendar: MCalendar) -> Data.MonthView { .generate(monthStart, calendar) }
 }
