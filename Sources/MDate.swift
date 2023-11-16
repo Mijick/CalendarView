@@ -29,6 +29,11 @@ private extension MDate {
     func getDateComparisonResult(_ component: Calendar.Component, _ date: Date?) -> ComparisonResult { calendar.compare(dateToCompare, to: date ?? .distantPast, toGranularity: component) }
 }
 
+// MARK: - Calculating Difference Between Dates
+extension MDate {
+    func distance(to date: Date, in components: Set<Calendar.Component>) -> DateComponents { calendar.dateComponents(components, from: dateToCompare, to: date) }
+}
+
 // MARK: - Adding Dates
 extension MDate {
     func adding(_ value: Int, _ component: Calendar.Component) -> Date { calendar.date(byAdding: component, value: value, to: dateToCompare) ?? dateToCompare }
@@ -38,4 +43,5 @@ extension MDate {
 extension MDate {
     func getWeekday() -> MWeekday { .init(rawValue: calendar.component(.weekday, from: dateToCompare)) ?? .monday }
     func startOfMonth() -> Date { calendar.date(from: calendar.dateComponents([.year, .month], from: calendar.startOfDay(for: dateToCompare))) ?? .distantPast }
+    func endOfMonth() -> Date { calendar.date(byAdding: .init(month: 1, day: -1), to: dateToCompare) ?? .distantPast }
 }
