@@ -47,13 +47,35 @@ private extension Data.MonthView {
         let monthStartDate = calendar.mDate(month).startOfMonth()
         let monthStartWeekday = calendar.mDate(monthStartDate).getWeekday()
 
-        let items = (0..<numberOfRows * weekdaysNumber).map { createRawDate($0, monthStartDate, monthStartWeekday, calendar) }
+        let items = createRawDateItems(monthStartDate, monthStartWeekday, calendar)
         return items
     }
     static func groupDates(_ rawDates: [Date]) -> [[Date]] {
         rawDates
             .enumerated()
             .reduce(into: [], reduceRawDates)
+    }
+}
+private extension Data.MonthView {
+    static func createRawDateItems(_ monthStartDate: Date, _ monthStartWeekday: MWeekday, _ calendar: MCalendar) -> [Date] {
+        var items: [Date] = []
+
+        for index in 0..<100 {
+            let date = createRawDate(index, monthStartDate, monthStartWeekday, calendar)
+
+            switch shouldStopPopulatingRawDateItems(items, date, monthStartDate, calendar) {
+                case true: return items
+                case false: items.append(date)
+            }
+        }
+
+        return items
+    }
+    static func reduceRawDates(_ array: inout [[Date]], item: EnumeratedSequence<[Date]>.Iterator.Element) {
+        switch item.offset % weekdaysNumber == 0 {
+            case true: array.append([item.element])
+            case false: array[array.count - 1].append(item.element)
+        }
     }
 }
 private extension Data.MonthView {
@@ -64,14 +86,11 @@ private extension Data.MonthView {
         }()
         return calendar.mDate(monthStartDate).adding(index - shiftIndex, .day)
     }
-    static func reduceRawDates(_ array: inout [[Date]], item: EnumeratedSequence<[Date]>.Iterator.Element) {
-        switch item.offset % weekdaysNumber == 0 {
-            case true: array.append([item.element])
-            case false: array[array.count - 1].append(item.element)
-        }
+    static func shouldStopPopulatingRawDateItems(_ items: [Date], _ date: Date, _ monthStartDate: Date, _ calendar: MCalendar) -> Bool {
+        guard items.count % weekdaysNumber == 0 else { return false }
+        return calendar.mDate(date).isLater(.month, than: monthStartDate)
     }
 }
 private extension Data.MonthView {
-    static var numberOfRows: Int { 5 }
     static var weekdaysNumber: Int { MWeekday.weekdaysCount }
 }
