@@ -14,7 +14,7 @@ import SwiftUI
 public protocol DayView: View {
     // MARK: Attributes
     var date: Date { get }
-    var month: Date { get }
+    var isCurrentMonth: Bool { get }
     var selectedDate: Binding<Date?>? { get }
     var selectedRange: Binding<MDateRange?>? { get }
     var calendar: MCalendar { get }
@@ -41,12 +41,13 @@ public extension DayView {
 }
 private extension DayView {
     func createBody() -> some View {
-        createContent()
-            .padding(.vertical, 1)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .aspectRatio(1.0, contentMode: .fit)
-            .onAppear(perform: onAppear)
-            .onTapGesture(perform: onSelection)
+        Group {
+            if isCurrentMonth { createBodyForCurrentMonth() }
+            else { createBodyForOtherMonth() }
+        }                    
+        .padding(.vertical, 1)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .aspectRatio(1.0, contentMode: .fit)
     }
     func createDefaultContent() -> some View { ZStack {
         createSelectionView()
@@ -57,13 +58,12 @@ private extension DayView {
         Text(getStringFromDay(format: "d"))
             .font(.system(size: 14, weight: .medium))
             .foregroundColor(isSelected() ? .white : .black)
-            .opacity(isCurrentMonth() ? 1 : 0)
     }
     func createDefaultSelectionView() -> some View {
         Circle()
             .fill(.black)
             .transition(.scale(scale: 0.6).combined(with: .opacity))
-            .active(if: isSelected() && isCurrentMonth())
+            .active(if: isSelected())
     }
     func createDefaultRangeSelectionView() -> some View {
         RoundedCorner(radius: .infinity, corners: rangeSelectionViewCorners)
@@ -71,6 +71,14 @@ private extension DayView {
             .transition(.opacity)
             .active(if: isWithinRange())
     }
+}
+private extension DayView {
+    func createBodyForCurrentMonth() -> some View {
+        createContent()
+            .onAppear(perform: onAppear)
+            .onTapGesture(perform: onSelection)
+    }
+    func createBodyForOtherMonth() -> some View { Rectangle().fill(Color.clear) }
 }
 private extension DayView {
     var rangeSelectionViewCorners: UIRectCorner { 
@@ -84,7 +92,7 @@ private extension DayView {
 // MARK: - Handling Actions
 public extension DayView {
     func onAppear() {}
-    func onSelection() { if isCurrentMonth() { selectedDate?.wrappedValue = date }}
+    func onSelection() { selectedDate?.wrappedValue = date }
 }
 
 // MARK: - Text Formatting
@@ -96,7 +104,6 @@ public extension DayView {
 public extension DayView {
     func isPast() -> Bool { calendar.mDate(date).isBefore(.day, than: .now) }
     func isToday() -> Bool { calendar.mDate(date).isSame(.day, as: .now) }
-    func isCurrentMonth() -> Bool { calendar.mDate(date).isSame(.month, as: month) }
 }
 
 // MARK: - Day Selection Helpers
