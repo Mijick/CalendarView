@@ -12,6 +12,8 @@ import Foundation
 public struct MDateRange {
     private var lowerDate: Date?
     private var upperDate: Date?
+
+    public init() {}
 }
 
 // MARK: - Updating Range
