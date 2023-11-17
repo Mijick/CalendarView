@@ -101,18 +101,18 @@ public extension DayView {
 
 // MARK: - Date Helpers
 public extension DayView {
-    func isPast() -> Bool { DateHandler(date).isBefore(.day, than: .now) }
-    func isToday() -> Bool { DateHandler(date).isSame(.day, as: .now) }
+    func isPast() -> Bool { date.isBefore(.day, than: .now) }
+    func isToday() -> Bool { date.isSame(.day, as: .now) }
 }
 
 // MARK: - Day Selection Helpers
 public extension DayView {
-    func isSelected() -> Bool { DateHandler(date).isSame(.day, as: selectedDate?.wrappedValue) || isBeginningOfRange() || isEndOfRange() }
+    func isSelected() -> Bool { date.isSame(.day, as: selectedDate?.wrappedValue) || isBeginningOfRange() || isEndOfRange() }
 }
 
 // MARK: - Range Selection Helpers
 public extension DayView {
-    func isBeginningOfRange() -> Bool { DateHandler(date).isSame(.day, as: selectedRange?.wrappedValue?.getRange()?.lowerBound) }
-    func isEndOfRange() -> Bool { DateHandler(date).isSame(.day, as: selectedRange?.wrappedValue?.getRange()?.upperBound) }
+    func isBeginningOfRange() -> Bool { date.isSame(.day, as: selectedRange?.wrappedValue?.getRange()?.lowerBound) }
+    func isEndOfRange() -> Bool { date.isSame(.day, as: selectedRange?.wrappedValue?.getRange()?.upperBound) }
     func isWithinRange() -> Bool { selectedRange?.wrappedValue?.isRangeCompleted() == true && selectedRange?.wrappedValue?.contains(date) == true }
 }
