@@ -33,10 +33,14 @@ private extension MCalendarView {
     func createWeekdaysView() -> some View {
         DefaultWeekdaysView(calendar: configData.calendar)
     }
-    func createScrollView() -> some View { ScrollView(showsIndicators: false) {
-        LazyVStack(spacing: 24) {
-            ForEach(monthsData, id: \.month, content: createMonthItem)
+    func createScrollView() -> some View { ScrollViewReader { reader in
+        ScrollView(showsIndicators: false) {
+            LazyVStack(spacing: 24) {
+                ForEach(monthsData, id: \.month, content: createMonthItem)
+            }
         }
+        .onAppear() { scrollToDate(reader, animatable: false) }
+        .onChange(of: configData.scrollDate) { _ in scrollToDate(reader, animatable: true) }
     }}
 }
 private extension MCalendarView {
@@ -49,11 +53,22 @@ private extension MCalendarView {
 }
 private extension MCalendarView {
     func createMonthLabel(_ month: Date) -> some View {
-        DefaultMonthLabel(month: month, calendar: configData.calendar)
+        DefaultMonthLabel(month: month, calendar: configData.calendar).onAppear { onMonthChange(month) }
     }
     func createMonthView(_ data: Data.MonthView) -> some View {
         MonthView(selectedDate: $selectedData.date, selectedRange: $selectedData.range, data: data, calendar: configData.calendar)
     }
+}
+
+// MARK: - Modifiers
+private extension MCalendarView {
+    func scrollToDate(_ reader: ScrollViewProxy, animatable: Bool) {
+        guard let date = configData.scrollDate else { return }
+
+        let scrollDate = configData.calendar.mDate(date).startOfMonth()
+        withAnimation(animatable ? .smooth : nil) { reader.scrollTo(scrollDate, anchor: .center) }
+    }
+    func onMonthChange(_ date: Date) { configData.onMonthChange(date) }
 }
 
 
