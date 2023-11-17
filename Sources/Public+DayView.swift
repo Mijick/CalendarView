@@ -102,18 +102,18 @@ public extension DayView {
 
 // MARK: - Date Helpers
 public extension DayView {
-    func isPast() -> Bool { calendar.mDate(date).isBefore(.day, than: .now) }
-    func isToday() -> Bool { calendar.mDate(date).isSame(.day, as: .now) }
+    func isPast() -> Bool { MCalendar.mDate(date).isBefore(.day, than: .now) }
+    func isToday() -> Bool { MCalendar.mDate(date).isSame(.day, as: .now) }
 }
 
 // MARK: - Day Selection Helpers
 public extension DayView {
-    func isSelected() -> Bool { calendar.mDate(date).isSame(.day, as: selectedDate?.wrappedValue) || isBeginningOfRange() || isEndOfRange() }
+    func isSelected() -> Bool { MCalendar.mDate(date).isSame(.day, as: selectedDate?.wrappedValue) || isBeginningOfRange() || isEndOfRange() }
 }
 
 // MARK: - Range Selection Helpers
 public extension DayView {
-    func isBeginningOfRange() -> Bool { calendar.mDate(date).isSame(.day, as: selectedRange?.wrappedValue?.getRange()?.lowerBound) }
-    func isEndOfRange() -> Bool { calendar.mDate(date).isSame(.day, as: selectedRange?.wrappedValue?.getRange()?.upperBound) }
+    func isBeginningOfRange() -> Bool { MCalendar.mDate(date).isSame(.day, as: selectedRange?.wrappedValue?.getRange()?.lowerBound) }
+    func isEndOfRange() -> Bool { MCalendar.mDate(date).isSame(.day, as: selectedRange?.wrappedValue?.getRange()?.upperBound) }
     func isWithinRange() -> Bool { selectedRange?.wrappedValue?.isRangeCompleted() == true && selectedRange?.wrappedValue?.contains(date) == true }
 }

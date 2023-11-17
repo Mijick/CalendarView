@@ -40,7 +40,7 @@ private extension MonthView {
     }
 }
 private extension MonthView {
-    func isCurrentMonth(_ date: Date) -> Bool { config.calendar.mDate(data.month).isSame(.month, as: date) }
+    func isCurrentMonth(_ date: Date) -> Bool { MCalendar.mDate(data.month).isSame(.month, as: date) }
 }
 
 // MARK: - Others
@@ -54,7 +54,7 @@ private extension MonthView {
     struct Preview: View {
         @State private var selectedDate: Date? = nil
         @State private var selectedRange: MDateRange? = .init()
-        private let data: [Data.MonthView] = .generate(startMonth: .now, endMonth: .now, calendar: .init())
+        private let data: [Data.MonthView] = .generate(startMonth: .now, endMonth: .now)
 
 
         var body: some View { MonthView(

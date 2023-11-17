@@ -20,7 +20,7 @@ public struct MCalendarView: View {
     public init(selectedDate: Binding<Date?>?, selectedRange: Binding<MDateRange?>?, configBuilder: (Config) -> Config = { $0 }) {
         self._selectedData = .init(wrappedValue: .init(selectedDate, selectedRange))
         self.configData = configBuilder(.init())
-        self.monthsData = .generate(startMonth: configData.startMonth, endMonth: configData.endMonth, calendar: configData.calendar)
+        self.monthsData = .generate(startMonth: configData.startMonth, endMonth: configData.endMonth)
     }
     public var body: some View {
         VStack(spacing: 12) {
@@ -67,7 +67,7 @@ private extension MCalendarView {
     func scrollToDate(_ reader: ScrollViewProxy, animatable: Bool) {
         guard let date = configData.scrollDate else { return }
 
-        let scrollDate = configData.calendar.mDate(date).startOfMonth()
+        let scrollDate = MCalendar.mDate(date).startOfMonth()
         withAnimation(animatable ? .smooth : nil) { reader.scrollTo(scrollDate, anchor: .center) }
     }
     func onMonthChange(_ date: Date) { configData.onMonthChange(date) }

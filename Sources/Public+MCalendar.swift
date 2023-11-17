@@ -16,7 +16,7 @@ public struct MCalendar {
 }
 
 extension MCalendar {
-    func mDate(_ date: Date) -> MDate { .init(date: date, calendar, Self.firstWeekday) }
+    static func mDate(_ date: Date) -> MDate { .init(date: date, calendar, Self.firstWeekday) }
 }
 
 extension MCalendar {
@@ -25,5 +25,5 @@ extension MCalendar {
 }
 
 private extension MCalendar {
-    var calendar: Calendar { .init(identifier: .gregorian) }
+    static var calendar: Calendar { .init(identifier: .gregorian) }
 }
