@@ -16,14 +16,12 @@ public struct DefaultDayRangeSelectionView: DayView {
     public var isCurrentMonth: Bool
     public var selectedDate: Binding<Date?>?
     public var selectedRange: Binding<MDateRange?>?
-    public var calendar: MCalendar
 
-    public init(date: Date, isCurrentMonth: Bool, selectedDate: Binding<Date?>? = nil, selectedRange: Binding<MDateRange?>? = nil, calendar: MCalendar) {
+    public init(date: Date, isCurrentMonth: Bool, selectedDate: Binding<Date?>? = nil, selectedRange: Binding<MDateRange?>? = nil) {
         self.date = date
         self.isCurrentMonth = isCurrentMonth
         self.selectedDate = selectedDate
         self.selectedRange = selectedRange
-        self.calendar = calendar
     }
 }
 

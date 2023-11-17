@@ -16,7 +16,6 @@ struct DefaultDaySelectionView: DayView {
     var isCurrentMonth: Bool
     var selectedDate: Binding<Date?>?
     var selectedRange: Binding<MDateRange?>?
-    var calendar: MCalendar
 }
 
 
@@ -26,15 +25,13 @@ struct DefaultDaySelectionView: DayView {
         @State private var selectedDate: Date? = nil
         @State private var selectedRange: Binding<MDateRange?>? = nil
         private let date: Date = .now
-        private let calendar: MCalendar = .init()
 
 
         var body: some View { DefaultDaySelectionView(
             date: date,
             isCurrentMonth: true,
             selectedDate: $selectedDate,
-            selectedRange: selectedRange,
-            calendar: calendar
+            selectedRange: selectedRange
         )}
     }
 

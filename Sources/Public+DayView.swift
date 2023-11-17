@@ -17,7 +17,6 @@ public protocol DayView: View {
     var isCurrentMonth: Bool { get }
     var selectedDate: Binding<Date?>? { get }
     var selectedRange: Binding<MDateRange?>? { get }
-    var calendar: MCalendar { get }
 
     // MARK: View Customisation
     func createContent() -> AnyView
