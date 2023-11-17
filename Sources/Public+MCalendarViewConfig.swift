@@ -19,8 +19,8 @@ extension MCalendarView.Config {
 
 // MARK: - Calendar
 extension MCalendarView.Config {
-    public func firstWeekday(_ value: MWeekday) -> Self { changing(path: \.calendar.firstWeekday, to: value) }
-    public func locale(_ value: Locale) -> Self { changing(path: \.calendar.locale, to: value) }
+    public func firstWeekday(_ value: MWeekday) -> Self { MCalendar.firstWeekday = value; return self }
+    public func locale(_ value: Locale) -> Self { MCalendar.locale = value; return self }
 }
 
 // MARK: - Modifiers

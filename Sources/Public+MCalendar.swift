@@ -11,13 +11,13 @@
 import Foundation
 
 public struct MCalendar {
-    var firstWeekday: MWeekday = .monday
-    var locale: Locale = .autoupdatingCurrent
+    static var firstWeekday: MWeekday = .monday
+    static var locale: Locale = .autoupdatingCurrent
 }
 
 extension MCalendar {
-    func formatter() -> MDateFormatter { .init(locale) }
-    func mDate(_ date: Date) -> MDate { .init(date: date, calendar, firstWeekday) }
+    func formatter() -> MDateFormatter { .init(Self.locale) }
+    func mDate(_ date: Date) -> MDate { .init(date: date, calendar, Self.firstWeekday) }
 }
 
 extension MCalendar {

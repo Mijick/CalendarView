@@ -84,7 +84,7 @@ private extension Data.MonthView {
 private extension Data.MonthView {
     static func createRawDate(_ index: Int, _ monthStartDate: Date, _ monthStartWeekday: MWeekday, _ calendar: MCalendar) -> Date {
         let shiftIndex = {
-            let index = monthStartWeekday.rawValue - calendar.firstWeekday.rawValue
+            let index = monthStartWeekday.rawValue - MCalendar.firstWeekday.rawValue
             return index < 0 ? index + weekdaysNumber : index
         }()
         return calendar.mDate(monthStartDate).adding(index - shiftIndex, .day)
