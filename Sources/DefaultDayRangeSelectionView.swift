@@ -11,14 +11,22 @@
 
 import SwiftUI
 
-struct DefaultDayRangeSelectionView: DayView {
-    var date: Date
-    var isCurrentMonth: Bool
-    var selectedDate: Binding<Date?>?
-    var selectedRange: Binding<MDateRange?>?
-    var calendar: MCalendar
+public struct DefaultDayRangeSelectionView: DayView {
+    public var date: Date
+    public var isCurrentMonth: Bool
+    public var selectedDate: Binding<Date?>?
+    public var selectedRange: Binding<MDateRange?>?
+    public var calendar: MCalendar
+
+    public init(date: Date, isCurrentMonth: Bool, selectedDate: Binding<Date?>? = nil, selectedRange: Binding<MDateRange?>? = nil, calendar: MCalendar) {
+        self.date = date
+        self.isCurrentMonth = isCurrentMonth
+        self.selectedDate = selectedDate
+        self.selectedRange = selectedRange
+        self.calendar = calendar
+    }
 }
 
 extension DefaultDayRangeSelectionView {
-    func onSelection() { selectedRange?.wrappedValue?.addToRange(date) }
+    public func onSelection() { selectedRange?.wrappedValue?.addToRange(date) }
 }
