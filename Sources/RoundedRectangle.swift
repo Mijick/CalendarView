@@ -1,5 +1,5 @@
 //
-//  RoundedCorner.swift of CalendarView
+//  RoundedRectangle.swift of CalendarView
 //
 //  Created by Tomasz Kurylik
 //    - Twitter: https://twitter.com/tkurylik
@@ -11,10 +11,9 @@
 
 import SwiftUI
 
-struct RoundedCorner: Shape {
+struct RoundedRectangle: Shape {
     var radius: CGFloat = .infinity
     var corners: UIRectCorner = .allCorners
-
 
     func path(in rect: CGRect) -> Path {
         let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))

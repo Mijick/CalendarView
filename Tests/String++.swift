@@ -7,12 +7,13 @@
 //
 //  Copyright ©2023 Mijick. Licensed under MIT License.
 
+
 import Foundation
 
 extension String {
-    func date() -> Date {
+    func toDate() -> Date {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        return formatter.date(from: self) ?? Date()
+        return formatter.date(from: self) ?? .now
     }
 }

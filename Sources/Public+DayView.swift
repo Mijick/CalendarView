@@ -63,7 +63,7 @@ private extension DayView {
             .active(if: isSelected())
     }
     func createDefaultRangeSelectionView() -> some View {
-        RoundedCorner(radius: .infinity, corners: rangeSelectionViewCorners)
+        RoundedRectangle(radius: .infinity, corners: rangeSelectionViewCorners)
             .fill(.black.opacity(0.12))
             .transition(.opacity)
             .active(if: isWithinRange())

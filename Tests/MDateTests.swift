@@ -18,42 +18,42 @@ final class MDateTests: XCTestCase {}
 extension MDateTests {
     func testIsDateSame_day_1() {
         let date1 = "2023-12-01".toMDate()
-        let date2 = "2023-12-01".date()
+        let date2 = "2023-12-01".toDate()
 
         let result = date1.isSame(.day, as: date2)
         XCTAssertEqual(result, true)
     }
     func testIsDateSame_day_2() {
         let date1 = "2023-10-01".toMDate()
-        let date2 = "2023-12-01".date()
+        let date2 = "2023-12-01".toDate()
 
         let result = date1.isSame(.day, as: date2)
         XCTAssertEqual(result, false)
     }
     func testIsDateSame_month_1() {
         let date1 = "2023-10-01".toMDate()
-        let date2 = "2023-10-31".date()
+        let date2 = "2023-10-31".toDate()
 
         let result = date1.isSame(.month, as: date2)
         XCTAssertEqual(result, true)
     }
     func testIsDateSame_month_2() {
         let date1 = "2023-09-30".toMDate()
-        let date2 = "2023-10-01".date()
+        let date2 = "2023-10-01".toDate()
 
         let result = date1.isSame(.month, as: date2)
         XCTAssertEqual(result, false)
     }
     func testIsDateSame_year_1() {
         let date1 = "2023-01-30".toMDate()
-        let date2 = "2023-07-01".date()
+        let date2 = "2023-07-01".toDate()
 
         let result = date1.isSame(.year, as: date2)
         XCTAssertEqual(result, true)
     }
     func testIsDateSame_year_2() {
         let date1 = "2023-01-30".toMDate()
-        let date2 = "2024-01-30".date()
+        let date2 = "2024-01-30".toDate()
 
         let result = date1.isSame(.year, as: date2)
         XCTAssertEqual(result, false)
@@ -64,42 +64,42 @@ extension MDateTests {
 extension MDateTests {
     func testIsDateEarlier_day_1() {
         let date1 = "2023-01-01".toMDate()
-        let date2 = "2023-01-01".date()
+        let date2 = "2023-01-01".toDate()
 
         let result = date1.isBefore(.day, than: date2)
         XCTAssertEqual(result, false)
     }
     func testIsDateEarlier_day_2() {
         let date1 = "2022-12-31".toMDate()
-        let date2 = "2023-01-01".date()
+        let date2 = "2023-01-01".toDate()
 
         let result = date1.isBefore(.day, than: date2)
         XCTAssertEqual(result, true)
     }
     func testIsDateEarlier_month_1() {
         let date1 = "2022-12-31".toMDate()
-        let date2 = "2023-01-01".date()
+        let date2 = "2023-01-01".toDate()
 
         let result = date1.isBefore(.month, than: date2)
         XCTAssertEqual(result, true)
     }
     func testIsDateEarlier_month_2() {
         let date1 = "2024-12-31".toMDate()
-        let date2 = "2023-01-01".date()
+        let date2 = "2023-01-01".toDate()
 
         let result = date1.isBefore(.month, than: date2)
         XCTAssertEqual(result, false)
     }
     func testIsDateEarlier_year_1() {
         let date1 = "2024-01-01".toMDate()
-        let date2 = "2023-01-01".date()
+        let date2 = "2023-01-01".toDate()
 
         let result = date1.isBefore(.year, than: date2)
         XCTAssertEqual(result, false)
     }
     func testIsDateEarlier_year_2() {
         let date1 = "2024-01-01".toMDate()
-        let date2 = "2025-01-01".date()
+        let date2 = "2025-01-01".toDate()
 
         let result = date1.isBefore(.year, than: date2)
         XCTAssertEqual(result, true)
@@ -110,42 +110,42 @@ extension MDateTests {
 extension MDateTests {
     func testIsDateLater_day_1() {
         let date1 = "2024-11-30".toMDate()
-        let date2 = "2024-11-29".date()
+        let date2 = "2024-11-29".toDate()
 
         let result = date1.isLater(.day, than: date2)
         XCTAssertEqual(result, true)
     }
     func testIsDateLater_day_2() {
         let date1 = "2024-11-30".toMDate()
-        let date2 = "2024-11-30".date()
+        let date2 = "2024-11-30".toDate()
 
         let result = date1.isLater(.day, than: date2)
         XCTAssertEqual(result, false)
     }
     func testIsDateLater_month_1() {
         let date1 = "2024-11-30".toMDate()
-        let date2 = "2024-11-01".date()
+        let date2 = "2024-11-01".toDate()
 
         let result = date1.isLater(.month, than: date2)
         XCTAssertEqual(result, false)
     }
     func testIsDateLater_month_2() {
         let date1 = "2025-11-01".toMDate()
-        let date2 = "2024-11-01".date()
+        let date2 = "2024-11-01".toDate()
 
         let result = date1.isLater(.month, than: date2)
         XCTAssertEqual(result, true)
     }
     func testIsDateLater_year_1() {
         let date1 = "2025-01-01".toMDate()
-        let date2 = "2024-01-01".date()
+        let date2 = "2024-01-01".toDate()
 
         let result = date1.isLater(.year, than: date2)
         XCTAssertEqual(result, true)
     }
     func testIsDateLater_year_2() {
         let date1 = "2024-12-01".toMDate()
-        let date2 = "2024-01-01".date()
+        let date2 = "2024-01-01".toDate()
 
         let result = date1.isLater(.year, than: date2)
         XCTAssertEqual(result, false)
@@ -230,28 +230,28 @@ extension MDateTests {
         let date = "2023-04-29".toMDate()
         let monthStartDate = date.startOfMonth()
 
-        let expectedResult = "2023-04-01".date()
+        let expectedResult = "2023-04-01".toDate()
         XCTAssertEqual(expectedResult, monthStartDate)
     }
     func testMonthStart_2() {
         let date = "2023-12-31".toMDate()
         let monthStartDate = date.startOfMonth()
 
-        let expectedResult = "2023-12-01".date()
+        let expectedResult = "2023-12-01".toDate()
         XCTAssertEqual(expectedResult, monthStartDate)
     }
     func testMonthStart_3() {
         let date = "2023-12-01".toMDate()
         let monthStartDate = date.startOfMonth()
 
-        let expectedResult = "2023-12-01".date()
+        let expectedResult = "2023-12-01".toDate()
         XCTAssertEqual(expectedResult, monthStartDate)
     }
     func testMonthStart_4() {
         let date = "2023-02-28".toMDate()
         let monthStartDate = date.startOfMonth()
 
-        let expectedResult = "2023-02-01".date()
+        let expectedResult = "2023-02-01".toDate()
         XCTAssertEqual(expectedResult, monthStartDate)
     }
 }
@@ -259,5 +259,5 @@ extension MDateTests {
 
 // MARK: - Helpers
 fileprivate extension String {
-    func toMDate() -> MDate { .init(date: date(), .init(identifier: .gregorian), .monday) }
+    func toMDate() -> MDate { .init(date: toDate(), .init(identifier: .gregorian), .monday) }
 }
