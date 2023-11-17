@@ -9,14 +9,17 @@
 
 import SwiftUI
 
-public protocol WeekDayLabel: MView {
+public protocol WeekDayLabel: View {
     var calendar: MCalendar { get }
     var weekday: MWeekday { get }
+
+    func createContent() -> AnyView
 }
 
 // MARK: - Customising View
 public extension WeekDayLabel {
     func createContent() -> AnyView { createDefaultContent().erased() }
+    var body: some View { createContent() }
 }
 private extension WeekDayLabel {
     func createDefaultContent() -> some View {

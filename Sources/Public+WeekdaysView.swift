@@ -9,9 +9,10 @@
 
 import SwiftUI
 
-public protocol WeekdaysView: MView {
+public protocol WeekdaysView: View {
     var calendar: MCalendar { get }
     
+    func createContent() -> AnyView
     func createWeekdayLabel(_ weekday: MWeekday) -> AnyWeekDayLabel
 }
 
@@ -20,6 +21,8 @@ public extension WeekdaysView {
     func createContent() -> AnyView { createDefaultContent().erased() }
     func createWeekdaysView() -> AnyView { createDefaultWeekdaysView().erased() }
     func createWeekdayLabel(_ weekday: MWeekday) -> AnyWeekDayLabel { createDefaultWeekDayLabel(weekday).erased() }
+
+    var body: some View { createContent() }
 }
 private extension WeekdaysView {
     func createDefaultContent() -> some View { createWeekdaysView() }
