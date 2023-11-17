@@ -259,5 +259,5 @@ extension MDateTests {
 
 // MARK: - Helpers
 fileprivate extension String {
-    func toMDate() -> MDate { .init(date: toDate(), .init(identifier: .gregorian), .monday) }
+    func toMDate() -> DateHandler { .init(date: toDate(), .init(identifier: .gregorian), .monday) }
 }
