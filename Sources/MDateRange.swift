@@ -53,10 +53,6 @@ extension MDateRange {
 
 // MARK: - Helpers
 fileprivate extension Date {
-    static func ==(_ lhs: Date?, _ rhs: Date) -> Bool {
-        guard let lhs else { return false }
-        return lhs.getDateWithoutTime() == rhs.getDateWithoutTime()
-    }
     func getDateWithoutTime() -> Date {
         let calendar = Calendar.current.dateComponents([.year, .month, .day], from: self)
         return Calendar.current.date(from: calendar) ?? self
