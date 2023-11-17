@@ -18,28 +18,26 @@ extension Data { struct MonthView {
 
 // MARK: - Generating Array
 extension [Data.MonthView] {
-    static func generate(startMonth: Date?, endMonth: Date?) -> Self {
-        let startDate = DateHandler(startMonth ?? .now).startOfMonth()
-        return createDatesRange(startDate, endMonth)
-            .map { createMonthDate($0, startDate) }
-            .map { createMonthViewData($0) }
+    static func generate() -> Self {
+        createDatesRange()
+            .map(createMonthDate)
+            .map(createMonthViewData)
     }
 }
 private extension [Data.MonthView] {
-    static func createDatesRange(_ startDate: Date, _ endDate: Date?) -> ClosedRange<Int> { let endDate = DateHandler(endDate ?? .distantFuture).endOfMonth()
+    static func createDatesRange() -> ClosedRange<Int> { let startDate = MCalendar.startDate, endDate = MCalendar.endDate
         guard startDate <= endDate else { fatalError("Start date must be lower than end date") }
 
         let numberOfMonthsBetweenDates = DateHandler(startDate).distance(to: endDate, in: [.month]).month ?? 0
         return 0...Swift.min(numberOfMonthsBetweenDates, 12 * 10)
     }
-    static func createMonthDate(_ index: Int, _ startDate: Date) -> Date { DateHandler(startDate).adding(index, .month) }
+    static func createMonthDate(_ index: Int) -> Date { DateHandler(MCalendar.startDate).adding(index, .month) }
     static func createMonthViewData(_ monthStart: Date) -> Data.MonthView { .generate(monthStart) }
 }
 
 // MARK: - Generating Single Month
 private extension Data.MonthView {
     static func generate(_ month: Date) -> Self {
-        let month = DateHandler(month).startOfMonth()
         let rawDates = createRawDates(month)
         let groupedDates = groupDates(rawDates)
 

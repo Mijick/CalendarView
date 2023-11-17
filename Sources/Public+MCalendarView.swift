@@ -20,7 +20,7 @@ public struct MCalendarView: View {
     public init(selectedDate: Binding<Date?>?, selectedRange: Binding<MDateRange?>?, configBuilder: (Config) -> Config = { $0 }) {
         self._selectedData = .init(wrappedValue: .init(selectedDate, selectedRange))
         self.configData = configBuilder(.init())
-        self.monthsData = .generate(startMonth: configData.startMonth, endMonth: configData.endMonth)
+        self.monthsData = .generate()
     }
     public var body: some View {
         VStack(spacing: 12) {

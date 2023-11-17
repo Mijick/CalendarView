@@ -54,7 +54,7 @@ private extension MonthView {
     struct Preview: View {
         @State private var selectedDate: Date? = nil
         @State private var selectedRange: MDateRange? = .init()
-        private let data: [Data.MonthView] = .generate(startMonth: .now, endMonth: .now)
+        private let data: [Data.MonthView] = .generate()
 
 
         var body: some View { MonthView(

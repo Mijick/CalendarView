@@ -11,6 +11,8 @@
 import Foundation
 
 struct MCalendar {
+    static var startDate: Date = DateHandler(.now).startOfMonth()
+    static var endDate: Date = DateHandler(.distantFuture).endOfMonth()
     static var firstWeekday: MWeekday = .monday
     static var locale: Locale = .autoupdatingCurrent
 
