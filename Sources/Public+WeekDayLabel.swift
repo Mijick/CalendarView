@@ -30,6 +30,6 @@ private extension WeekDayLabel {
 
 // MARK: - Helper Flags
 public extension WeekDayLabel {
-    func getString(with format: WeekdaySymbolFormat) -> String { MCalendar.getWeekdaySymbol(weekday, format: format) }
+    func getString(with format: WeekdaySymbolFormat) -> String { MDateFormatter.getString(for: weekday, format: format) }
     func erased() -> AnyWeekDayLabel { .init(self) }
 }

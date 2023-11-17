@@ -19,8 +19,3 @@ struct MCalendar {
 extension MCalendar {
     static func mDate(_ date: Date) -> MDate { .init(date: date) }
 }
-
-extension MCalendar {
-    static func getWeekdaySymbol(_ day: MWeekday, format: WeekdaySymbolFormat) -> String { MDateFormatter.getString(for: day, format: format) }
-    static func getWeekdaySymbols(format: WeekdaySymbolFormat) -> [String] { MWeekday.allCases.map { getWeekdaySymbol($0, format: format) }}
-}
