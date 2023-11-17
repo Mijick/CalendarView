@@ -7,11 +7,7 @@
 //
 //  Copyright ©2023 Mijick. Licensed under MIT License.
 
+
 import SwiftUI
 
 struct DefaultWeekdaysView: WeekdaysView {}
-
-// MARK: - Preview
-#Preview {
-    DefaultWeekdaysView()
-}

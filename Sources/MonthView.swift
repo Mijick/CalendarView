@@ -47,23 +47,3 @@ private extension MonthView {
 private extension MonthView {
     var animation: Animation { .bouncy }
 }
-
-
-// MARK: - Preview
-#Preview {
-    struct Preview: View {
-        @State private var selectedDate: Date? = nil
-        @State private var selectedRange: MDateRange? = .init()
-        private let data: [Data.MonthView] = .generate()
-
-
-        var body: some View { MonthView(
-            selectedDate: $selectedDate,
-            selectedRange: $selectedRange,
-            data: data.first!,
-            config: .init()
-        )}
-    }
-
-    return Preview().padding(.horizontal, 32)
-}

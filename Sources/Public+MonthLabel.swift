@@ -22,13 +22,10 @@ public extension MonthLabel {
 }
 private extension MonthLabel {
     func createDefaultContent() -> some View {
-        Text(monthText)
+        Text(getString(format: "MMMM y"))
             .font(.system(size: 16, weight: .semibold))
             .foregroundColor(.black)
     }
-}
-private extension MonthLabel {
-    var monthText: String { getString(format: "MMMM y") }
 }
 
 // MARK: - Helpers

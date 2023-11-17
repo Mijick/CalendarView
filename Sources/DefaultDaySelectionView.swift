@@ -11,29 +11,16 @@
 
 import SwiftUI
 
-struct DefaultDaySelectionView: DayView {
-    var date: Date
-    var isCurrentMonth: Bool
-    var selectedDate: Binding<Date?>?
-    var selectedRange: Binding<MDateRange?>?
-}
+public struct DefaultDaySelectionView: DayView {
+    public let date: Date
+    public let isCurrentMonth: Bool
+    public let selectedDate: Binding<Date?>?
+    public let selectedRange: Binding<MDateRange?>?
 
-
-// MARK: - Preview
-#Preview {
-    struct Preview: View {
-        @State private var selectedDate: Date? = nil
-        @State private var selectedRange: Binding<MDateRange?>? = nil
-        private let date: Date = .now
-
-
-        var body: some View { DefaultDaySelectionView(
-            date: date,
-            isCurrentMonth: true,
-            selectedDate: $selectedDate,
-            selectedRange: selectedRange
-        )}
+    public init(date: Date, isCurrentMonth: Bool, selectedDate: Binding<Date?>? = nil, selectedRange: Binding<MDateRange?>? = nil) {
+        self.date = date
+        self.isCurrentMonth = isCurrentMonth
+        self.selectedDate = selectedDate
+        self.selectedRange = selectedRange
     }
-
-    return Preview()
 }

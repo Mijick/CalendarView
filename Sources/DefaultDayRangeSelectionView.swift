@@ -12,10 +12,10 @@
 import SwiftUI
 
 public struct DefaultDayRangeSelectionView: DayView {
-    public var date: Date
-    public var isCurrentMonth: Bool
-    public var selectedDate: Binding<Date?>?
-    public var selectedRange: Binding<MDateRange?>?
+    public let date: Date
+    public let isCurrentMonth: Bool
+    public let selectedDate: Binding<Date?>?
+    public let selectedRange: Binding<MDateRange?>?
 
     public init(date: Date, isCurrentMonth: Bool, selectedDate: Binding<Date?>? = nil, selectedRange: Binding<MDateRange?>? = nil) {
         self.date = date

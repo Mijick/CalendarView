@@ -1,23 +1,15 @@
 //
-//  DefaultMonthLabel.swift
+//  DefaultMonthLabel.swift of CalendarView
 //
+//  Created by Alina Petrovska on 15.11.2023.
+//    - Mail: alina.petrovskaya@mijick.com
+//    - GitHub: https://github.com/Mijick
 //
-//  Created by Alina Petrovska on 14.11.2023.
-//
+//  Copyright ©2023 Mijick. Licensed under MIT License.
+
 
 import SwiftUI
 
 struct DefaultMonthLabel: MonthLabel {
-    public var month: Date
-}
-
-// MARK: - Preview
-#Preview {
-    struct Preview: View {
-        private let date: Date = .init()
-
-        var body: some View { DefaultMonthLabel(month: date) }
-    }
-
-    return Preview()
+    let month: Date
 }

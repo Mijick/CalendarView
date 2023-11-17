@@ -7,6 +7,7 @@
 //
 //  Copyright ©2023 Mijick. Licensed under MIT License.
 
+
 import SwiftUI
 
 public protocol WeekdaysView: View {    
@@ -24,7 +25,7 @@ public extension WeekdaysView {
 }
 private extension WeekdaysView {
     func createDefaultContent() -> some View { createWeekdaysView() }
-    func createDefaultWeekdaysView() -> some View { HStack(spacing: 0) { ForEach(weekDays, id: \.self, content: createWeekdayItem) }}
+    func createDefaultWeekdaysView() -> some View { HStack(spacing: 0) { ForEach(weekdays, id: \.self, content: createWeekdayItem) }}
     func createDefaultWeekDayLabel(_ weekday: MWeekday) -> DefaultWeekdayLabel { DefaultWeekdayLabel(weekday: weekday) }
 }
 private extension WeekdaysView {
@@ -33,5 +34,5 @@ private extension WeekdaysView {
 
 // MARK: Helpers
 public extension WeekdaysView {
-    var weekDays: [MWeekday] { MWeekday.allCases }
+    var weekdays: [MWeekday] { MWeekday.allCases }
 }
