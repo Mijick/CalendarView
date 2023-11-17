@@ -10,7 +10,6 @@
 import SwiftUI
 
 public protocol WeekDayLabel: View {
-    var calendar: MCalendar { get }
     var weekday: MWeekday { get }
 
     func createContent() -> AnyView
@@ -31,6 +30,6 @@ private extension WeekDayLabel {
 
 // MARK: - Helper Flags
 public extension WeekDayLabel {
-    func getString(with format: WeekdaySymbolFormat) -> String { calendar.getWeekdaySymbol(weekday, format: format) }
+    func getString(with format: WeekdaySymbolFormat) -> String { MCalendar.getWeekdaySymbol(weekday, format: format) }
     func erased() -> AnyWeekDayLabel { .init(self) }
 }

@@ -20,8 +20,8 @@ extension MCalendar {
 }
 
 extension MCalendar {
-    func getWeekdaySymbol(_ day: MWeekday, format: WeekdaySymbolFormat) -> String { MDateFormatter.getString(for: day, format: format) }
-    func getWeekdaySymbols(format: WeekdaySymbolFormat) -> [String] { MWeekday.allCases.map { getWeekdaySymbol($0, format: format) }}
+    static func getWeekdaySymbol(_ day: MWeekday, format: WeekdaySymbolFormat) -> String { MDateFormatter.getString(for: day, format: format) }
+    static func getWeekdaySymbols(format: WeekdaySymbolFormat) -> [String] { MWeekday.allCases.map { getWeekdaySymbol($0, format: format) }}
 }
 
 private extension MCalendar {

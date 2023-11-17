@@ -10,7 +10,6 @@
 import SwiftUI
 
 struct DefaultWeekdayLabel: WeekDayLabel {
-    let calendar: MCalendar
     let weekday: MWeekday
 }
 
@@ -18,12 +17,8 @@ struct DefaultWeekdayLabel: WeekDayLabel {
 #Preview {
     struct Preview: View {
         private var weekday: MWeekday = .monday
-        private let calendar: MCalendar = .init()
 
-        var body: some View { DefaultWeekdayLabel(
-            calendar: calendar,
-            weekday: weekday
-        )}
+        var body: some View { DefaultWeekdayLabel(weekday: weekday) }
     }
 
     return Preview()

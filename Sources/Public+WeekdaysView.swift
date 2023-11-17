@@ -27,7 +27,7 @@ public extension WeekdaysView {
 private extension WeekdaysView {
     func createDefaultContent() -> some View { createWeekdaysView() }
     func createDefaultWeekdaysView() -> some View { HStack(spacing: 0) { ForEach(weekDays, id: \.self, content: createWeekdayItem) }}
-    func createDefaultWeekDayLabel(_ weekday: MWeekday) -> DefaultWeekdayLabel { DefaultWeekdayLabel(calendar: calendar, weekday: weekday) }
+    func createDefaultWeekDayLabel(_ weekday: MWeekday) -> DefaultWeekdayLabel { DefaultWeekdayLabel(weekday: weekday) }
 }
 private extension WeekdaysView {
     func createWeekdayItem(_ weekday: MWeekday) -> some View { createWeekdayLabel(weekday).frame(maxWidth: .infinity) }
