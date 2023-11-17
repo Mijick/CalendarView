@@ -67,7 +67,7 @@ private extension MCalendarView {
     func scrollToDate(_ reader: ScrollViewProxy, animatable: Bool) {
         guard let date = configData.scrollDate else { return }
 
-        let scrollDate = MCalendar.mDate(date).startOfMonth()
+        let scrollDate = DateHandler(date).startOfMonth()
         withAnimation(animatable ? .smooth : nil) { reader.scrollTo(scrollDate, anchor: .center) }
     }
     func onMonthChange(_ date: Date) { configData.onMonthChange(date) }

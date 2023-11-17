@@ -18,8 +18,5 @@ struct MCalendar {
 }
 
 extension MCalendar {
-    static func mDate(_ date: Date) -> DateHandler { .init(date) }
-
-
     static func get() -> Calendar { _calendar }
 }

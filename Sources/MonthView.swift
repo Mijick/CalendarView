@@ -40,7 +40,7 @@ private extension MonthView {
     }
 }
 private extension MonthView {
-    func isCurrentMonth(_ date: Date) -> Bool { MCalendar.mDate(data.month).isSame(.month, as: date) }
+    func isCurrentMonth(_ date: Date) -> Bool { DateHandler(data.month).isSame(.month, as: date) }
 }
 
 // MARK: - Others

@@ -19,27 +19,27 @@ extension Data { struct MonthView {
 // MARK: - Generating Array
 extension [Data.MonthView] {
     static func generate(startMonth: Date?, endMonth: Date?) -> Self {
-        let startDate = MCalendar.mDate(startMonth ?? .now).startOfMonth()
+        let startDate = DateHandler(startMonth ?? .now).startOfMonth()
         return createDatesRange(startDate, endMonth)
             .map { createMonthDate($0, startDate) }
             .map { createMonthViewData($0) }
     }
 }
 private extension [Data.MonthView] {
-    static func createDatesRange(_ startDate: Date, _ endDate: Date?) -> ClosedRange<Int> { let endDate = MCalendar.mDate(endDate ?? .distantFuture).endOfMonth()
+    static func createDatesRange(_ startDate: Date, _ endDate: Date?) -> ClosedRange<Int> { let endDate = DateHandler(endDate ?? .distantFuture).endOfMonth()
         guard startDate <= endDate else { fatalError("Start date must be lower than end date") }
 
-        let numberOfMonthsBetweenDates = MCalendar.mDate(startDate).distance(to: endDate, in: [.month]).month ?? 0
+        let numberOfMonthsBetweenDates = DateHandler(startDate).distance(to: endDate, in: [.month]).month ?? 0
         return 0...Swift.min(numberOfMonthsBetweenDates, 12 * 10)
     }
-    static func createMonthDate(_ index: Int, _ startDate: Date) -> Date { MCalendar.mDate(startDate).adding(index, .month) }
+    static func createMonthDate(_ index: Int, _ startDate: Date) -> Date { DateHandler(startDate).adding(index, .month) }
     static func createMonthViewData(_ monthStart: Date) -> Data.MonthView { .generate(monthStart) }
 }
 
 // MARK: - Generating Single Month
 private extension Data.MonthView {
     static func generate(_ month: Date) -> Self {
-        let month = MCalendar.mDate(month).startOfMonth()
+        let month = DateHandler(month).startOfMonth()
         let rawDates = createRawDates(month)
         let groupedDates = groupDates(rawDates)
 
@@ -48,7 +48,7 @@ private extension Data.MonthView {
 }
 private extension Data.MonthView {
     static func createRawDates(_ month: Date) -> [Date] {
-        let monthStartWeekday = MCalendar.mDate(month).getWeekday()
+        let monthStartWeekday = DateHandler(month).getWeekday()
 
         let items = createRawDateItems(month, monthStartWeekday)
         return items
@@ -87,11 +87,11 @@ private extension Data.MonthView {
             let index = monthStartWeekday.rawValue - MCalendar.firstWeekday.rawValue
             return index < 0 ? index + weekdaysNumber : index
         }()
-        return MCalendar.mDate(monthStartDate).adding(index - shiftIndex, .day)
+        return DateHandler(monthStartDate).adding(index - shiftIndex, .day)
     }
     static func shouldStopPopulatingRawDateItems(_ items: [Date], _ date: Date, _ monthStartDate: Date) -> Bool {
         guard items.count % weekdaysNumber == 0 else { return false }
-        return MCalendar.mDate(date).isLater(.month, than: monthStartDate)
+        return DateHandler(date).isLater(.month, than: monthStartDate)
     }
 }
 private extension Data.MonthView {
