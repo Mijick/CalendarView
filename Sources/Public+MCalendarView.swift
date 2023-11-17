@@ -58,7 +58,7 @@ private extension MCalendarView {
             .onAppear { onMonthChange(month) }
     }
     func createMonthView(_ data: Data.MonthView) -> some View {
-        MonthView(selectedDate: $selectedData.date, selectedRange: $selectedData.range, data: data, calendar: configData.calendar)
+        MonthView(selectedDate: $selectedData.date, selectedRange: $selectedData.range, data: data, config: configData)
     }
 }
 
