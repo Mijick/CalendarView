@@ -28,10 +28,10 @@ private extension [Data.MonthView] {
     static func createDatesRange() -> ClosedRange<Int> { let startDate = MCalendar.startDate, endDate = MCalendar.endDate
         guard startDate <= endDate else { fatalError("Start date must be lower than end date") }
 
-        let numberOfMonthsBetweenDates = DateHandler(startDate).distance(to: endDate, in: [.month]).month ?? 0
+        let numberOfMonthsBetweenDates = startDate.distance(to: endDate, in: .month)
         return 0...Swift.min(numberOfMonthsBetweenDates, 12 * 10)
     }
-    static func createMonthDate(_ index: Int) -> Date { DateHandler(MCalendar.startDate).adding(index, .month) }
+    static func createMonthDate(_ index: Int) -> Date { MCalendar.startDate.adding(index, .month) }
     static func createMonthViewData(_ monthStart: Date) -> Data.MonthView { .generate(monthStart) }
 }
 
@@ -83,11 +83,11 @@ private extension Data.MonthView {
             let index = monthStartWeekday.rawValue - MCalendar.firstWeekday.rawValue
             return index < 0 ? index + weekdaysNumber : index
         }()
-        return DateHandler(monthStartDate).adding(index - shiftIndex, .day)
+        return monthStartDate.adding(index - shiftIndex, .day)
     }
     static func shouldStopPopulatingRawDateItems(_ items: [Date], _ date: Date, _ monthStartDate: Date) -> Bool {
         guard items.count % weekdaysNumber == 0 else { return false }
-        return DateHandler(date).isLater(.month, than: monthStartDate)
+        return date.isLater(.month, than: monthStartDate)
     }
 }
 private extension Data.MonthView {
