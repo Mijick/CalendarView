@@ -31,7 +31,7 @@ public struct MCalendarView: View {
 }
 private extension MCalendarView {
     func createWeekdaysView() -> some View {
-        configData.weekdaysView(configData.calendar).erased()
+        configData.weekdaysView().erased()
     }
     func createScrollView() -> some View { ScrollViewReader { reader in
         ScrollView(showsIndicators: false) {

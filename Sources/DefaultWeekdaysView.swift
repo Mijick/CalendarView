@@ -9,17 +9,9 @@
 
 import SwiftUI
 
-struct DefaultWeekdaysView: WeekdaysView {
-    let calendar: MCalendar
-}
+struct DefaultWeekdaysView: WeekdaysView {}
 
 // MARK: - Preview
 #Preview {
-    struct Preview: View {
-        private let calendar: MCalendar = .init()
-        
-        var body: some View { DefaultWeekdaysView(calendar: calendar) }
-    }
-
-    return Preview()
+    DefaultWeekdaysView()
 }
