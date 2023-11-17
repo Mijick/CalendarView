@@ -21,7 +21,7 @@ extension MCalendar {
 
 extension MCalendar {
     func getWeekdaySymbol(_ day: MWeekday, format: WeekdaySymbolFormat) -> String { MDateFormatter.getString(for: day, format: format) }
-    func getWeekdaySymbols(format: WeekdaySymbolFormat) -> [String] { MWeekday.allCases(self).map { getWeekdaySymbol($0, format: format) }}
+    func getWeekdaySymbols(format: WeekdaySymbolFormat) -> [String] { MWeekday.allCases.map { getWeekdaySymbol($0, format: format) }}
 }
 
 private extension MCalendar {

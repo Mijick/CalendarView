@@ -13,7 +13,7 @@ import Foundation
 public enum MWeekday: Int { case sunday = 1, monday, tuesday, wednesday, thursday, friday, saturday }
 
 extension MWeekday {
-    static func allCases(_ calendar: MCalendar) -> [MWeekday] {
+    static var allCases: [MWeekday] {
         let firstDayIndex = MCalendar.firstWeekday.rawValue
         let weekDaysIndexes = [Int](firstDayIndex ... 7) + [Int](1 ..< firstDayIndex)
         

@@ -35,5 +35,5 @@ private extension WeekdaysView {
 
 // MARK: Helpers
 public extension WeekdaysView {
-    var weekDays: [MWeekday] { MWeekday.allCases(calendar) }
+    var weekDays: [MWeekday] { MWeekday.allCases }
 }
