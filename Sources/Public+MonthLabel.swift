@@ -26,10 +26,10 @@ private extension MonthLabel {
     }
 }
 private extension MonthLabel {
-    var monthText: String { getString("MMMM y") }
+    var monthText: String { getString(format: "MMMM y") }
 }
 
 // MARK: - Helpers
 public extension MonthLabel {
-    func getString(_ format: String) -> String { calendar.formatter().getString(from: month, format: format) }
+    func getString(format: String) -> String { calendar.formatter().getString(from: month, format: format) }
 }

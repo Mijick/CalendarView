@@ -31,7 +31,7 @@ public struct MCalendarView: View {
 }
 private extension MCalendarView {
     func createWeekdaysView() -> some View {
-        DefaultWeekdaysView(calendar: configData.calendar)
+        configData.weekdaysView(configData.calendar).erased()
     }
     func createScrollView() -> some View { ScrollViewReader { reader in
         ScrollView(showsIndicators: false) {
@@ -53,7 +53,9 @@ private extension MCalendarView {
 }
 private extension MCalendarView {
     func createMonthLabel(_ month: Date) -> some View {
-        DefaultMonthLabel(month: month, calendar: configData.calendar).onAppear { onMonthChange(month) }
+        configData.monthLabel(month, configData.calendar)
+            .erased()
+            .onAppear { onMonthChange(month) }
     }
     func createMonthView(_ data: Data.MonthView) -> some View {
         MonthView(selectedDate: $selectedData.date, selectedRange: $selectedData.range, data: data, calendar: configData.calendar)
@@ -69,21 +71,4 @@ private extension MCalendarView {
         withAnimation(animatable ? .smooth : nil) { reader.scrollTo(scrollDate, anchor: .center) }
     }
     func onMonthChange(_ date: Date) { configData.onMonthChange(date) }
-}
-
-
-// MARK: - Preview
-#Preview {
-    struct Preview: View {
-        @State private var selectedDate: Date? = nil
-        @State private var selectedRange: MDateRange? = .init()
-
-
-        var body: some View { MCalendarView(
-            selectedDate: $selectedDate,
-            selectedRange: $selectedRange
-        )}
-    }
-
-    return Preview().padding(.horizontal, 32)
 }
