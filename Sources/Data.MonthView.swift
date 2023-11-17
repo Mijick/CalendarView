@@ -46,9 +46,7 @@ private extension Data.MonthView {
 }
 private extension Data.MonthView {
     static func createRawDates(_ month: Date) -> [Date] {
-        let monthStartWeekday = DateHandler(month).getWeekday()
-
-        let items = createRawDateItems(month, monthStartWeekday)
+        let items = createRawDateItems(month, month.getWeekday())
         return items
     }
     static func groupDates(_ rawDates: [Date]) -> [[Date]] {
