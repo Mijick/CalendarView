@@ -12,9 +12,9 @@
 import Foundation
 
 class DateHandler {
-    private let dateToCompare: Date
+    private let date1: Date
 
-    init(date: Date) { self.dateToCompare = date }
+    init(_ date: Date) { self.date1 = date }
 }
 
 // MARK: - Comparing Dates
@@ -24,22 +24,22 @@ extension DateHandler {
     func isSame(_ component: Calendar.Component, as date2: Date?) -> Bool { getDateComparisonResult(component, date2) == .orderedSame }
 }
 private extension DateHandler {
-    func getDateComparisonResult(_ component: Calendar.Component, _ date2: Date?) -> ComparisonResult { MCalendar.get().compare(dateToCompare, to: date2 ?? .distantPast, toGranularity: component) }
+    func getDateComparisonResult(_ component: Calendar.Component, _ date2: Date?) -> ComparisonResult { MCalendar.get().compare(date1, to: date2 ?? .distantPast, toGranularity: component) }
 }
 
 // MARK: - Calculating Difference Between Dates
 extension DateHandler {
-    func distance(to date2: Date, in components: Set<Calendar.Component>) -> DateComponents { MCalendar.get().dateComponents(components, from: dateToCompare, to: date2) }
+    func distance(to date2: Date, in components: Set<Calendar.Component>) -> DateComponents { MCalendar.get().dateComponents(components, from: date1, to: date2) }
 }
 
 // MARK: - Adding Dates
 extension DateHandler {
-    func adding(_ value: Int, _ component: Calendar.Component) -> Date { MCalendar.get().date(byAdding: component, value: value, to: dateToCompare) ?? dateToCompare }
+    func adding(_ value: Int, _ component: Calendar.Component) -> Date { MCalendar.get().date(byAdding: component, value: value, to: date1) ?? date1 }
 }
 
 // MARK: - Others
 extension DateHandler {
-    func getWeekday() -> MWeekday { .init(rawValue: MCalendar.get().component(.weekday, from: dateToCompare)) ?? .monday }
-    func startOfMonth() -> Date { MCalendar.get().dateInterval(of: .month, for: dateToCompare)?.start ?? .distantPast }
-    func endOfMonth() -> Date { MCalendar.get().dateInterval(of: .month, for: dateToCompare)?.end.addingTimeInterval(-1) ?? .distantPast }
+    func getWeekday() -> MWeekday { .init(rawValue: MCalendar.get().component(.weekday, from: date1)) ?? .monday }
+    func startOfMonth() -> Date { MCalendar.get().dateInterval(of: .month, for: date1)?.start ?? .distantPast }
+    func endOfMonth() -> Date { MCalendar.get().dateInterval(of: .month, for: date1)?.end.addingTimeInterval(-1) ?? .distantPast }
 }
