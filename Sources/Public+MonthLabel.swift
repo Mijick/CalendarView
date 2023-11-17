@@ -11,7 +11,6 @@ import SwiftUI
 
 public protocol MonthLabel: View {
     var month: Date { get }
-    var calendar: MCalendar { get }
 
     func createContent() -> AnyView
 }

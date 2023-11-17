@@ -53,7 +53,7 @@ private extension MCalendarView {
 }
 private extension MCalendarView {
     func createMonthLabel(_ month: Date) -> some View {
-        configData.monthLabel(month, configData.calendar)
+        configData.monthLabel(month)
             .erased()
             .onAppear { onMonthChange(month) }
     }
