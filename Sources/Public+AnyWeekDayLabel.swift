@@ -13,6 +13,6 @@ import SwiftUI
 public struct AnyWeekDayLabel: View {
     private let internalView: AnyView
     
-    init<V: WeekDayLabel>(_ view: V) { internalView = view.erased() }
+    init<V: WeekdayLabel>(_ view: V) { internalView = view.erased() }
     public var body: some View { internalView }
 }

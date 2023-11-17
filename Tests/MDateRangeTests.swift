@@ -11,7 +11,6 @@
 import XCTest
 @testable import MijickCalendarView
 
-
 final class MDateRangeTests: XCTestCase {
     var mDateRange = MDateRange()
 }

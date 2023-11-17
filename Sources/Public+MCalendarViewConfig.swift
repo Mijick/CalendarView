@@ -1,5 +1,5 @@
 //
-//  Public+MCalendarViewConfig.swift of
+//  Public+MCalendarViewConfig.swift of CalendarView
 //
 //  Created by Tomasz Kurylik
 //    - Twitter: https://twitter.com/tkurylik

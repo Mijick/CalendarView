@@ -11,7 +11,6 @@
 import Foundation
 
 public enum MWeekday: Int { case sunday = 1, monday, tuesday, wednesday, thursday, friday, saturday }
-
 extension MWeekday {
     static var allCases: [MWeekday] {
         let firstDayIndex = MCalendar.firstWeekday.rawValue

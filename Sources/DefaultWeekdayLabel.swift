@@ -10,6 +10,6 @@
 
 import SwiftUI
 
-struct DefaultWeekdayLabel: WeekDayLabel {
+struct DefaultWeekdayLabel: WeekdayLabel {
     let weekday: MWeekday
 }
