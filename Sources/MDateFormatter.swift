@@ -7,34 +7,30 @@
 //
 //  Copyright ©2023 Mijick. Licensed under MIT License.
 
+
 import Foundation
 
 class MDateFormatter {}
 extension MDateFormatter {
     static func getString(from date: Date, format: String) -> String {
-        let formatter = formatter
-        formatter.dateFormat = format
-
-        let formattedDate = formatter
+        getFormatter(format)
             .string(from: date)
-            .split(separator: " ")
-            .map { String($0).firstUppercased() }
-            .joined(separator: " ")
-        return formattedDate
+            .capitalized
     }
-    static func getString(for day: MWeekday, format: WeekdaySymbolFormat) -> String {
+    static func getString(for weekday: MWeekday, format: WeekdaySymbolFormat) -> String {
         switch format {
-            case .veryShort: return formatter.veryShortWeekdaySymbols[day.rawValue - 1].firstUppercased()
-            case .short: return formatter.shortWeekdaySymbols[day.rawValue - 1].firstUppercased()
-            case .full: return formatter.standaloneWeekdaySymbols[day.rawValue - 1].firstUppercased()
+            case .veryShort: return getFormatter().veryShortWeekdaySymbols[weekday.rawValue - 1].capitalized
+            case .short: return getFormatter().shortWeekdaySymbols[weekday.rawValue - 1].capitalized
+            case .full: return getFormatter().standaloneWeekdaySymbols[weekday.rawValue - 1].capitalized
         }
     }
 }
 
 private extension MDateFormatter {
-    static var formatter: DateFormatter {
-        let dayFormatter = DateFormatter()
-        dayFormatter.locale = MCalendar.locale
-        return dayFormatter
+    static func getFormatter(_ format: String = "") -> DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = MCalendar.locale
+        dateFormatter.dateFormat = format
+        return dateFormatter
     }
 }
