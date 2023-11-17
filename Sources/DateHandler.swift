@@ -19,17 +19,17 @@ class DateHandler {
 
 // MARK: - Comparing Dates
 extension DateHandler {
-    func isLater(_ component: Calendar.Component, than date: Date?) -> Bool { getDateComparisonResult(component, date) == .orderedDescending }
-    func isBefore(_ component: Calendar.Component, than date: Date) -> Bool { getDateComparisonResult(component, date) == .orderedAscending }
-    func isSame(_ component: Calendar.Component, as date: Date?) -> Bool { getDateComparisonResult(component, date) == .orderedSame }
+    func isLater(_ component: Calendar.Component, than date2: Date?) -> Bool { getDateComparisonResult(component, date2) == .orderedDescending }
+    func isBefore(_ component: Calendar.Component, than date2: Date) -> Bool { getDateComparisonResult(component, date2) == .orderedAscending }
+    func isSame(_ component: Calendar.Component, as date2: Date?) -> Bool { getDateComparisonResult(component, date2) == .orderedSame }
 }
 private extension DateHandler {
-    func getDateComparisonResult(_ component: Calendar.Component, _ date: Date?) -> ComparisonResult { MCalendar.get().compare(dateToCompare, to: date ?? .distantPast, toGranularity: component) }
+    func getDateComparisonResult(_ component: Calendar.Component, _ date2: Date?) -> ComparisonResult { MCalendar.get().compare(dateToCompare, to: date2 ?? .distantPast, toGranularity: component) }
 }
 
 // MARK: - Calculating Difference Between Dates
 extension DateHandler {
-    func distance(to date: Date, in components: Set<Calendar.Component>) -> DateComponents { MCalendar.get().dateComponents(components, from: dateToCompare, to: date) }
+    func distance(to date2: Date, in components: Set<Calendar.Component>) -> DateComponents { MCalendar.get().dateComponents(components, from: dateToCompare, to: date2) }
 }
 
 // MARK: - Adding Dates
