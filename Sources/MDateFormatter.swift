@@ -9,14 +9,9 @@
 
 import Foundation
 
-class MDateFormatter {
-    private let locale: Locale
-    
-    init(_ locale: Locale) { self.locale = locale }
-}
-
+class MDateFormatter {}
 extension MDateFormatter {
-    func getString(from date: Date, format: String) -> String {
+    static func getString(from date: Date, format: String) -> String {
         let formatter = formatter
         formatter.dateFormat = format
 
@@ -27,7 +22,7 @@ extension MDateFormatter {
             .joined(separator: " ")
         return formattedDate
     }
-    func getString(for day: MWeekday, format: WeekdaySymbolFormat) -> String {
+    static func getString(for day: MWeekday, format: WeekdaySymbolFormat) -> String {
         switch format {
             case .veryShort: return formatter.veryShortWeekdaySymbols[day.rawValue - 1].firstUppercased()
             case .short: return formatter.shortWeekdaySymbols[day.rawValue - 1].firstUppercased()
@@ -37,9 +32,9 @@ extension MDateFormatter {
 }
 
 private extension MDateFormatter {
-    var formatter: DateFormatter {
+    static var formatter: DateFormatter {
         let dayFormatter = DateFormatter()
-        dayFormatter.locale = locale
+        dayFormatter.locale = MCalendar.locale
         return dayFormatter
     }
 }

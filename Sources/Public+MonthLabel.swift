@@ -34,5 +34,5 @@ private extension MonthLabel {
 
 // MARK: - Helpers
 public extension MonthLabel {
-    func getString(format: String) -> String { calendar.formatter().getString(from: month, format: format) }
+    func getString(format: String) -> String { MDateFormatter.getString(from: month, format: format) }
 }

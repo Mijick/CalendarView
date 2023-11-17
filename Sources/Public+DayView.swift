@@ -97,7 +97,7 @@ public extension DayView {
 
 // MARK: - Text Formatting
 public extension DayView {
-    func getStringFromDay(format: String) -> String { calendar.formatter().getString(from: date, format: format) }
+    func getStringFromDay(format: String) -> String { MDateFormatter.getString(from: date, format: format) }
 }
 
 // MARK: - Date Helpers

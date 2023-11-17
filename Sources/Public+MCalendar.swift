@@ -16,12 +16,11 @@ public struct MCalendar {
 }
 
 extension MCalendar {
-    func formatter() -> MDateFormatter { .init(Self.locale) }
     func mDate(_ date: Date) -> MDate { .init(date: date, calendar, Self.firstWeekday) }
 }
 
 extension MCalendar {
-    func getWeekdaySymbol(_ day: MWeekday, format: WeekdaySymbolFormat) -> String { formatter().getString(for: day, format: format) }
+    func getWeekdaySymbol(_ day: MWeekday, format: WeekdaySymbolFormat) -> String { MDateFormatter.getString(for: day, format: format) }
     func getWeekdaySymbols(format: WeekdaySymbolFormat) -> [String] { MWeekday.allCases(self).map { getWeekdaySymbol($0, format: format) }}
 }
 
