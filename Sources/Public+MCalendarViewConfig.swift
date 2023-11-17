@@ -13,8 +13,8 @@ import SwiftUI
 
 // MARK: - Range
 extension MCalendarView.Config {
-    public func startMonth(_ value: Date) -> Self { MCalendar.startDate = DateHandler(value).startOfMonth(); return self }
-    public func endMonth(_ value: Date) -> Self { MCalendar.endDate = DateHandler(value).endOfMonth(); return self }
+    public func startMonth(_ value: Date) -> Self { MCalendar.startDate = value.start(of: .month); return self }
+    public func endMonth(_ value: Date) -> Self { MCalendar.endDate = value.end(of: .month); return self }
 }
 
 // MARK: - Calendar
