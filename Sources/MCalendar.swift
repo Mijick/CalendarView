@@ -10,7 +10,7 @@
 
 import Foundation
 
-public struct MCalendar {
+struct MCalendar {
     static var firstWeekday: MWeekday = .monday
     static var locale: Locale = .autoupdatingCurrent
 }
