@@ -9,14 +9,17 @@
 
 import SwiftUI
 
-public protocol MonthLabel: MView {
+public protocol MonthLabel: View {
     var month: Date { get }
     var calendar: MCalendar { get }
+
+    func createContent() -> AnyView
 }
 
 // MARK: - Customizing View
 public extension MonthLabel {
     func createContent() -> AnyView { createDefaultContent().erased() }
+    var body: some View { createContent() }
 }
 private extension MonthLabel {
     func createDefaultContent() -> some View {
