@@ -13,9 +13,13 @@ import Foundation
 struct MCalendar {
     static var firstWeekday: MWeekday = .monday
     static var locale: Locale = .autoupdatingCurrent
-    static var type: Calendar = .init(identifier: .gregorian)
+
+    private static var _calendar: Calendar = .init(identifier: .gregorian)
 }
 
 extension MCalendar {
     static func mDate(_ date: Date) -> MDate { .init(date: date) }
+
+
+    static func get() -> Calendar { _calendar }
 }
