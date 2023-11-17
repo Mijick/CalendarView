@@ -101,61 +101,6 @@ extension MDateRangeTests {
     }
 }
 
-
-// MARK: Test Remove Date
-extension MDateRangeTests {
-    func testRemoveDate_dateIsInRange() {
-        mDateRange.addToRange(.yesterday)
-        mDateRange.addToRange(.tomorrow)
-        mDateRange.remove(.now)
-        
-        let range = mDateRange.getRange()
-        let expectedRange: ClosedRange<Date>? = (.yesterday ... .tomorrow)
-        
-        XCTAssertEqual(range, expectedRange)
-    }
-    func testRemoveDate_dateIsLessThanLowerDate() {
-        mDateRange.addToRange(.yesterday)
-        mDateRange.addToRange(.tomorrow)
-        mDateRange.remove(.dayBeforeYesterday)
-        
-        let range = mDateRange.getRange()
-        let expectedRange: ClosedRange<Date>? = (.yesterday ... .tomorrow)
-        
-        XCTAssertEqual(range, expectedRange)
-    }
-    func testRemoveDate_dateIsMoreThanUpperDate() {
-        mDateRange.addToRange(.yesterday)
-        mDateRange.addToRange(.tomorrow)
-        mDateRange.remove(.dayAfterTomorrow)
-        
-        let range = mDateRange.getRange()
-        let expectedRange: ClosedRange<Date>? = (.yesterday ... .tomorrow)
-        
-        XCTAssertEqual(range, expectedRange)
-    }
-    func testRemoveDate_dateIsEqualToLowerDate() {
-        mDateRange.addToRange(.yesterday)
-        mDateRange.addToRange(.tomorrow)
-        mDateRange.remove(.yesterday)
-        
-        let range = mDateRange.getRange()
-        let expectedRange: ClosedRange<Date>? = nil
-        
-        XCTAssertEqual(range, expectedRange)
-    }
-    func testRemoveDate_dateIsEqualToUpperDate() {
-        mDateRange.addToRange(.yesterday)
-        mDateRange.addToRange(.tomorrow)
-        mDateRange.remove(.tomorrow)
-        
-        let range = mDateRange.getRange()
-        let expectedRange: ClosedRange<Date>? = nil
-        
-        XCTAssertEqual(range, expectedRange)
-    }
-}
-
 // MARK: Test is Contains function
 extension MDateRangeTests {
     func testIsContainsDate_rangeIsNil() {

@@ -29,4 +29,5 @@ private extension WeekDayLabel {
 // MARK: - Helper Flags
 public extension WeekDayLabel {
     func getString(with format: WeekdaySymbolFormat) -> String { calendar.getWeekdaySymbol(weekday, format: format) }
+    func erased() -> AnyWeekDayLabel { .init(self) }
 }

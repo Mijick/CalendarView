@@ -10,7 +10,6 @@
 import SwiftUI
 
 struct DefaultWeekdaysView: WeekdaysView {
-    typealias DayLabel = DefaultWeekdayLabel
     let calendar: MCalendar
 }
 
