@@ -13,10 +13,8 @@ import Foundation
 
 class MDate {
     private let dateToCompare: Date
-    private let calendar: Calendar
-    private let firstWeekday: MWeekday
 
-    init(date: Date, _ calendar: Calendar, _ firstWeekday: MWeekday) { self.dateToCompare = date; self.calendar = calendar; self.firstWeekday = firstWeekday }
+    init(date: Date) { self.dateToCompare = date }
 }
 
 // MARK: - Comparing Dates
@@ -26,22 +24,22 @@ extension MDate {
     func isSame(_ component: Calendar.Component, as date: Date?) -> Bool { getDateComparisonResult(component, date) == .orderedSame }
 }
 private extension MDate {
-    func getDateComparisonResult(_ component: Calendar.Component, _ date: Date?) -> ComparisonResult { calendar.compare(dateToCompare, to: date ?? .distantPast, toGranularity: component) }
+    func getDateComparisonResult(_ component: Calendar.Component, _ date: Date?) -> ComparisonResult { MCalendar.type.compare(dateToCompare, to: date ?? .distantPast, toGranularity: component) }
 }
 
 // MARK: - Calculating Difference Between Dates
 extension MDate {
-    func distance(to date: Date, in components: Set<Calendar.Component>) -> DateComponents { calendar.dateComponents(components, from: dateToCompare, to: date) }
+    func distance(to date: Date, in components: Set<Calendar.Component>) -> DateComponents { MCalendar.type.dateComponents(components, from: dateToCompare, to: date) }
 }
 
 // MARK: - Adding Dates
 extension MDate {
-    func adding(_ value: Int, _ component: Calendar.Component) -> Date { calendar.date(byAdding: component, value: value, to: dateToCompare) ?? dateToCompare }
+    func adding(_ value: Int, _ component: Calendar.Component) -> Date { MCalendar.type.date(byAdding: component, value: value, to: dateToCompare) ?? dateToCompare }
 }
 
 // MARK: - Others
 extension MDate {
-    func getWeekday() -> MWeekday { .init(rawValue: calendar.component(.weekday, from: dateToCompare)) ?? .monday }
-    func startOfMonth() -> Date { calendar.dateInterval(of: .month, for: dateToCompare)?.start ?? .distantPast }
-    func endOfMonth() -> Date { calendar.dateInterval(of: .month, for: dateToCompare)?.end.addingTimeInterval(-1) ?? .distantPast }
+    func getWeekday() -> MWeekday { .init(rawValue: MCalendar.type.component(.weekday, from: dateToCompare)) ?? .monday }
+    func startOfMonth() -> Date { MCalendar.type.dateInterval(of: .month, for: dateToCompare)?.start ?? .distantPast }
+    func endOfMonth() -> Date { MCalendar.type.dateInterval(of: .month, for: dateToCompare)?.end.addingTimeInterval(-1) ?? .distantPast }
 }
