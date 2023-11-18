@@ -45,5 +45,5 @@ private extension MonthView {
 
 // MARK: - Others
 private extension MonthView {
-    var animation: Animation { .bouncy }
+    var animation: Animation { .spring(response: 0.32, dampingFraction: 1, blendDuration: 0) }
 }
