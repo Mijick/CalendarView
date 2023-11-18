@@ -11,64 +11,8 @@
 
 import SwiftUI
 
-public struct MCalendarView: View {
-    @StateObject private var selectedData: Data.MCalendarView
-    private let monthsData: [Data.MonthView]
-    private let configData: Config
-
-
+extension MCalendarView {
     public init(selectedDate: Binding<Date?>?, selectedRange: Binding<MDateRange?>?, configBuilder: (Config) -> Config = { $0 }) {
-        self._selectedData = .init(wrappedValue: .init(selectedDate, selectedRange))
-        self.configData = configBuilder(.init())
-        self.monthsData = .generate()
+        self.init(selectedDate, selectedRange, configBuilder)
     }
-    public var body: some View {
-        VStack(spacing: 12) {
-            createWeekdaysView()
-            createScrollView()
-        }
-    }
-}
-private extension MCalendarView {
-    func createWeekdaysView() -> some View {
-        configData.weekdaysView().erased()
-    }
-    func createScrollView() -> some View { ScrollViewReader { reader in
-        ScrollView(showsIndicators: false) {
-            LazyVStack(spacing: 24) {
-                ForEach(monthsData, id: \.month, content: createMonthItem)
-            }
-        }
-        .onAppear() { scrollToDate(reader, animatable: false) }
-        .onChange(of: configData.scrollDate) { _ in scrollToDate(reader, animatable: true) }
-    }}
-}
-private extension MCalendarView {
-    func createMonthItem(_ data: Data.MonthView) -> some View {
-        VStack(spacing: 12) {
-            createMonthLabel(data.month)
-            createMonthView(data)
-        }
-    }
-}
-private extension MCalendarView {
-    func createMonthLabel(_ month: Date) -> some View {
-        configData.monthLabel(month)
-            .erased()
-            .onAppear { onMonthChange(month) }
-    }
-    func createMonthView(_ data: Data.MonthView) -> some View {
-        MonthView(selectedDate: $selectedData.date, selectedRange: $selectedData.range, data: data, config: configData)
-    }
-}
-
-// MARK: - Modifiers
-private extension MCalendarView {
-    func scrollToDate(_ reader: ScrollViewProxy, animatable: Bool) {
-        guard let date = configData.scrollDate else { return }
-
-        let scrollDate = date.start(of: .month)
-        withAnimation(animatable ? .default : nil) { reader.scrollTo(scrollDate, anchor: .center) }
-    }
-    func onMonthChange(_ date: Date) { configData.onMonthChange(date) }
 }
