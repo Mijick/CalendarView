@@ -12,7 +12,7 @@
 import SwiftUI
 
 extension MCalendarView {
-    public init(selectedDate: Binding<Date?>?, selectedRange: Binding<MDateRange?>?, configBuilder: (Config) -> Config = { $0 }) {
+    public init(selectedDate: Binding<Date?>?, selectedRange: Binding<MDateRange?>?, configBuilder: (CalendarConfig) -> CalendarConfig = { $0 }) {
         self.init(selectedDate, selectedRange, configBuilder)
     }
 }

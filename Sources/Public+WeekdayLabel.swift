@@ -29,8 +29,10 @@ private extension WeekdayLabel {
     }
 }
 
-// MARK: - Helper Flags
+// MARK: - Helpers
+public extension WeekdayLabel {
+    func erased() -> AnyWeekdayLabel { .init(self) }
+}
 public extension WeekdayLabel {
     func getString(with format: WeekdaySymbolFormat) -> String { MDateFormatter.getString(for: weekday, format: format) }
-    func erased() -> AnyWeekdayLabel { .init(self) }
 }

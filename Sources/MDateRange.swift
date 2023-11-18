@@ -18,7 +18,7 @@ public struct MDateRange {
 }
 
 // MARK: - Updating Range
-extension MDateRange {
+public extension MDateRange {
     mutating func addToRange(_ date: Date) {
         if lowerDate == nil { setLowerDate(date.getDateWithoutTime()) }
         else if upperDate == nil { setUpperDate(date.getDateWithoutTime()) }

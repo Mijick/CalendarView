@@ -14,10 +14,10 @@ import SwiftUI
 public struct MCalendarView: View {
     @StateObject var selectedData: Data.MCalendarView
     let monthsData: [Data.MonthView]
-    let configData: Config
+    let configData: CalendarConfig
 
 
-    init(_ selectedDate: Binding<Date?>?, _ selectedRange: Binding<MDateRange?>?, _ configBuilder: (Config) -> Config) {
+    init(_ selectedDate: Binding<Date?>?, _ selectedRange: Binding<MDateRange?>?, _ configBuilder: (CalendarConfig) -> CalendarConfig) {
         self._selectedData = .init(wrappedValue: .init(selectedDate, selectedRange))
         self.configData = configBuilder(.init())
         self.monthsData = .generate()

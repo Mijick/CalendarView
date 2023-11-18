@@ -15,7 +15,7 @@ struct MonthView: View {
     @Binding var selectedDate: Date?
     @Binding var selectedRange: MDateRange?
     let data: Data.MonthView
-    let config: MCalendarView.Config
+    let config: CalendarConfig
 
 
     var body: some View {
