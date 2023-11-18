@@ -12,14 +12,14 @@ import SwiftUI
 
 public protocol WeekdaysView: View {    
     func createContent() -> AnyView
-    func createWeekdayLabel(_ weekday: MWeekday) -> AnyWeekDayLabel
+    func createWeekdayLabel(_ weekday: MWeekday) -> AnyWeekdayLabel
 }
 
 // MARK: - Customising View
 public extension WeekdaysView {
     func createContent() -> AnyView { createDefaultContent().erased() }
     func createWeekdaysView() -> AnyView { createDefaultWeekdaysView().erased() }
-    func createWeekdayLabel(_ weekday: MWeekday) -> AnyWeekDayLabel { createDefaultWeekDayLabel(weekday).erased() }
+    func createWeekdayLabel(_ weekday: MWeekday) -> AnyWeekdayLabel { createDefaultWeekDayLabel(weekday).erased() }
 
     var body: some View { createContent() }
 }
