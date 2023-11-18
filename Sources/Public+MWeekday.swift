@@ -20,10 +20,6 @@ extension MWeekday {
     }
 }
 
-extension MWeekday {
-    static var weekdaysCount: Int { 7 }
-}
-
 // MARK: - Helpers
 fileprivate extension [MWeekday] {
     init(_ indexes: [Int]) { self = indexes.compactMap { .init(rawValue: $0) }}

@@ -91,5 +91,5 @@ private extension Data.MonthView {
     }
 }
 private extension Data.MonthView {
-    static var weekdaysNumber: Int { MWeekday.weekdaysCount }
+    static var weekdaysNumber: Int { MWeekday.allCases.count }
 }
