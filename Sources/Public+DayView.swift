@@ -62,7 +62,7 @@ private extension DayView {
             .active(if: isSelected())
     }
     func createDefaultRangeSelectionView() -> some View {
-        RoundedRectangle(radius: .infinity, corners: rangeSelectionViewCorners)
+        RoundedRectangle(corners: rangeSelectionViewCorners)
             .fill(.black.opacity(0.12))
             .transition(.opacity)
             .active(if: isWithinRange())
@@ -80,7 +80,7 @@ private extension DayView {
     func createBodyForOtherMonth() -> some View { Rectangle().fill(Color.clear) }
 }
 private extension DayView {
-    var rangeSelectionViewCorners: UIRectCorner { 
+    var rangeSelectionViewCorners: RoundedRectangle.Corner { 
         if isBeginningOfRange() { return [.topLeft, .bottomLeft] }
         if isEndOfRange() { return [.topRight, .bottomRight] }
 
