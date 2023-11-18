@@ -44,5 +44,5 @@ extension MCalendarView { public struct Config: Configurable { public init() {}
     
     private(set) var monthLabel: (Date) -> any MonthLabel = DefaultMonthLabel.init
     private(set) var weekdaysView: () -> any WeekdaysView = DefaultWeekdaysView.init
-    private(set) var dayView: (Date, Bool, Binding<Date?>?, Binding<MDateRange?>?) -> any DayView = DefaultDaySelectionView.init
+    private(set) var dayView: (Date, Bool, Binding<Date?>?, Binding<MDateRange?>?) -> any DayView = DefaultDayView.init
 }}

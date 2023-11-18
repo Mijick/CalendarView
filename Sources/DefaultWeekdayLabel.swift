@@ -1,5 +1,5 @@
 //
-//  Public+DefaultWeekdayLabel.swift of CalendarView
+//  DefaultWeekdayLabel.swift of CalendarView
 //
 //  Created by Alina Petrovska on 13.11.2023.
 //    - Mail: alina.petrovskaya@mijick.com
