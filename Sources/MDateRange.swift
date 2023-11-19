@@ -14,15 +14,15 @@ public struct MDateRange {
     private var lowerDate: Date?
     private var upperDate: Date?
 
-    public init() {}
+    init(_ lowerDate: Date?, _ upperDate: Date?) { self.lowerDate = lowerDate; self.upperDate = upperDate }
 }
 
 // MARK: - Updating Range
-public extension MDateRange {
-    mutating func addToRange(_ date: Date) {
-        if lowerDate == nil { setLowerDate(date.getDateWithoutTime()) }
-        else if upperDate == nil { setUpperDate(date.getDateWithoutTime()) }
-        else { updateExistedRange(date.getDateWithoutTime()) }
+extension MDateRange {
+    mutating func _addToRange(_ date: Date) {
+        if lowerDate == nil { setLowerDate(date) }
+        else if upperDate == nil { setUpperDate(date) }
+        else { updateExistedRange(date) }
     }
 }
 private extension MDateRange {
@@ -42,24 +42,14 @@ private extension MDateRange {
 
 // MARK: - Getting Range
 extension MDateRange {
-    func getRange() -> ClosedRange<Date>? { (lowerDate...upperDate) }
+    func _getRange() -> ClosedRange<Date>? {
+        if let lowerDate { return .init(uncheckedBounds: (lowerDate, upperDate ?? lowerDate)) }
+        return nil
+    }
 }
 
 // MARK: - Others
 extension MDateRange {
     func contains(_ date: Date) -> Bool { getRange()?.contains(date) == true }
     func isRangeCompleted() -> Bool { upperDate != nil }
-}
-
-
-// MARK: - Helpers
-fileprivate extension Date {
-    func getDateWithoutTime() -> Date {
-        let calendar = Calendar.current.dateComponents([.year, .month, .day], from: self)
-        return Calendar.current.date(from: calendar) ?? self
-    }
-}
-fileprivate func ...(_ lhs: Date?, _ rhs: Date?) -> ClosedRange<Date>? {
-    if let lhs { return .init(uncheckedBounds: (lhs, rhs ?? lhs)) }
-    return nil
 }
