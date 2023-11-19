@@ -72,4 +72,3 @@ private extension MCalendarView {
     }
     func onMonthChange(_ date: Date) { configData.onMonthChange(date) }
 }
-
