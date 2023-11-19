@@ -7,19 +7,7 @@
 //
 //  Copyright ©2023 Mijick. Licensed under MIT License.
 
+
 import SwiftUI
 
-struct DefaultWeekdaysView: WeekdaysView {
-    let calendar: MCalendar
-}
-
-// MARK: - Preview
-#Preview {
-    struct Preview: View {
-        private let calendar: MCalendar = .init()
-        
-        var body: some View { DefaultWeekdaysView(calendar: calendar) }
-    }
-
-    return Preview()
-}
+struct DefaultWeekdaysView: WeekdaysView {}

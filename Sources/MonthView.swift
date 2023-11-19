@@ -15,7 +15,7 @@ struct MonthView: View {
     @Binding var selectedDate: Date?
     @Binding var selectedRange: MDateRange?
     let data: Data.MonthView
-    let config: MCalendarView.Config
+    let config: CalendarConfig
 
 
     var body: some View {
@@ -36,34 +36,14 @@ private extension MonthView {
 }
 private extension MonthView {
     func createDayView(_ date: Date) -> some View {
-        config.dayView(date, isCurrentMonth(date), $selectedDate, $selectedRange, config.calendar).erased()
+        config.dayView(date, isCurrentMonth(date), $selectedDate, $selectedRange).erased()
     }
 }
 private extension MonthView {
-    func isCurrentMonth(_ date: Date) -> Bool { config.calendar.mDate(data.month).isSame(.month, as: date) }
+    func isCurrentMonth(_ date: Date) -> Bool { data.month.isSame(.month, as: date) }
 }
 
 // MARK: - Others
 private extension MonthView {
-    var animation: Animation { .bouncy }
-}
-
-
-// MARK: - Preview
-#Preview {
-    struct Preview: View {
-        @State private var selectedDate: Date? = nil
-        @State private var selectedRange: MDateRange? = .init()
-        private let data: [Data.MonthView] = .generate(startMonth: .now, endMonth: .now, calendar: .init())
-
-
-        var body: some View { MonthView(
-            selectedDate: $selectedDate,
-            selectedRange: $selectedRange,
-            data: data.first!,
-            config: .init()
-        )}
-    }
-
-    return Preview().padding(.horizontal, 32)
+    var animation: Animation { .spring(response: 0.32, dampingFraction: 1, blendDuration: 0) }
 }

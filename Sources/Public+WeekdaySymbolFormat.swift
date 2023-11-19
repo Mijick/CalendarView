@@ -8,6 +8,4 @@
 //  Copyright ©2023 Mijick. Licensed under MIT License.
 
 
-import Foundation
-
 public enum WeekdaySymbolFormat { case veryShort, short, full }

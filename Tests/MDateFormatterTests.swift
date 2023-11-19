@@ -7,6 +7,7 @@
 //
 //  Copyright ©2023 Mijick. Licensed under MIT License.
 
+
 import XCTest
 @testable import MijickCalendarView
 
@@ -61,28 +62,28 @@ extension MDateFormatterTests {
     
     func testDateFormat_englishLocale_dateWithShortWeekDateName() {
         let formatter = MDateFormatter(.english)
-        let formattedDate = formatter.getString(from: comparableDate.date(), format: includedWeekNameFormat)
+        let formattedDate = formatter.getString(from: comparableDate.toDate(), format: includedWeekNameFormat)
         let expectedFormattedDate = "Sat, 4 Nov 2023"
         
         XCTAssertEqual(formattedDate, expectedFormattedDate)
     }
     func testDateFormat_polishLocale_dateWithShortWeekDateName() {
         let formatter = MDateFormatter(.polish)
-        let formattedDate = formatter.getString(from: comparableDate.date(), format: includedWeekNameFormat)
+        let formattedDate = formatter.getString(from: comparableDate.toDate(), format: includedWeekNameFormat)
         let expectedFormattedDate = "Sob., 4 Lis 2023"
         
         XCTAssertEqual(formattedDate, expectedFormattedDate)
     }
     func testDateFormat_dateWithDashes() {
         let formatter = MDateFormatter(.english)
-        let formattedDate = formatter.getString(from: comparableDate.date(), format: dashedFormat)
+        let formattedDate = formatter.getString(from: comparableDate.toDate(), format: dashedFormat)
         let expectedFormattedDate = "2023-11-04"
         
         XCTAssertEqual(formattedDate, expectedFormattedDate)
     }
     func testDateFormat_polishLocale_dateWithDots() {
         let formatter = MDateFormatter(.polish)
-        let formattedDate = formatter.getString(from: comparableDate.date(), format: dottedFormat)
+        let formattedDate = formatter.getString(from: comparableDate.toDate(), format: dottedFormat)
         let expectedFormattedDate = "04.11.23"
         
         XCTAssertEqual(formattedDate, expectedFormattedDate)

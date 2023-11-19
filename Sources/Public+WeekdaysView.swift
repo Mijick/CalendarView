@@ -7,27 +7,26 @@
 //
 //  Copyright ©2023 Mijick. Licensed under MIT License.
 
+
 import SwiftUI
 
-public protocol WeekdaysView: View {
-    var calendar: MCalendar { get }
-    
+public protocol WeekdaysView: View {    
     func createContent() -> AnyView
-    func createWeekdayLabel(_ weekday: MWeekday) -> AnyWeekDayLabel
+    func createWeekdayLabel(_ weekday: MWeekday) -> AnyWeekdayLabel
 }
 
 // MARK: - Customising View
 public extension WeekdaysView {
     func createContent() -> AnyView { createDefaultContent().erased() }
     func createWeekdaysView() -> AnyView { createDefaultWeekdaysView().erased() }
-    func createWeekdayLabel(_ weekday: MWeekday) -> AnyWeekDayLabel { createDefaultWeekDayLabel(weekday).erased() }
+    func createWeekdayLabel(_ weekday: MWeekday) -> AnyWeekdayLabel { createDefaultWeekDayLabel(weekday).erased() }
 
     var body: some View { createContent() }
 }
 private extension WeekdaysView {
     func createDefaultContent() -> some View { createWeekdaysView() }
-    func createDefaultWeekdaysView() -> some View { HStack(spacing: 0) { ForEach(weekDays, id: \.self, content: createWeekdayItem) }}
-    func createDefaultWeekDayLabel(_ weekday: MWeekday) -> DefaultWeekdayLabel { DefaultWeekdayLabel(calendar: calendar, weekday: weekday) }
+    func createDefaultWeekdaysView() -> some View { HStack(spacing: 0) { ForEach(weekdays, id: \.self, content: createWeekdayItem) }}
+    func createDefaultWeekDayLabel(_ weekday: MWeekday) -> DefaultWeekdayLabel { DefaultWeekdayLabel(weekday: weekday) }
 }
 private extension WeekdaysView {
     func createWeekdayItem(_ weekday: MWeekday) -> some View { createWeekdayLabel(weekday).frame(maxWidth: .infinity) }
@@ -35,5 +34,5 @@ private extension WeekdaysView {
 
 // MARK: Helpers
 public extension WeekdaysView {
-    var weekDays: [MWeekday] { MWeekday.allCases(calendar) }
+    var weekdays: [MWeekday] { MWeekday.allCases }
 }

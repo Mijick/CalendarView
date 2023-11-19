@@ -7,21 +7,22 @@
 //
 //  Copyright ©2023 Mijick. Licensed under MIT License.
 
+
 import Foundation
 
 public struct MDateRange {
     private var lowerDate: Date?
     private var upperDate: Date?
 
-    public init() {}
+    init(_ lowerDate: Date?, _ upperDate: Date?) { self.lowerDate = lowerDate; self.upperDate = upperDate }
 }
 
 // MARK: - Updating Range
 extension MDateRange {
-    mutating func addToRange(_ date: Date) {
-        if lowerDate == nil { setLowerDate(date.getDateWithoutTime()) }
-        else if upperDate == nil { setUpperDate(date.getDateWithoutTime()) }
-        else { updateExistedRange(date.getDateWithoutTime()) }
+    mutating func _addToRange(_ date: Date) {
+        if lowerDate == nil { setLowerDate(date) }
+        else if upperDate == nil { setUpperDate(date) }
+        else { updateExistedRange(date) }
     }
 }
 private extension MDateRange {
@@ -41,28 +42,14 @@ private extension MDateRange {
 
 // MARK: - Getting Range
 extension MDateRange {
-    func getRange() -> ClosedRange<Date>? { (lowerDate...upperDate) }
+    func _getRange() -> ClosedRange<Date>? {
+        if let lowerDate { return .init(uncheckedBounds: (lowerDate, upperDate ?? lowerDate)) }
+        return nil
+    }
 }
 
 // MARK: - Others
 extension MDateRange {
     func contains(_ date: Date) -> Bool { getRange()?.contains(date) == true }
     func isRangeCompleted() -> Bool { upperDate != nil }
-}
-
-
-// MARK: - Helpers
-fileprivate extension Date {
-    static func ==(_ lhs: Date?, _ rhs: Date) -> Bool {
-        guard let lhs else { return false }
-        return lhs.getDateWithoutTime() == rhs.getDateWithoutTime()
-    }
-    func getDateWithoutTime() -> Date {
-        let calendar = Calendar.current.dateComponents([.year, .month, .day], from: self)
-        return Calendar.current.date(from: calendar) ?? self
-    }
-}
-fileprivate func ...(_ lhs: Date?, _ rhs: Date?) -> ClosedRange<Date>? {
-    if let lhs { return .init(uncheckedBounds: (lhs, rhs ?? lhs)) }
-    return nil
 }

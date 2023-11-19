@@ -1,5 +1,5 @@
 //
-//  Public+MonthLabel.swift of MijickCalendarView
+//  Public+MonthLabel.swift of CalendarView
 //
 //  Created by Alina Petrovska on 14.11.2023.
 //    - Mail: alina.petrovskaya@mijick.com
@@ -7,11 +7,11 @@
 //
 //  Copyright ©2023 Mijick. Licensed under MIT License.
 
+
 import SwiftUI
 
 public protocol MonthLabel: View {
     var month: Date { get }
-    var calendar: MCalendar { get }
 
     func createContent() -> AnyView
 }
@@ -23,16 +23,13 @@ public extension MonthLabel {
 }
 private extension MonthLabel {
     func createDefaultContent() -> some View {
-        Text(monthText)
+        Text(getString(format: "MMMM y"))
             .font(.system(size: 16, weight: .semibold))
             .foregroundColor(.black)
     }
 }
-private extension MonthLabel {
-    var monthText: String { getString(format: "MMMM y") }
-}
 
 // MARK: - Helpers
 public extension MonthLabel {
-    func getString(format: String) -> String { calendar.formatter().getString(from: month, format: format) }
+    func getString(format: String) -> String { MDateFormatter.getString(from: month, format: format) }
 }

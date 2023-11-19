@@ -1,5 +1,5 @@
 //
-//  Public+DefaultWeekdayLabel.swift of CalendarView
+//  DefaultWeekdayLabel.swift of CalendarView
 //
 //  Created by Alina Petrovska on 13.11.2023.
 //    - Mail: alina.petrovskaya@mijick.com
@@ -7,24 +7,9 @@
 //
 //  Copyright ©2023 Mijick. Licensed under MIT License.
 
+
 import SwiftUI
 
-struct DefaultWeekdayLabel: WeekDayLabel {
-    let calendar: MCalendar
+struct DefaultWeekdayLabel: WeekdayLabel {
     let weekday: MWeekday
-}
-
-// MARK: - Preview
-#Preview {
-    struct Preview: View {
-        private var weekday: MWeekday = .monday
-        private let calendar: MCalendar = .init()
-
-        var body: some View { DefaultWeekdayLabel(
-            calendar: calendar,
-            weekday: weekday
-        )}
-    }
-
-    return Preview()
 }
