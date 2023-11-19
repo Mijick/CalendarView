@@ -10,7 +10,9 @@
 
 import Foundation
 
-class MDateFormatter {}
+struct MDateFormatter {}
+
+// MARK: - Date / Weekday -> String Operations
 extension MDateFormatter {
     static func getString(from date: Date, format: String) -> String {
         getFormatter(format)
@@ -25,7 +27,6 @@ extension MDateFormatter {
         }
     }
 }
-
 private extension MDateFormatter {
     static func getFormatter(_ format: String = "") -> DateFormatter {
         let dateFormatter = DateFormatter()
