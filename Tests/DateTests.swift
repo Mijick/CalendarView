@@ -287,10 +287,11 @@ extension DateTests {
         XCTAssertEqual(dayStartDate, expectedResult)
     }
     func testDayStart_2() {
+        let date = "2023-04-29 23:59".toDate(format: "yyyy-MM-dd HH:mm")
+        let dayStartDate = date.start(of: .day)
 
-    }
-    func testDayStart_3() {
-
+        let expectedResult = "2023-04-29 00:00".toDate(format: "yyyy-MM-dd HH:mm")
+        XCTAssertEqual(dayStartDate, expectedResult)
     }
     func testMonthStart_1() {
         let date = "2023-04-29".toDate()
@@ -321,22 +322,35 @@ extension DateTests {
         XCTAssertEqual(monthStartDate, expectedResult)
     }
     func testYearStart_1() {
+        let date = "2023-12-31".toDate()
+        let monthStartDate = date.start(of: .year)
 
-    }
-    func testYearStart_2() {
-
+        let expectedResult = "2023-01-01".toDate()
+        XCTAssertEqual(monthStartDate, expectedResult)
     }
 }
 
 // MARK: - End Of Periods
 extension DateTests {
     func testDayEnd_1() {
+        let date = "2023-04-29".toDate()
+        let dayStartDate = date.end(of: .day)
 
+        let expectedResult = "2023-04-29 23:59:59".toDate(format: "yyyy-MM-dd HH:mm:ss")
+        XCTAssertEqual(dayStartDate, expectedResult)
     }
     func testMonthEnd_1() {
-        
+        let date = "2023-04-29".toDate()
+        let dayStartDate = date.end(of: .month)
+
+        let expectedResult = "2023-04-30 23:59:59".toDate(format: "yyyy-MM-dd HH:mm:ss")
+        XCTAssertEqual(dayStartDate, expectedResult)
     }
     func testYearEnd_1() {
-        
+        let date = "2023-04-29".toDate()
+        let dayStartDate = date.end(of: .year)
+
+        let expectedResult = "2023-12-31 23:59:59".toDate(format: "yyyy-MM-dd HH:mm:ss")
+        XCTAssertEqual(dayStartDate, expectedResult)
     }
 }
