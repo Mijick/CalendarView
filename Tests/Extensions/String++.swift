@@ -11,9 +11,9 @@
 import Foundation
 
 extension String {
-    func toDate() -> Date {
+    func toDate(format: String? = nil) -> Date {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.dateFormat = format ?? "yyyy-MM-dd"
         return formatter.date(from: self) ?? .now
     }
 }
