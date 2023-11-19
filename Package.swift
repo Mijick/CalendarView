@@ -8,7 +8,7 @@ let package = Package(
     platforms: [
         .iOS(.v14),
         .macOS(.v11),
-        .watchOS(.v6)
+        .watchOS(.v7)
     ],
     products: [
         .library(name: "MijickCalendarView", targets: ["MijickCalendarView"])
