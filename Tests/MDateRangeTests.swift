@@ -36,7 +36,7 @@ extension MDateRangeTests {
     func testAddToRange_upperDateIsNil() {
         mDateRange.addToRange(.now)
         let range = mDateRange.getRange()
-        let expectedRange: ClosedRange<Date>? = nil
+        let expectedRange: ClosedRange<Date>? = (.now ... .now)
         
         XCTAssertEqual(range, expectedRange)
     }
@@ -49,54 +49,14 @@ extension MDateRangeTests {
         
         XCTAssertEqual(range, expectedRange)
     }
-    func testAddToRange_dateIsInRange() {
+    func testAddToRange_addDate_rangeIsCompleted() {
         mDateRange.addToRange(.now)
         mDateRange.addToRange(.dayAfterTomorrow)
-        mDateRange.addToRange(.tomorrow)
-
-        let range = mDateRange.getRange()
-        let expectedRange: ClosedRange<Date>? = (.tomorrow ... .dayAfterTomorrow)
-        
-        XCTAssertEqual(range, expectedRange)
-    }
-    func testAddToRange_dateIsLessThanLowerDate() {
-        mDateRange.addToRange(.now)
-        mDateRange.addToRange(.tomorrow)
-        mDateRange.addToRange(.yesterday)
-        
-        let range = mDateRange.getRange()
-        let expectedRange: ClosedRange<Date>? = (.yesterday ... .tomorrow)
-        
-        XCTAssertEqual(range, expectedRange)
-    }
-    func testAddToRange_dateIsMoreThanUpperDate() {
-        mDateRange.addToRange(.now)
-        mDateRange.addToRange(.tomorrow)
-        mDateRange.addToRange(.dayAfterTomorrow)
-        
-        let range = mDateRange.getRange()
-        let expectedRange: ClosedRange<Date>? = (.now ... .dayAfterTomorrow)
-        
-        XCTAssertEqual(range, expectedRange)
-    }
-    func testAddToRange_dateIsEqualToLowerDate() {
-        mDateRange.addToRange(.now)
-        mDateRange.addToRange(.tomorrow)
-        mDateRange.addToRange(.now)
-        
-        let range = mDateRange.getRange()
-        let expectedRange: ClosedRange<Date>? = (.now ... .tomorrow)
-        
-        XCTAssertEqual(range, expectedRange)
-    }
-    func testAddToRange_dateIsEqualToUpperDate() {
-        mDateRange.addToRange(.now)
-        mDateRange.addToRange(.tomorrow)
         mDateRange.addToRange(.tomorrow)
 
         let range = mDateRange.getRange()
         let expectedRange: ClosedRange<Date>? = (.tomorrow ... .tomorrow)
-
+        
         XCTAssertEqual(range, expectedRange)
     }
 }
@@ -150,6 +110,31 @@ extension MDateRangeTests {
         mDateRange.addToRange(.tomorrow)
         
         let result = mDateRange.contains(.tomorrow)
+        let expectedResult = true
+        
+        XCTAssertEqual(result, expectedResult)
+    }
+}
+
+// MARK: Test is Range Completed function
+extension MDateRangeTests {
+    func testIsRangeCompleted_rangeIsNil() {
+        let result = mDateRange.isRangeCompleted()
+        let expectedResult = false
+        
+        XCTAssertEqual(result, expectedResult)
+    }
+    func testIsRangeCompleted_rangeHasValueInLowerDate() {
+        mDateRange.addToRange(.yesterday)
+        let result = mDateRange.isRangeCompleted()
+        let expectedResult = false
+        
+        XCTAssertEqual(result, expectedResult)
+    }
+    func testIsRangeCompleted_rangeIsCompleted() {
+        mDateRange.addToRange(.yesterday)
+        mDateRange.addToRange(.tomorrow)
+        let result = mDateRange.isRangeCompleted()
         let expectedResult = true
         
         XCTAssertEqual(result, expectedResult)
