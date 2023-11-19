@@ -58,7 +58,7 @@ private extension DayView {
     func createDefaultSelectionView() -> some View {
         Circle()
             .fill(.black)
-            .transition(.scale(scale: 0.52).combined(with: .opacity))
+            .transition(.asymmetric(insertion: .scale(scale: 0.52).combined(with: .opacity), removal: .opacity))
             .active(if: isSelected())
     }
     func createDefaultRangeSelectionView() -> some View {
