@@ -1,5 +1,3 @@
-<br>
-
 <p align="center">
   <picture> 
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/Assets/blob/main/CalendarView/Logotype/On%20Dark.svg">
