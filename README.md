@@ -1,4 +1,26 @@
+<br>
 
+<p align="center">
+  <picture> 
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/Assets/blob/main/CalendarView/Logotype/On%20Dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/Assets/blob/main/PopupView/Logotype/On%20Light.svg">
+    <img alt="PopupView Logo" src="https://github.com/Mijick/Assets/blob/main/PopupView/Logotype/On%20Dark.svg" width="76%"">
+  </picture>
+</p>
+
+<h3 style="font-size: 5em" align="center">
+    CalendarView
+</h3>
+
+<p align="center">
+    Create beautiful and fully customisable popups in no time. Keep your code clean
+</p>
+
+<p align="center">
+    <a href="https://github.com/Mijick/PopupView-Demo" rel="nofollow">Try demo we prepared</a>
+</p>
+
+<br>
 
 
 
