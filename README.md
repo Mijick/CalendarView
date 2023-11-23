@@ -9,7 +9,7 @@
 </p>
 
 <h3 style="font-size: 5em" align="center">
-    CalendarView
+    Makes life easier
 </h3>
 
 <p align="center">
