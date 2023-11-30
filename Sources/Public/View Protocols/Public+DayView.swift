@@ -71,7 +71,6 @@ private extension DayView {
 private extension DayView {
     func createBodyForCurrentMonth() -> some View {
         createContent()
-            .padding(.vertical, 1)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .aspectRatio(1.0, contentMode: .fit)
             .onAppear(perform: onAppear)
