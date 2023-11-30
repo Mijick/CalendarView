@@ -24,7 +24,7 @@ public extension WeekdayLabel {
 private extension WeekdayLabel {
     func createDefaultContent() -> some View {
         Text(getString(with: .veryShort))
-            .foregroundColor(.gray)
+            .foregroundColor(.onBackgroundSecondary)
             .font(.system(size: 14))
     }
 }
