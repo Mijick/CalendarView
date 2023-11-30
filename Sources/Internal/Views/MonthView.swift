@@ -19,7 +19,7 @@ struct MonthView: View {
 
 
     var body: some View {
-        LazyVStack(spacing: 0) {
+        LazyVStack(spacing: config.daysSpacing.vertical) {
             ForEach(data.items, id: \.last, content: createSingleRow)
         }
         .frame(maxWidth: .infinity)
@@ -29,7 +29,7 @@ struct MonthView: View {
 }
 private extension MonthView {
     func createSingleRow(_ dates: [Date]) -> some View {
-        HStack(spacing: 0) {
+        HStack(spacing: config.daysSpacing.horizontal) {
             ForEach(dates, id: \.self, content: createDayView)
         }
     }
