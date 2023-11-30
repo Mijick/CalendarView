@@ -36,6 +36,11 @@ public extension CalendarConfig {
     func dayView(_ builder: @escaping (Date, Bool, Binding<Date?>?, Binding<MDateRange?>?) -> some DayView) -> Self { changing(path: \.dayView, to: builder) }
 }
 
+// MARK: - View Customisation
+public extension CalendarConfig {
+    func monthsViewBackground(_ value: Color) -> Self { changing(path: \.monthsViewBackground, to: value) }
+}
+
 // MARK: - Modifiers
 public extension CalendarConfig {
     func scrollTo(date: Date?) -> Self { changing(path: \.scrollDate, to: date) }
@@ -49,6 +54,8 @@ public struct CalendarConfig: Configurable { public init() {}
     private(set) var monthsPadding: (top: CGFloat, bottom: CGFloat) = (12, 24)
     private(set) var monthsSpacing: CGFloat = 24
     private(set) var daysSpacing: (vertical: CGFloat, horizontal: CGFloat) = (2, 0)
+
+    private(set) var monthsViewBackground: Color = .clear
 
     private(set) var monthLabel: (Date) -> any MonthLabel = DefaultMonthLabel.init
     private(set) var weekdaysView: () -> any WeekdaysView = DefaultWeekdaysView.init
