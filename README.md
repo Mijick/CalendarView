@@ -1,7 +1,15 @@
 <p align="center">
+    <picture> 
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/ac74e5f1-dc85-4446-a5b9-8ec52ed1de8e">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/8b8e33c0-1bdc-44aa-804f-760015038841">
+    <img alt="PopupView Logo" src="https://github.com/Mijick/Assets/blob/main/PopupView/Logotype/On%20Dark.svg" width="100%"">
+  </picture>
+  
+
+  
   <picture> 
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/Assets/blob/main/CalendarView/Logotype/On%20Dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/Assets/blob/main/PopupView/Logotype/On%20Light.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/640574e5-3e74-4f0b-9a86-078a6325d79e">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/640574e5-3e74-4f0b-9a86-078a6325d79e">
     <img alt="PopupView Logo" src="https://github.com/Mijick/Assets/blob/main/PopupView/Logotype/On%20Dark.svg" width="60%"">
   </picture>
 </p>
