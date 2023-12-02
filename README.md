@@ -2,7 +2,7 @@
 <p align="center">
 
 
-<img alt="License: MIT" src="https://github.com/Mijick/CalendarView/assets/23524947/c8d18974-84d5-479a-a700-89d5506052de" width="88%"/>
+<img alt="License: MIT" src="https://github.com/Mijick/CalendarView/assets/23524947/c8d18974-84d5-479a-a700-89d5506052de" width="94%"/>
 
 </p>
 
