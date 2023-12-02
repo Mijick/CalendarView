@@ -57,7 +57,7 @@
 <picture> 
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/Assets/blob/main/CalendarView/Logo/Dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/Assets/blob/main/CalendarView/Logo/Light.svg">
-    <img alt="CalendarView Logo" width="28%">
+    <img alt="CalendarView Logo" width="25%">
 </picture>
 </p>
 
@@ -98,7 +98,8 @@
 
 <!-- GIFs -->
 <p align="center">
-    <img alt="Popup Examples" src="https://github.com/Mijick/Assets/blob/main/PopupView/GIFs/PopupView-Bottom.gif" width="31.5%"/>
-    <img alt="Popup Examples" src="https://github.com/Mijick/Assets/blob/main/PopupView/GIFs/PopupView-Centre.gif" width="31.5%"/>
-    <img alt="Popup Examples" src="https://github.com/Mijick/Assets/blob/main/PopupView/GIFs/PopupView-Top.gif" width="31.5%"/>
+    <img alt="Calendar Example 1" src="https://github.com/Mijick/Assets/blob/main/PopupView/GIFs/PopupView-Bottom.gif" width="23%"/>
+    <img alt="Calendar Example 2" src="https://github.com/Mijick/Assets/blob/main/PopupView/GIFs/PopupView-Centre.gif" width="23%"/>
+    <img alt="Calendar Example 3" src="https://github.com/Mijick/Assets/blob/main/PopupView/GIFs/PopupView-Top.gif" width="23%"/>
+    <img alt="Calendar Example 4" src="https://github.com/Mijick/Assets/blob/main/PopupView/GIFs/PopupView-Top.gif" width="23%"/>
 </p>
