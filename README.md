@@ -56,7 +56,7 @@
 <picture> 
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/Assets/blob/main/CalendarView/Logo/Dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/Assets/blob/main/CalendarView/Logo/Light.svg">
-    <img alt="CalendarView Logo" width="208">
+    <img alt="CalendarView Logo" width="200">
 </picture>
 </p>
 
@@ -102,3 +102,12 @@
     <img alt="Calendar Example 3" src="https://github.com/Mijick/Assets/blob/main/PopupView/GIFs/PopupView-Top.gif" width="23%"/>
     <img alt="Calendar Example 4" src="https://github.com/Mijick/Assets/blob/main/PopupView/GIFs/PopupView-Top.gif" width="23%"/>
 </p>
+
+
+<!-- Summary -->
+CalendarView is a free and open-source library designed for SwiftUI that makes the process of creating calendars easier and much cleaner.
+* **Improves code quality.** Create a calendar using `MCalendarView` constructor and pass the selected date / range to it. Simple as never!
+* **Customize calendar in no time.** We know how important customisation is; that's why we give you the opportunity to design your calendar in any way you like.
+* **Designed for SwiftUI.** While developing the library, we have used the power of SwiftUI to give you powerful tool to speed up your implementation process.
+
+
