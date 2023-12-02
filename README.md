@@ -56,7 +56,7 @@
 <picture> 
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/Assets/blob/main/CalendarView/Logo/Dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/Assets/blob/main/CalendarView/Logo/Light.svg">
-    <img alt="CalendarView Logo" width="25%">
+    <img alt="CalendarView Logo" width="220">
 </picture>
 </p>
 
