@@ -201,6 +201,9 @@ struct ContentView: View {
 }
 ```
 
+### 3. Customizing WeekdaysView / WeekdayLabel / MonthLabel / DayView
+Each calendar element can be easily customised by creating your own view by inheriting the protocol (check [Demo Project][Demo] for more details).
+
 
 
 
