@@ -6,7 +6,11 @@
 
 </p>
 
-
+<p align="center">
+      <img alt="License: MIT" src="https://github.com/Mijick/CalendarView/assets/23524947/d8c7a177-6ae2-47a1-87df-b2c682075e93" height="56px"/>
+      <img alt="License: MIT" src="https://github.com/Mijick/CalendarView/assets/23524947/d48121ad-b482-4bce-ad5a-c1730b9d1d80" height="56px"/>
+      <img alt="License: MIT" src="https://github.com/Mijick/CalendarView/assets/23524947/91ee7719-6ade-4bee-892b-5589a1c3d0a2" height="56px"/>
+</p>
 
 
 
