@@ -47,7 +47,6 @@
 </picture>
 
 </p>
-<br>
 
 <!-- Header End -->
 
