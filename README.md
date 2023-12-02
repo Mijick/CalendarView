@@ -7,10 +7,12 @@
 </picture>
 </p>
 
+<br><br>
+
 <!-- CalendarView Logo -->
 <p align="center">
 <picture> 
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/a59211e2-8208-4aa4-903d-0d9a5798a5e4">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/a3954495-92f4-4998-8aa3-bb1cb8237f41">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/640574e5-3e74-4f0b-9a86-078a6325d79e">
     <img alt="CalendarView Logo" width="28%">
 </picture>
