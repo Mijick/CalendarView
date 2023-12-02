@@ -103,11 +103,29 @@
     <img alt="Calendar Example 4" src="https://github.com/Mijick/Assets/blob/main/PopupView/GIFs/PopupView-Top.gif" width="23%"/>
 </p>
 
+<br>
 
 <!-- Summary -->
 CalendarView is a free and open-source library designed for SwiftUI that makes the process of creating calendars easier and much cleaner.
 * **Improves code quality.** Create a calendar using `MCalendarView` constructor and pass the selected date / range to it. Simple as never!
 * **Customize calendar in no time.** We know how important customisation is; that's why we give you the opportunity to design your calendar in any way you like.
 * **Designed for SwiftUI.** While developing the library, we have used the power of SwiftUI to give you powerful tool to speed up your implementation process.
+
+<br>
+
+
+<!-- Getting Started -->
+# Getting Started
+### ✋ Requirements
+
+| **Platforms** | **Minimum Swift Version** |
+|:----------|:----------|
+| iOS 14+ | 5.0 |
+| iPadOS 14+ | 5.0 |
+| macOS 11+ | 5.0 |
+| watchOS 7+ | 5.0 |
+
+### ⏳ Installation
+
 
 
