@@ -7,6 +7,11 @@
 </picture>
 </p>
 
+<p align="center">
+<img alt="Mijick Header" src="https://github.com/Mijick/CalendarView/assets/23524947/88668a61-bf5d-4d6b-96ed-31deb69bcf67" height="36px">
+</p>
+
+
 <br>
 
 <!-- CalendarView Logo -->
