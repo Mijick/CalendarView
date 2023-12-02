@@ -1,11 +1,11 @@
 <!-- Mijick Header -->
 <p align="center">
 <picture> 
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/e2a26fc1-092f-4992-8c68-2683627a722c">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/c2e9e532-dff8-4cf7-a6f4-4a96f6bc2d22">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/c8d18974-84d5-479a-a700-89d5506052de">
     <img alt="Mijick Header" width="100%">
 </picture>
-    <img alt="Mijick Header" src="https://github.com/Mijick/CalendarView/assets/23524947/88668a61-bf5d-4d6b-96ed-31deb69bcf67" height="28px">
+    <img alt="Mijick Header" src="https://github.com/Mijick/CalendarView/assets/23524947/5f496413-3c15-4d9b-acd0-5e524bef99bb" height="30px">
 <img alt="Mijick Header" src="https://github.com/Mijick/CalendarView/assets/23524947/f7c34982-6f4a-4b52-aa9f-d6f1e4290179" width="100%" height="0.5px">
 </p>
 
