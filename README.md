@@ -166,15 +166,15 @@ Installation steps:
 <!-- Usage -->
 # Usage
 ### 1. Call initialiser
-To declare a Calendar, call the constructor:
+To declare a CalendarView, call the constructor:
 
 ```Swift
 struct ContentView: View {
-    @State private var selectedData: Data? = nil
+    @State private var selectedDate: Data? = nil
     @State private var selectedRange: MDateRange? = .init()
 
     var body: some View {
-        MCalendarView(selectedDate: nil, selectedRange: $selectedRange)
+        MCalendarView(selectedDate: $selectedDate, selectedRange: $selectedRange)
     }
 }
 ```
