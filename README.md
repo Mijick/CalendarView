@@ -1,9 +1,9 @@
 <!-- Mijick Header -->
 <p align="center">
-<picture> 
+<picture width="100%"> 
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/c8d18974-84d5-479a-a700-89d5506052de">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/c8d18974-84d5-479a-a700-89d5506052de">
-    <img alt="Mijick Header" width="92%">
+    <img alt="Mijick Header">
 </picture>
 </p>
 
