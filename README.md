@@ -47,15 +47,16 @@
 </picture>
 
 </p>
-
 <br>
+
+<!-- Header End -->
 
 
 <!-- CalendarView Logo -->
 <p align="center">
 <picture> 
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/17d7c44c-6b77-4e8f-977f-eedfff832f28">
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/640574e5-3e74-4f0b-9a86-078a6325d79e">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/Assets/blob/main/CalendarView/Logo/Dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/Assets/blob/main/CalendarView/Logo/Light.svg">
     <img alt="CalendarView Logo" width="28%">
 </picture>
 </p>
@@ -64,6 +65,11 @@
 <h3 align="center">
     Calendar View
 </h3>
+
+
+
+
+
 
 <!-- Library Description -->
 <p align="center">
