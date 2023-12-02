@@ -2,7 +2,7 @@
 <p align="center">
 
 
-<img alt="License: MIT" src="https://github.com/Mijick/CalendarView/assets/23524947/a58cf385-acd5-4a81-a410-1139576b21bc" width="100%"/>
+<img alt="License: MIT" src="https://github.com/Mijick/CalendarView/assets/23524947/c8d18974-84d5-479a-a700-89d5506052de" width="88%"/>
 
 </p>
 
@@ -14,7 +14,7 @@
 
 <p align="center">
       <picture> 
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/0dd87920-dccb-42cb-b73e-d4d7d5c874a6">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/cb7238d9-e69d-4bc6-a65d-b4ce9e19efd2">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/640574e5-3e74-4f0b-9a86-078a6325d79e">
     <img alt="PopupView Logo" src="https://github.com/Mijick/CalendarView/assets/23524947/c1a98b9f-5d02-4320-aa8e-9ed147e7bee6" width="68%"">
   </picture>
