@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-<img alt="Mijick Header" src="https://github.com/Mijick/CalendarView/assets/23524947/88668a61-bf5d-4d6b-96ed-31deb69bcf67" height="36px">
+<img alt="Mijick Header" src="https://github.com/Mijick/CalendarView/assets/23524947/88668a61-bf5d-4d6b-96ed-31deb69bcf67" height="28px">
 </p>
 
 <img alt="Mijick Header" src="https://github.com/Mijick/CalendarView/assets/23524947/f7c34982-6f4a-4b52-aa9f-d6f1e4290179" width="100%" height="0.5px">
