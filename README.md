@@ -42,8 +42,11 @@
 
 
 <!-- Separator -->
-<img alt="Mijick Header" src="https://github.com/Mijick/CalendarView/assets/23524947/f7c34982-6f4a-4b52-aa9f-d6f1e4290179" width="100%" height="0.75px">
-</p>
+<picture> 
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/Assets/blob/main/Mijick/On%20Dark/Separator.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/Assets/blob/main/Mijick/On%20Light/Separator.svg">
+    <img alt="Separator" width="100%" height="0.25px">
+</picture>
 
 <br>
 
