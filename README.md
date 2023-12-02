@@ -1,7 +1,7 @@
 <!-- Mijick Header -->
 <p align="center">
 <picture> 
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/aea8edca-5f1e-4722-9b3d-0d37cf115cf7">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/e2a26fc1-092f-4992-8c68-2683627a722c">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/c8d18974-84d5-479a-a700-89d5506052de">
     <img alt="Mijick Header" width="100%">
 </picture>
