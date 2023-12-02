@@ -1,22 +1,51 @@
-<!-- Mijick Header -->
 <p align="center">
+    
+<!-- Mijick Header -->
 <picture> 
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/ef841d83-fd8c-42f8-88ac-b3f94fb3cb04">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/c8d18974-84d5-479a-a700-89d5506052de">
     <img alt="Mijick Header" width="100%">
 </picture>
-    <img alt="Mijick Header" src="https://github.com/Mijick/CalendarView/assets/23524947/5f496413-3c15-4d9b-acd0-5e524bef99bb" height="30px">
-<img alt="Mijick Header" src="https://github.com/Mijick/CalendarView/assets/23524947/f7c34982-6f4a-4b52-aa9f-d6f1e4290179" width="100%" height="0.5px">
-</p>
 
+
+<!-- Social Buttons -->
 <p align="center">
 
+<!-- GitHub -->
+<a href="https://github.com/Mijick">
+<picture> 
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/ef841d83-fd8c-42f8-88ac-b3f94fb3cb04">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/c8d18974-84d5-479a-a700-89d5506052de">
+    <img alt="Mijick Header" width="100%">
+</picture>
+</a>
+
+<!-- Twitter -->
+<a href="https://github.com/Mijick">
+<picture> 
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/ef841d83-fd8c-42f8-88ac-b3f94fb3cb04">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/c8d18974-84d5-479a-a700-89d5506052de">
+    <img alt="Mijick Header" width="100%">
+</picture>
+</a>
+
+<!-- Email -->
+<a href="https://github.com/Mijick">
+<picture> 
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/ef841d83-fd8c-42f8-88ac-b3f94fb3cb04">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/c8d18974-84d5-479a-a700-89d5506052de">
+    <img alt="Mijick Header" width="100%">
+</picture>
+</a>
+
 </p>
 
 
+<!-- Separator -->
+<img alt="Mijick Header" src="https://github.com/Mijick/CalendarView/assets/23524947/f7c34982-6f4a-4b52-aa9f-d6f1e4290179" width="100%" height="0.75px">
+</p>
 
-
-<br><br>
+<br>
 
 <!-- CalendarView Logo -->
 <p align="center">
