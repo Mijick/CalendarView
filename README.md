@@ -204,7 +204,25 @@ struct ContentView: View {
 ### 3. Customizing WeekdaysView / WeekdayLabel / MonthLabel / DayView
 Each calendar element can be easily customised by creating your own view by inheriting the protocol (check [Demo Project][Demo] for more details).
 
+<br>
 
+
+# Try our demo
+See for yourself how does it work by cloning [project][Demo] we created
+
+# License
+PopupView is released under the MIT license. See [LICENSE][License] for details.
+
+<br><br>
+
+# Our other open source SwiftUI libraries
+[PopupView] - The most powerful popup library that allows you to present any popup
+<br>
+[Navigattie] - Easier and cleaner way of navigating through your app
+<br>
+[GridView] - Lay out your data with no effort
+<br>
+[Timer] - Modern API for Timer
 
 
 
