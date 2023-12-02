@@ -19,7 +19,7 @@
     <img alt="PopupView Logo" src="https://github.com/Mijick/Assets/blob/main/PopupView/Logotype/On%20Dark.svg" height="44px" align="right"">
   </picture>
 
-<br><br>
+<br>
 
   <picture> 
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/f0e196d1-de33-489c-8f33-b6e3c57721d0">
