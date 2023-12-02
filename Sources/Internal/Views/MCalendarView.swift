@@ -35,9 +35,12 @@ private extension MCalendarView {
     }
     func createScrollView() -> some View { ScrollViewReader { reader in
         ScrollView(showsIndicators: false) {
-            LazyVStack(spacing: 24) {
+            LazyVStack(spacing: configData.monthsSpacing) {
                 ForEach(monthsData, id: \.month, content: createMonthItem)
             }
+            .padding(.top, configData.monthsPadding.top)
+            .padding(.bottom, configData.monthsPadding.bottom)
+            .background(configData.monthsViewBackground)
         }
         .onAppear() { scrollToDate(reader, animatable: false) }
         .onChange(of: configData.scrollDate) { _ in scrollToDate(reader, animatable: true) }
@@ -45,7 +48,7 @@ private extension MCalendarView {
 }
 private extension MCalendarView {
     func createMonthItem(_ data: Data.MonthView) -> some View {
-        VStack(spacing: 12) {
+        VStack(spacing: configData.monthLabelDaysSpacing) {
             createMonthLabel(data.month)
             createMonthView(data)
         }

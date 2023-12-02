@@ -58,13 +58,13 @@
 <picture> 
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/Assets/blob/main/CalendarView/Logo/Dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/Assets/blob/main/CalendarView/Logo/Light.svg">
-    <img alt="CalendarView Logo" width="72%">
+    <img alt="CalendarView Logo" width="200">
 </picture>
 </p>
 
 <!-- Library Name -->
 <h3 align="center">
-    Calendars made simple
+    Calendar View
 </h3>
 
 <!-- Library Description -->

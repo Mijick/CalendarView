@@ -25,7 +25,7 @@ private extension MonthLabel {
     func createDefaultContent() -> some View {
         Text(getString(format: "MMMM y"))
             .font(.system(size: 16, weight: .semibold))
-            .foregroundColor(.black)
+            .foregroundColor(.onBackgroundPrimary)
     }
 }
 

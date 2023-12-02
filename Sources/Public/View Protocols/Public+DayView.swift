@@ -53,17 +53,17 @@ private extension DayView {
     func createDefaultDayLabel() -> some View {
         Text(getStringFromDay(format: "d"))
             .font(.system(size: 14, weight: .medium))
-            .foregroundColor(isSelected() ? .white : .black)
+            .foregroundColor(isSelected() ? .backgroundPrimary : .onBackgroundPrimary)
     }
     func createDefaultSelectionView() -> some View {
         Circle()
-            .fill(.black)
+            .fill(Color.onBackgroundPrimary)
             .transition(.asymmetric(insertion: .scale(scale: 0.52).combined(with: .opacity), removal: .opacity))
             .active(if: isSelected())
     }
     func createDefaultRangeSelectionView() -> some View {
         RoundedRectangle(corners: rangeSelectionViewCorners)
-            .fill(.black.opacity(0.12))
+            .fill(Color.onBackgroundPrimary.opacity(0.12))
             .transition(.opacity)
             .active(if: isWithinRange())
     }
@@ -71,7 +71,6 @@ private extension DayView {
 private extension DayView {
     func createBodyForCurrentMonth() -> some View {
         createContent()
-            .padding(.vertical, 1)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .aspectRatio(1.0, contentMode: .fit)
             .onAppear(perform: onAppear)
