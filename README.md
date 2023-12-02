@@ -38,8 +38,6 @@
 </picture>
 </a>
 
-</p>
-
 
 <!-- Separator -->
 <picture> 
@@ -48,7 +46,10 @@
     <img alt="Separator" width="100%" height="0.25px">
 </picture>
 
+</p>
+
 <br>
+
 
 <!-- CalendarView Logo -->
 <p align="center">
