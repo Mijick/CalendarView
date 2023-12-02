@@ -6,26 +6,22 @@
 
 </p>
 
-<p align="center">
-      <img alt="License: MIT" src="https://github.com/Mijick/CalendarView/assets/23524947/d8c7a177-6ae2-47a1-87df-b2c682075e93" height="56px"/>
-      <img alt="License: MIT" src="https://github.com/Mijick/CalendarView/assets/23524947/d48121ad-b482-4bce-ad5a-c1730b9d1d80" height="56px"/>
-      <img alt="License: MIT" src="https://github.com/Mijick/CalendarView/assets/23524947/91ee7719-6ade-4bee-892b-5589a1c3d0a2" height="56px"/>
-</p>
 
 
-<br><br>
+
+<br>
 
 
 <p align="center">
       <picture> 
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/311c0cc9-9065-4165-abfb-93a223a7eba9">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/c8f0d094-0f08-42e1-bef3-341c9399abee">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/640574e5-3e74-4f0b-9a86-078a6325d79e">
-    <img alt="PopupView Logo" src="https://github.com/Mijick/CalendarView/assets/23524947/c1a98b9f-5d02-4320-aa8e-9ed147e7bee6" width="62%"">
+    <img alt="PopupView Logo" src="https://github.com/Mijick/CalendarView/assets/23524947/c1a98b9f-5d02-4320-aa8e-9ed147e7bee6" width="48%"">
   </picture>
 </p>
 
 <h3 style="font-size: 5em" align="center">
-    Makes life easier
+    CalendarView
 </h3>
 
 <p align="center">
