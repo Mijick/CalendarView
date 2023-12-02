@@ -99,10 +99,10 @@
 
 <!-- GIFs -->
 <p align="center">
-    <img alt="Calendar Example 1" src="https://github.com/Mijick/Assets/blob/main/PopupView/GIFs/PopupView-Bottom.gif" width="23%"/>
-    <img alt="Calendar Example 2" src="https://github.com/Mijick/Assets/blob/main/PopupView/GIFs/PopupView-Centre.gif" width="23%"/>
-    <img alt="Calendar Example 3" src="https://github.com/Mijick/Assets/blob/main/PopupView/GIFs/PopupView-Top.gif" width="23%"/>
-    <img alt="Calendar Example 4" src="https://github.com/Mijick/Assets/blob/main/PopupView/GIFs/PopupView-Top.gif" width="23%"/>
+    <img alt="Calendar Example 1" src="https://github.com/Mijick/Assets/blob/main/CalendarView/GIFs/1.gif" width="23%"/>
+    <img alt="Calendar Example 2" src="https://github.com/Mijick/Assets/blob/main/CalendarView/GIFs/2.gif" width="23%"/>
+    <img alt="Calendar Example 3" src="https://github.com/Mijick/Assets/blob/main/CalendarView/GIFs/3.gif" width="23%"/>
+    <img alt="Calendar Example 4" src="https://github.com/Mijick/Assets/blob/main/CalendarView/GIFs/4.gif" width="23%"/>
 </p>
 
 <br>
