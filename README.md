@@ -5,7 +5,7 @@
 <picture> 
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/298b0397-ba12-4d34-9727-2c984f5ebd54">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/0d4d826c-bb72-49eb-8df7-a9a87b778269">        
-    <img alt="PopupView Logo" src="https://github.com/Mijick/Assets/blob/main/PopupView/Logotype/On%20Dark.svg" height="32px" width="30%" align="left">
+    <img alt="PopupView Logo" src="https://github.com/Mijick/Assets/blob/main/PopupView/Logotype/On%20Dark.svg" height="32px" align="left">
 </picture>
 
 <!-- Logo -->
@@ -16,7 +16,7 @@
 </picture>
 
 <!-- Buttons -->
-<div align="right" width="25%">
+<div align="right">
     <picture> 
         <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/bb0e0415-9db8-4f1b-9e23-b9888169a49f">
         <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/0d4d826c-bb72-49eb-8df7-a9a87b778269">
