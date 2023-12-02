@@ -2,8 +2,8 @@
     
 <!-- Mijick Header -->
 <picture> 
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/ef841d83-fd8c-42f8-88ac-b3f94fb3cb04">
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/c8d18974-84d5-479a-a700-89d5506052de">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/Assets/blob/main/Mijick/On%20Dark/Header.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/Assets/blob/main/Mijick/On%20Light/Header.svg">
     <img alt="Mijick Header" width="100%">
 </picture>
 
@@ -14,23 +14,23 @@
 <!-- GitHub -->
 <a href="https://github.com/Mijick">
 <picture> 
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/ef841d83-fd8c-42f8-88ac-b3f94fb3cb04">
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/c8d18974-84d5-479a-a700-89d5506052de">
-    <img alt="Mijick Header" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/Assets/blob/main/Mijick/On%20Dark/Button/Github.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/Assets/blob/main/Mijick/On%20Light/Button/Github.svg">
+    <img alt="Mijick GitHub" height="32px">
 </picture>
 </a>
 
 <!-- Twitter -->
-<a href="https://github.com/Mijick">
+<a href="https://twitter.com/MijickTeam">
 <picture> 
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/ef841d83-fd8c-42f8-88ac-b3f94fb3cb04">
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/c8d18974-84d5-479a-a700-89d5506052de">
-    <img alt="Mijick Header" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/Assets/blob/main/Mijick/On%20Dark/Button/Twitter.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/Assets/blob/main/Mijick/On%20Light/Button/Twitter.svg">
+    <img alt="Mijick Twitter" height="32px">
 </picture>
 </a>
 
 <!-- Email -->
-<a href="https://github.com/Mijick">
+<a href=mailto:team@mijick.com?subject=Hello>
 <picture> 
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/ef841d83-fd8c-42f8-88ac-b3f94fb3cb04">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/c8d18974-84d5-479a-a700-89d5506052de">
