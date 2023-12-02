@@ -60,12 +60,12 @@
 </picture>
 </p>
 
-<!-- Header Text -->
+<!-- Library Name -->
 <h3 align="center">
     Calendar View
 </h3>
 
-<!-- Header Description -->
+<!-- Library Description -->
 <p align="center">
     Create beautiful and fully customisable popups in no time. Keep your code clean
 </p>
