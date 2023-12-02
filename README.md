@@ -180,6 +180,26 @@ struct ContentView: View {
 ```
 
 ### 2. Customise Calendar
+Your MCalendarView can be customised by calling `configBuilder` inside the initialiser:
+
+```Swift
+struct ContentView: View {
+    @State private var selectedDate: Data? = nil
+    @State private var selectedRange: MDateRange? = .init()
+
+    var body: some View {
+        MCalendarView(selectedDate: nil, selectedRange: $selectedRange) {
+            $0
+                (...)
+                .dayView(NewDayView.init)
+                .firstWeekday(.wednesday)
+                .monthLabelToDaysDistance(12)
+                .weekdaysView(NewWeekdaysView.init)
+                (...)
+        }
+    }
+}
+```
 
 
 
