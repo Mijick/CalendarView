@@ -211,7 +211,7 @@ Each calendar element can be easily customised by creating your own view by inhe
 See for yourself how does it work by cloning [project][Demo] we created
 
 # License
-PopupView is released under the MIT license. See [LICENSE][License] for details.
+CalendarView is released under the MIT license. See [LICENSE][License] for details.
 
 <br><br>
 
