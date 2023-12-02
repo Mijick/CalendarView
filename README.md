@@ -1,39 +1,38 @@
+<!-- Top Header -->
 <p align="center">
-    
+
+<!-- Motto -->
 <picture> 
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/298b0397-ba12-4d34-9727-2c984f5ebd54">
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/0d4d826c-bb72-49eb-8df7-a9a87b778269">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/0d4d826c-bb72-49eb-8df7-a9a87b778269">        
     <img alt="PopupView Logo" src="https://github.com/Mijick/Assets/blob/main/PopupView/Logotype/On%20Dark.svg" height="32px" width="30%" align="left"">
-  </picture>
+</picture>
 
-  <picture> 
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/5060d499-b194-404a-873a-a1f8715fdc06">
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/0d4d826c-bb72-49eb-8df7-a9a87b778269">
-    <img alt="PopupView Logo" src="https://github.com/Mijick/Assets/blob/main/PopupView/Logotype/On%20Dark.svg" width="30%" height="56px"">
-  </picture>
-
-
+<!-- Logo -->
 <picture> 
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/52bf0283-09f1-4c1d-b6eb-445efb1164e8">
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/5adb5d22-643e-4f66-bb6a-e44ed9a0f12d">
-    <img alt="PopupView Logo" src="https://github.com/Mijick/Assets/blob/main/PopupView/Logotype/On%20Dark.svg" height="44px" width="30%" align="right"">
-  </picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/298b0397-ba12-4d34-9727-2c984f5ebd54">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/0d4d826c-bb72-49eb-8df7-a9a87b778269">        
+    <img alt="PopupView Logo" src="https://github.com/Mijick/Assets/blob/main/PopupView/Logotype/On%20Dark.svg" height="32px" width="30%" align="left"">
+</picture>
 
-<br>
-
-  <picture> 
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/f0e196d1-de33-489c-8f33-b6e3c57721d0">
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/5adb5d22-643e-4f66-bb6a-e44ed9a0f12d">
-    <img alt="PopupView Logo" src="https://github.com/Mijick/Assets/blob/main/PopupView/Logotype/On%20Dark.svg" height="0.5px" width="100%"">
-  </picture>
-  
-
-  
-  
-  
-  <br>
-
-  
+<!-- Buttons -->
+<div align="right">
+    <picture> 
+        <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/298b0397-ba12-4d34-9727-2c984f5ebd54">
+        <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/0d4d826c-bb72-49eb-8df7-a9a87b778269">
+        <img alt="PopupView Logo" src="https://github.com/Mijick/Assets/blob/main/PopupView/Logotype/On%20Dark.svg" height="32px">
+    </picture>
+    <picture> 
+        <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/298b0397-ba12-4d34-9727-2c984f5ebd54">
+        <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/0d4d826c-bb72-49eb-8df7-a9a87b778269">
+        <img alt="PopupView Logo" src="https://github.com/Mijick/Assets/blob/main/PopupView/Logotype/On%20Dark.svg" height="32px">
+    </picture>
+    <picture> 
+        <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/298b0397-ba12-4d34-9727-2c984f5ebd54">
+        <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/0d4d826c-bb72-49eb-8df7-a9a87b778269">
+        <img alt="PopupView Logo" src="https://github.com/Mijick/Assets/blob/main/PopupView/Logotype/On%20Dark.svg" height="32px">
+    </picture>
+</div>
 
 </p>
 
