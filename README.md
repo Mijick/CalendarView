@@ -18,7 +18,7 @@
   <picture> 
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/f0e196d1-de33-489c-8f33-b6e3c57721d0">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/5adb5d22-643e-4f66-bb6a-e44ed9a0f12d">
-    <img alt="PopupView Logo" src="https://github.com/Mijick/Assets/blob/main/PopupView/Logotype/On%20Dark.svg" height="0.25px" width="100%" align="right"">
+    <img alt="PopupView Logo" src="https://github.com/Mijick/Assets/blob/main/PopupView/Logotype/On%20Dark.svg" height="0.5px" width="100%"">
   </picture>
   
 
