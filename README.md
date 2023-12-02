@@ -7,16 +7,16 @@
 </p>
 
 
-<br><br>
+<br>
 
 
 
 
 <p align="center">
       <picture> 
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/cb7238d9-e69d-4bc6-a65d-b4ce9e19efd2">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/bb8423ef-32b5-4312-9297-e2038d389344">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/640574e5-3e74-4f0b-9a86-078a6325d79e">
-    <img alt="PopupView Logo" src="https://github.com/Mijick/CalendarView/assets/23524947/c1a98b9f-5d02-4320-aa8e-9ed147e7bee6" width="68%"">
+    <img alt="PopupView Logo" src="https://github.com/Mijick/CalendarView/assets/23524947/c1a98b9f-5d02-4320-aa8e-9ed147e7bee6" width="32%"">
   </picture>
 </p>
 
