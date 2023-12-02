@@ -54,9 +54,9 @@
 <!-- CalendarView Logo -->
 <p align="center">
 <picture> 
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/Assets/blob/main/CalendarView/Logo/Dark.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/af60dfe2-d7d8-4a60-ac74-b245d1fcb9e4">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/Assets/blob/main/CalendarView/Logo/Light.svg">
-    <img alt="CalendarView Logo" width="200">
+    <img alt="CalendarView Logo" width="72%">
 </picture>
 </p>
 
