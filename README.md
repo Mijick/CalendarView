@@ -1,24 +1,24 @@
 <!-- Mijick Header -->
 <p align="center">
-<picture width="100%"> 
+<picture> 
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/c8d18974-84d5-479a-a700-89d5506052de">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/c8d18974-84d5-479a-a700-89d5506052de">
-    <img alt="Mijick Header">
+    <img alt="Mijick Header" width="96%">
+</picture>
+</p>
+
+
+<!-- CalendarView Logo -->
+<p align="center">
+<picture> 
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/bb8423ef-32b5-4312-9297-e2038d389344">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/640574e5-3e74-4f0b-9a86-078a6325d79e">
+    <img alt="CalendarView Logo" width="30%">
 </picture>
 </p>
 
 
 
-
-
-
-<p align="center">
-      <picture> 
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/bb8423ef-32b5-4312-9297-e2038d389344">
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/640574e5-3e74-4f0b-9a86-078a6325d79e">
-    <img alt="PopupView Logo" src="https://github.com/Mijick/CalendarView/assets/23524947/c1a98b9f-5d02-4320-aa8e-9ed147e7bee6" width="32%"">
-  </picture>
-</p>
 
 <h3 style="font-size: 5em" align="center">
     Something very catchy
