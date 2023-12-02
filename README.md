@@ -127,6 +127,8 @@ CalendarView is a free and open-source library designed for SwiftUI that makes t
 | macOS 11+ | 5.0 |
 | watchOS 7+ | 5.0 |
 
+
+<!-- Installation -->
 ### ⏳ Installation
 #### [Swift Package Manager][spm]
 Swift Package Manager is a tool for automating the distribution of Swift code and is integrated into the Swift compiler.
@@ -139,7 +141,30 @@ dependencies: [
 ]
 ```
 
+<!-- Cocoapods -->
+#### [Cocoapods][cocoapods]   
+Cocoapods is a dependency manager for Swift and Objective-C Cocoa projects that helps to scale them elegantly.
 
+Installation steps:
+- Install CocoaPods 1.10.0 (or later)
+- [Generate CocoaPods][generate_cocoapods] for your project
+```Swift
+    pod init
+```
+- Add CocoaPods dependency into your `Podfile`   
+```Swift
+    pod 'MijickCalendarView'
+```
+- Install dependency and generate `.xcworkspace` file
+```Swift
+    pod install
+```
+- Use new XCode project file `.xcworkspace`
+<br>
+
+
+<!-- Usage -->
+# Usage
 
 
 
