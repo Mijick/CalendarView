@@ -128,6 +128,34 @@ CalendarView is a free and open-source library designed for SwiftUI that makes t
 | watchOS 7+ | 5.0 |
 
 ### ⏳ Installation
+#### [Swift Package Manager][spm]
+Swift Package Manager is a tool for automating the distribution of Swift code and is integrated into the Swift compiler.
+
+Once you have your Swift package set up, adding CalendarView as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
+
+```Swift
+dependencies: [
+    .package(url: "https://github.com/Mijick/CalendarView.git", branch(“main”))
+]
+```
 
 
 
+
+
+
+
+[MIT]: https://en.wikipedia.org/wiki/MIT_License
+[SPM]: https://www.swift.org/package-manager
+
+[Demo]: https://github.com/Mijick/CalendarView-Demo
+[License]: https://github.com/Mijick/CalendarView/blob/main/LICENSE
+
+[spm]: https://www.swift.org/package-manager/
+[cocoapods]: https://cocoapods.org/
+[generate_cocoapods]: https://github.com/square/cocoapods-generate
+
+[PopupView]: https://github.com/Mijick/PopupView
+[Navigattie]: https://github.com/Mijick/Navigattie 
+[GridView]: https://github.com/Mijick/GridView
+[Timer]: https://github.com/Mijick/Timer
