@@ -7,21 +7,21 @@
 </p>
 
 
-
+<br><br>
 
 
 
 
 <p align="center">
       <picture> 
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/c8f0d094-0f08-42e1-bef3-341c9399abee">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/197e0c18-efec-4af3-9c1d-c4f1db1071d2">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/640574e5-3e74-4f0b-9a86-078a6325d79e">
-    <img alt="PopupView Logo" src="https://github.com/Mijick/CalendarView/assets/23524947/c1a98b9f-5d02-4320-aa8e-9ed147e7bee6" width="36%"">
+    <img alt="PopupView Logo" src="https://github.com/Mijick/CalendarView/assets/23524947/c1a98b9f-5d02-4320-aa8e-9ed147e7bee6" width="52%"">
   </picture>
 </p>
 
 <h3 style="font-size: 5em" align="center">
-    CalendarView
+    Something very catchy
 </h3>
 
 <p align="center">
