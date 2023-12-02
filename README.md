@@ -7,30 +7,33 @@
 </picture>
 </p>
 
-
 <!-- CalendarView Logo -->
 <p align="center">
 <picture> 
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/bb8423ef-32b5-4312-9297-e2038d389344">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/CalendarView/assets/23524947/640574e5-3e74-4f0b-9a86-078a6325d79e">
-    <img alt="CalendarView Logo" width="30%">
+    <img alt="CalendarView Logo" width="28%">
 </picture>
 </p>
 
-
-
-
-<h3 style="font-size: 5em" align="center">
-    Something very catchy
+<!-- Header Text -->
+<h3 align="center">
+    Calendar View
 </h3>
 
+<!-- Header Description -->
 <p align="center">
     Create beautiful and fully customisable popups in no time. Keep your code clean
 </p>
 
+<!-- Demo Link -->
 <p align="center">
-    <a href="https://github.com/Mijick/PopupView-Demo" rel="nofollow">Try demo we prepared</a>
+<a href="https://github.com/Mijick/PopupView-Demo" rel="nofollow">
+    Try demo we prepared
+</a>
 </p>
+
+
 
 <br>
 
