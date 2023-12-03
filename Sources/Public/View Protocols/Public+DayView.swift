@@ -35,16 +35,8 @@ public extension DayView {
     func createDayLabel() -> AnyView { createDefaultDayLabel().erased() }
     func createSelectionView() -> AnyView { createDefaultSelectionView().erased() }
     func createRangeSelectionView() -> AnyView { createDefaultRangeSelectionView().erased() }
-
-    var body: some View { createBody() }
 }
 private extension DayView {
-    func createBody() -> some View {
-        Group {
-            if isCurrentMonth { createBodyForCurrentMonth() }
-            else { createBodyForOtherMonth() }
-        }
-    }
     func createDefaultContent() -> some View { ZStack {
         createSelectionView()
         createRangeSelectionView()
@@ -67,16 +59,6 @@ private extension DayView {
             .transition(.opacity)
             .active(if: isWithinRange())
     }
-}
-private extension DayView {
-    func createBodyForCurrentMonth() -> some View {
-        createContent()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .aspectRatio(1.0, contentMode: .fit)
-            .onAppear(perform: onAppear)
-            .onTapGesture(perform: onSelection)
-    }
-    func createBodyForOtherMonth() -> some View { Rectangle().fill(Color.clear) }
 }
 private extension DayView {
     var rangeSelectionViewCorners: RoundedRectangle.Corner { 
@@ -114,4 +96,22 @@ public extension DayView {
     func isBeginningOfRange() -> Bool { date.isSame(.day, as: selectedRange?.wrappedValue?.getRange()?.lowerBound) }
     func isEndOfRange() -> Bool { date.isSame(.day, as: selectedRange?.wrappedValue?.getRange()?.upperBound) }
     func isWithinRange() -> Bool { selectedRange?.wrappedValue?.isRangeCompleted() == true && selectedRange?.wrappedValue?.contains(date) == true }
+}
+
+// MARK: - Others
+public extension DayView {
+    var body: some View { Group {
+        if isCurrentMonth { createBodyForCurrentMonth() }
+        else { createBodyForOtherMonth() }
+    }}
+}
+private extension DayView {
+    func createBodyForCurrentMonth() -> some View {
+        createContent()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .aspectRatio(1.0, contentMode: .fit)
+            .onAppear(perform: onAppear)
+            .onTapGesture(perform: onSelection)
+    }
+    func createBodyForOtherMonth() -> some View { Rectangle().fill(Color.clear) }
 }
