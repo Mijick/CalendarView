@@ -48,8 +48,13 @@ public extension CalendarConfig {
 
 // MARK: - Custom Views
 public extension CalendarConfig {
+    /// Replaces the default weekdays view with a selected implementation.
     func weekdaysView(_ builder: @escaping () -> some WeekdaysView) -> Self { changing(path: \.weekdaysView, to: builder) }
+
+    /// Replaces the default month label with a selected implementation.
     func monthLabel(_ builder: @escaping (Date) -> some MonthLabel) -> Self { changing(path: \.monthLabel, to: builder) }
+
+    /// Replaces the default day view with a selected implementation.
     func dayView(_ builder: @escaping (Date, Bool, Binding<Date?>?, Binding<MDateRange?>?) -> some DayView) -> Self { changing(path: \.dayView, to: builder) }
 }
 
