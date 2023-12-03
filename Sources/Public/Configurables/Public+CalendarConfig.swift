@@ -32,11 +32,22 @@ public extension CalendarConfig {
 
 // MARK: - Distances Between Objects
 public extension CalendarConfig {
+    /// Sets the top scroll padding in the view.
     func monthsTopPadding(_ value: CGFloat) -> Self { changing(path: \.monthsPadding.top, to: value) }
+
+    /// Sets the bottom scroll padding in the view.
     func monthsBottomPadding(_ value: CGFloat) -> Self { changing(path: \.monthsPadding.bottom, to: value) }
+
+    /// Sets the distance between the month label and the day cell in the view.
     func monthLabelToDaysDistance(_ value: CGFloat) -> Self { changing(path: \.monthLabelDaysSpacing, to: value) }
+
+    /// Sets the spacing between months in the view.
     func monthsSpacing(_ value: CGFloat) -> Self { changing(path: \.monthsSpacing, to: value) }
+
+    /// Sets the vertical spacing between day cells in the view.
     func daysVerticalSpacing(_ value: CGFloat) -> Self { changing(path: \.daysSpacing.vertical, to: value) }
+
+    /// Sets the horizontal spacing between day cells in the view.
     func daysHorizontalSpacing(_ value: CGFloat) -> Self { changing(path: \.daysSpacing.horizontal, to: value) }
 }
 
