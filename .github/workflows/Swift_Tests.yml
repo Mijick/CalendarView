@@ -1,0 +1,60 @@
+# This workflow will build a Swift project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
+
+name: Swift
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    
+    outputs:
+      STATUS: ${{ steps.set_status.outputs.STATUS }}
+
+    steps:
+    - run: echo "The job was automatically triggered by a ${{ github.event_name }} event."
+    - uses: actions/checkout@v3
+    
+    - name: Build project and run tests
+      run: xcodebuild test -quiet -scheme MijickCalendarView -destination 'platform=iOS Simulator,name=iPhone 13 Pro' -resultBundlePath TestResults
+    
+    - name: Set env STATUS
+      if: always()
+      id: set_status
+      run: |
+        if [[ ${{ job.status }} == 'success' ]]; then
+            echo "STATUS=success" >> $GITHUB_OUTPUT
+        else
+            echo "STATUS=failure" >> $GITHUB_OUTPUT
+        fi
+  
+  slackNotification:
+    name: Slack Notification
+    needs: build
+    if: always()
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set env ICON
+      run: |
+          if [[ ${{ needs.build.outputs.STATUS }} == 'success' ]]; then
+              echo "ICON=https://cdn-icons-png.flaticon.com/512/148/148767.png" >> $GITHUB_ENV
+          else
+              echo "ICON=https://cdn-icons-png.flaticon.com/512/4436/4436559.png" >> $GITHUB_ENV
+          fi
+    
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_ICON: ${{ env.ICON }}
+        SLACK_COLOR: ${{ needs.build.outputs.STATUS }}
+        SLACK_TITLE: "Branch ${{ github.head_ref }}"
+        SLACK_MESSAGE: "Test status is ${{ needs.build.outputs.STATUS }}"
+        SLACK_WEBHOOK: "${{ secrets.SLACK_INCOMMING_WEBHOOK }}"
