@@ -10,29 +10,31 @@
 
 import SwiftUI
 
-public protocol WeekdaysView: View {    
+public protocol WeekdaysView: View {
+    // MARK: View Customisation
     func createContent() -> AnyView
     func createWeekdayLabel(_ weekday: MWeekday) -> AnyWeekdayLabel
 }
 
-// MARK: - Customising View
+// MARK: - Default View Implementation
 public extension WeekdaysView {
-    func createContent() -> AnyView { createDefaultContent().erased() }
-    func createWeekdaysView() -> AnyView { createDefaultWeekdaysView().erased() }
+    func createContent() -> AnyView { createWeekdaysView().erased() }
     func createWeekdayLabel(_ weekday: MWeekday) -> AnyWeekdayLabel { createDefaultWeekDayLabel(weekday).erased() }
-
-    var body: some View { createContent() }
 }
 private extension WeekdaysView {
-    func createDefaultContent() -> some View { createWeekdaysView() }
-    func createDefaultWeekdaysView() -> some View { HStack(spacing: 0) { ForEach(weekdays, id: \.self, content: createWeekdayItem) }}
     func createDefaultWeekDayLabel(_ weekday: MWeekday) -> DefaultWeekdayLabel { DefaultWeekdayLabel(weekday: weekday) }
+}
+
+// MARK: - Helpers
+public extension WeekdaysView {
+    /// Creates weekdays view using the selected weekday labels. Cannot be overriden.
+    func createWeekdaysView() -> some View { HStack(spacing: 0) { ForEach(MWeekday.allCases, id: \.self, content: createWeekdayItem) } }
 }
 private extension WeekdaysView {
     func createWeekdayItem(_ weekday: MWeekday) -> some View { createWeekdayLabel(weekday).frame(maxWidth: .infinity) }
 }
 
-// MARK: Helpers
+// MARK: - Others
 public extension WeekdaysView {
-    var weekdays: [MWeekday] { MWeekday.allCases }
+    var body: some View { createContent() }
 }

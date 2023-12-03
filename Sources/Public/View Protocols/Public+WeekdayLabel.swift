@@ -11,15 +11,16 @@
 import SwiftUI
 
 public protocol WeekdayLabel: View {
+    // MARK: Required Attributes
     var weekday: MWeekday { get }
 
+    // MARK: View Customisation
     func createContent() -> AnyView
 }
 
-// MARK: - Customising View
+// MARK: - Default View Implementation
 public extension WeekdayLabel {
     func createContent() -> AnyView { createDefaultContent().erased() }
-    var body: some View { createContent() }
 }
 private extension WeekdayLabel {
     func createDefaultContent() -> some View {
@@ -31,8 +32,14 @@ private extension WeekdayLabel {
 
 // MARK: - Helpers
 public extension WeekdayLabel {
+    /// Returns a string of the selected format for the weekday.
+    func getString(with format: WeekdaySymbolFormat) -> String { MDateFormatter.getString(for: weekday, format: format) }
+
+    /// Returns a type-erased object.
     func erased() -> AnyWeekdayLabel { .init(self) }
 }
+
+// MARK: - Others
 public extension WeekdayLabel {
-    func getString(with format: WeekdaySymbolFormat) -> String { MDateFormatter.getString(for: weekday, format: format) }
+    var body: some View { createContent() }
 }
