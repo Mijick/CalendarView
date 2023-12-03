@@ -31,9 +31,12 @@ private extension WeekdaysView {
 public extension WeekdaysView {
     /// Creates weekdays view using the selected weekday labels. Cannot be overriden.
     func createWeekdaysView() -> some View { HStack(spacing: 0) { ForEach(MWeekday.allCases, id: \.self, content: createWeekdayItem) } }
-
-    var body: some View { createContent() }
 }
 private extension WeekdaysView {
     func createWeekdayItem(_ weekday: MWeekday) -> some View { createWeekdayLabel(weekday).frame(maxWidth: .infinity) }
+}
+
+// MARK: - Others
+public extension WeekdaysView {
+    var body: some View { createContent() }
 }
