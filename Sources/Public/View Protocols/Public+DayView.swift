@@ -75,23 +75,26 @@ public extension DayView {
     func onSelection() { selectedDate?.wrappedValue = date }
 }
 
-// MARK: - Text Formatting
+// MARK: - Helpers
+
+// MARK: Text Formatting
 public extension DayView {
+    /// Returns a string of the selected format for the date.
     func getStringFromDay(format: String) -> String { MDateFormatter.getString(from: date, format: format) }
 }
 
-// MARK: - Date Helpers
+// MARK: Date Helpers
 public extension DayView {
     func isPast() -> Bool { date.isBefore(.day, than: .now) }
     func isToday() -> Bool { date.isSame(.day, as: .now) }
 }
 
-// MARK: - Day Selection Helpers
+// MARK: Day Selection Helpers
 public extension DayView {
     func isSelected() -> Bool { date.isSame(.day, as: selectedDate?.wrappedValue) || isBeginningOfRange() || isEndOfRange() }
 }
 
-// MARK: - Range Selection Helpers
+// MARK: Range Selection Helpers
 public extension DayView {
     func isBeginningOfRange() -> Bool { date.isSame(.day, as: selectedRange?.wrappedValue?.getRange()?.lowerBound) }
     func isEndOfRange() -> Bool { date.isSame(.day, as: selectedRange?.wrappedValue?.getRange()?.upperBound) }
