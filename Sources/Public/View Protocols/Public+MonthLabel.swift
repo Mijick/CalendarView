@@ -11,25 +11,32 @@
 import SwiftUI
 
 public protocol MonthLabel: View {
+    // MARK: Required Attributes
     var month: Date { get }
 
+    // MARK: View Customisation
     func createContent() -> AnyView
 }
 
-// MARK: - Customizing View
+// MARK: - Default View Implementation
 public extension MonthLabel {
     func createContent() -> AnyView { createDefaultContent().erased() }
-    var body: some View { createContent() }
 }
 private extension MonthLabel {
     func createDefaultContent() -> some View {
         Text(getString(format: "MMMM y"))
             .font(.system(size: 16, weight: .semibold))
-            .foregroundColor(.black)
+            .foregroundColor(.onBackgroundPrimary)
     }
 }
 
 // MARK: - Helpers
 public extension MonthLabel {
+    /// Returns a string of the selected format for the month.
     func getString(format: String) -> String { MDateFormatter.getString(from: month, format: format) }
+}
+
+// MARK: - Others
+public extension MonthLabel {
+    var body: some View { createContent() }
 }

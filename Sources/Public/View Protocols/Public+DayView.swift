@@ -29,22 +29,14 @@ public protocol DayView: View {
     func onSelection()
 }
 
-// MARK: - Customising View
+// MARK: - Default View Implementation
 public extension DayView {
     func createContent() -> AnyView { createDefaultContent().erased() }
     func createDayLabel() -> AnyView { createDefaultDayLabel().erased() }
     func createSelectionView() -> AnyView { createDefaultSelectionView().erased() }
     func createRangeSelectionView() -> AnyView { createDefaultRangeSelectionView().erased() }
-
-    var body: some View { createBody() }
 }
 private extension DayView {
-    func createBody() -> some View {
-        Group {
-            if isCurrentMonth { createBodyForCurrentMonth() }
-            else { createBodyForOtherMonth() }
-        }
-    }
     func createDefaultContent() -> some View { ZStack {
         createSelectionView()
         createRangeSelectionView()
@@ -53,31 +45,20 @@ private extension DayView {
     func createDefaultDayLabel() -> some View {
         Text(getStringFromDay(format: "d"))
             .font(.system(size: 14, weight: .medium))
-            .foregroundColor(isSelected() ? .white : .black)
+            .foregroundColor(isSelected() ? .backgroundPrimary : .onBackgroundPrimary)
     }
     func createDefaultSelectionView() -> some View {
         Circle()
-            .fill(.black)
-            .transition(.scale(scale: 0.52).combined(with: .opacity))
+            .fill(Color.onBackgroundPrimary)
+            .transition(.asymmetric(insertion: .scale(scale: 0.52).combined(with: .opacity), removal: .opacity))
             .active(if: isSelected())
     }
     func createDefaultRangeSelectionView() -> some View {
         RoundedRectangle(corners: rangeSelectionViewCorners)
-            .fill(.black.opacity(0.12))
+            .fill(Color.onBackgroundPrimary.opacity(0.12))
             .transition(.opacity)
             .active(if: isWithinRange())
     }
-}
-private extension DayView {
-    func createBodyForCurrentMonth() -> some View {
-        createContent()
-            .padding(.vertical, 1)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .aspectRatio(1.0, contentMode: .fit)
-            .onAppear(perform: onAppear)
-            .onTapGesture(perform: onSelection)
-    }
-    func createBodyForOtherMonth() -> some View { Rectangle().fill(Color.clear) }
 }
 private extension DayView {
     var rangeSelectionViewCorners: RoundedRectangle.Corner { 
@@ -88,31 +69,52 @@ private extension DayView {
     }
 }
 
-// MARK: - Handling Actions
+// MARK: - Default Logic Implementation
 public extension DayView {
     func onAppear() {}
     func onSelection() { selectedDate?.wrappedValue = date }
 }
 
-// MARK: - Text Formatting
+// MARK: - Helpers
+
+// MARK: Text Formatting
 public extension DayView {
+    /// Returns a string of the selected format for the date.
     func getStringFromDay(format: String) -> String { MDateFormatter.getString(from: date, format: format) }
 }
 
-// MARK: - Date Helpers
+// MARK: Date Helpers
 public extension DayView {
     func isPast() -> Bool { date.isBefore(.day, than: .now) }
     func isToday() -> Bool { date.isSame(.day, as: .now) }
 }
 
-// MARK: - Day Selection Helpers
+// MARK: Day Selection Helpers
 public extension DayView {
     func isSelected() -> Bool { date.isSame(.day, as: selectedDate?.wrappedValue) || isBeginningOfRange() || isEndOfRange() }
 }
 
-// MARK: - Range Selection Helpers
+// MARK: Range Selection Helpers
 public extension DayView {
     func isBeginningOfRange() -> Bool { date.isSame(.day, as: selectedRange?.wrappedValue?.getRange()?.lowerBound) }
     func isEndOfRange() -> Bool { date.isSame(.day, as: selectedRange?.wrappedValue?.getRange()?.upperBound) }
     func isWithinRange() -> Bool { selectedRange?.wrappedValue?.isRangeCompleted() == true && selectedRange?.wrappedValue?.contains(date) == true }
+}
+
+// MARK: - Others
+public extension DayView {
+    var body: some View { Group {
+        if isCurrentMonth { createBodyForCurrentMonth() }
+        else { createBodyForOtherMonth() }
+    }}
+}
+private extension DayView {
+    func createBodyForCurrentMonth() -> some View {
+        createContent()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .aspectRatio(1.0, contentMode: .fit)
+            .onAppear(perform: onAppear)
+            .onTapGesture(perform: onSelection)
+    }
+    func createBodyForOtherMonth() -> some View { Rectangle().fill(Color.clear) }
 }

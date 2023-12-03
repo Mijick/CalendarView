@@ -16,37 +16,43 @@ final class MDateFormatterTests: XCTestCase { }
 // MARK: - Day Symbol
 extension MDateFormatterTests {
     func testDaySymbols_englishLocale_Monday_fullFormat() {
-        let daySymbol = MDateFormatter(.english).getString(for: .monday, format: .full)
+        MCalendar.locale = .english
+        let daySymbol = MDateFormatter.getString(for: .monday, format: .full)
         let expectedDaySymbol = "Monday"
         
         XCTAssertEqual(daySymbol, expectedDaySymbol)
     }
     func testDaySymbols_englishLocale_Sunday_shortFormat() {
-        let daySymbol = MDateFormatter(.english).getString(for: .sunday, format: .short)
+        MCalendar.locale = .english
+        let daySymbol = MDateFormatter.getString(for: .sunday, format: .short)
         let expectedDaySymbol = "Sun"
         
         XCTAssertEqual(daySymbol, expectedDaySymbol)
     }
     func testDaySymbols_englishLocale_Wednesday_veryShortFormat() {
-        let daySymbol = MDateFormatter(.english).getString(for: .wednesday, format: .veryShort)
+        MCalendar.locale = .english
+        let daySymbol = MDateFormatter.getString(for: .wednesday, format: .veryShort)
         let expectedDaySymbol = "W"
         
         XCTAssertEqual(daySymbol, expectedDaySymbol)
     }
     func testDaySymbols_polishLocale_Monday_fullFormat() {
-        let daySymbol = MDateFormatter(.polish).getString(for: .monday, format: .full)
+        MCalendar.locale = .polish
+        let daySymbol = MDateFormatter.getString(for: .monday, format: .full)
         let expectedDaySymbol = "Poniedziałek"
         
         XCTAssertEqual(daySymbol, expectedDaySymbol)
     }
     func testDaySymbols_polishLocale_Sunday_shortFormat() {
-        let daySymbol = MDateFormatter(.polish).getString(for: .sunday, format: .short)
+        MCalendar.locale = .polish
+        let daySymbol = MDateFormatter.getString(for: .sunday, format: .short)
         let expectedDaySymbol = "Niedz."
         
         XCTAssertEqual(daySymbol, expectedDaySymbol)
     }
     func testDaySymbols_polishLocale_Wednesday_veryShortFormat() {
-        let daySymbol = MDateFormatter(.polish).getString(for: .wednesday, format: .veryShort)
+        MCalendar.locale = .polish
+        let daySymbol = MDateFormatter.getString(for: .wednesday, format: .veryShort)
         let expectedDaySymbol = "Ś"
         
         XCTAssertEqual(daySymbol, expectedDaySymbol)
@@ -61,29 +67,29 @@ extension MDateFormatterTests {
     var comparableDate: String { "2023-11-04" }
     
     func testDateFormat_englishLocale_dateWithShortWeekDateName() {
-        let formatter = MDateFormatter(.english)
-        let formattedDate = formatter.getString(from: comparableDate.toDate(), format: includedWeekNameFormat)
+        MCalendar.locale = .english
+        let formattedDate = MDateFormatter.getString(from: comparableDate.toDate(), format: includedWeekNameFormat)
         let expectedFormattedDate = "Sat, 4 Nov 2023"
         
         XCTAssertEqual(formattedDate, expectedFormattedDate)
     }
     func testDateFormat_polishLocale_dateWithShortWeekDateName() {
-        let formatter = MDateFormatter(.polish)
-        let formattedDate = formatter.getString(from: comparableDate.toDate(), format: includedWeekNameFormat)
+        MCalendar.locale = .polish
+        let formattedDate = MDateFormatter.getString(from: comparableDate.toDate(), format: includedWeekNameFormat)
         let expectedFormattedDate = "Sob., 4 Lis 2023"
         
         XCTAssertEqual(formattedDate, expectedFormattedDate)
     }
     func testDateFormat_dateWithDashes() {
-        let formatter = MDateFormatter(.english)
-        let formattedDate = formatter.getString(from: comparableDate.toDate(), format: dashedFormat)
+        MCalendar.locale = .english
+        let formattedDate = MDateFormatter.getString(from: comparableDate.toDate(), format: dashedFormat)
         let expectedFormattedDate = "2023-11-04"
         
         XCTAssertEqual(formattedDate, expectedFormattedDate)
     }
     func testDateFormat_polishLocale_dateWithDots() {
-        let formatter = MDateFormatter(.polish)
-        let formattedDate = formatter.getString(from: comparableDate.toDate(), format: dottedFormat)
+        MCalendar.locale = .polish
+        let formattedDate = MDateFormatter.getString(from: comparableDate.toDate(), format: dottedFormat)
         let expectedFormattedDate = "04.11.23"
         
         XCTAssertEqual(formattedDate, expectedFormattedDate)
