@@ -74,7 +74,7 @@ public extension CalendarConfig {
     /// Scrolls the calendar to the selected date.
     func scrollTo(date: Date?) -> Self { changing(path: \.scrollDate, to: date) }
 
-    /// Triggers when a new month is to be visible.
+    /// Triggers when a new month is about to be visible.
     func onMonthChange(_ value: @escaping (Date) -> ()) -> Self { changing(path: \.onMonthChange, to: value) }
 }
 
