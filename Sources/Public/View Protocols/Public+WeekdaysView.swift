@@ -11,14 +11,12 @@
 import SwiftUI
 
 public protocol WeekdaysView: View {
-    /// Replaces the default body implementation.
+    // MARK: View Customisation
     func createContent() -> AnyView
-
-    /// Replaces the default weekday label with a selected implementation.
     func createWeekdayLabel(_ weekday: MWeekday) -> AnyWeekdayLabel
 }
 
-// MARK: - Default Implementation
+// MARK: - Default View Implementation
 public extension WeekdaysView {
     func createContent() -> AnyView { createWeekdaysView().erased() }
     func createWeekdayLabel(_ weekday: MWeekday) -> AnyWeekdayLabel { createDefaultWeekDayLabel(weekday).erased() }

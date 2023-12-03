@@ -14,11 +14,11 @@ public protocol WeekdayLabel: View {
     // MARK: Required Attributes
     var weekday: MWeekday { get }
 
-    /// Replaces the default body implementation.
+    // MARK: View Customisation
     func createContent() -> AnyView
 }
 
-// MARK: - Default Implementation
+// MARK: - Default View Implementation
 public extension WeekdayLabel {
     func createContent() -> AnyView { createDefaultContent().erased() }
 }

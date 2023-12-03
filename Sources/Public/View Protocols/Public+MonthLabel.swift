@@ -14,11 +14,11 @@ public protocol MonthLabel: View {
     // MARK: Required Attributes
     var month: Date { get }
 
-    /// Replaces the default body implementation.
+    // MARK: View Customisation
     func createContent() -> AnyView
 }
 
-// MARK: - Default Implementation
+// MARK: - Default View Implementation
 public extension MonthLabel {
     func createContent() -> AnyView { createDefaultContent().erased() }
 }

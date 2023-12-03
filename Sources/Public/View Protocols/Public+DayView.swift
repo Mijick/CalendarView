@@ -29,7 +29,7 @@ public protocol DayView: View {
     func onSelection()
 }
 
-// MARK: - Customising View
+// MARK: - Default View Implementation
 public extension DayView {
     func createContent() -> AnyView { createDefaultContent().erased() }
     func createDayLabel() -> AnyView { createDefaultDayLabel().erased() }
@@ -69,7 +69,7 @@ private extension DayView {
     }
 }
 
-// MARK: - Handling Actions
+// MARK: - Default Logic Implementation
 public extension DayView {
     func onAppear() {}
     func onSelection() { selectedDate?.wrappedValue = date }
