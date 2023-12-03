@@ -10,8 +10,11 @@
 
 import SwiftUI
 
-public protocol WeekdaysView: View {    
+public protocol WeekdaysView: View {
+    /// Replaces the default body implementation.
     func createContent() -> AnyView
+
+    /// Replaces the default weekday label with a selected implementation.
     func createWeekdayLabel(_ weekday: MWeekday) -> AnyWeekdayLabel
 }
 
