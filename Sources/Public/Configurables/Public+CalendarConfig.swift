@@ -13,9 +13,20 @@ import SwiftUI
 
 // MARK: - Calendar Configuration
 public extension CalendarConfig {
+    /// Sets the start date of the calendar.
+    /// DEFAULT: Current month
     func startMonth(_ value: Date) -> Self { MCalendar.startDate = value.start(of: .month); return self }
+
+    /// Sets the end date of the calendar.
+    /// DEFAULT: A date  in 10 years
     func endMonth(_ value: Date) -> Self { MCalendar.endDate = value.end(of: .month); return self }
+
+    /// Sets the first day of the week.
+    /// DEFAULT:: Monday
     func firstWeekday(_ value: MWeekday) -> Self { MCalendar.firstWeekday = value; return self }
+
+    /// Sets the locale of the calendar.
+    /// DEFAULT: AutoupdatingCurrent
     func locale(_ value: Locale) -> Self { MCalendar.locale = value; return self }
 }
 
@@ -29,21 +40,25 @@ public extension CalendarConfig {
     func daysHorizontalSpacing(_ value: CGFloat) -> Self { changing(path: \.daysSpacing.horizontal, to: value) }
 }
 
-// MARK: - Custom Views
-public extension CalendarConfig {
-    func monthLabel(_ builder: @escaping (Date) -> some MonthLabel) -> Self { changing(path: \.monthLabel, to: builder) }
-    func weekdaysView(_ builder: @escaping () -> some WeekdaysView) -> Self { changing(path: \.weekdaysView, to: builder) }
-    func dayView(_ builder: @escaping (Date, Bool, Binding<Date?>?, Binding<MDateRange?>?) -> some DayView) -> Self { changing(path: \.dayView, to: builder) }
-}
-
 // MARK: - View Customisation
 public extension CalendarConfig {
+    /// Sets the background for the months view.
     func monthsViewBackground(_ value: Color) -> Self { changing(path: \.monthsViewBackground, to: value) }
+}
+
+// MARK: - Custom Views
+public extension CalendarConfig {
+    func weekdaysView(_ builder: @escaping () -> some WeekdaysView) -> Self { changing(path: \.weekdaysView, to: builder) }
+    func monthLabel(_ builder: @escaping (Date) -> some MonthLabel) -> Self { changing(path: \.monthLabel, to: builder) }
+    func dayView(_ builder: @escaping (Date, Bool, Binding<Date?>?, Binding<MDateRange?>?) -> some DayView) -> Self { changing(path: \.dayView, to: builder) }
 }
 
 // MARK: - Modifiers
 public extension CalendarConfig {
+    /// Scrolls the calendar to the selected date.
     func scrollTo(date: Date?) -> Self { changing(path: \.scrollDate, to: date) }
+
+    /// Triggers when a new month is to be visible.
     func onMonthChange(_ value: @escaping (Date) -> ()) -> Self { changing(path: \.onMonthChange, to: value) }
 }
 
@@ -57,8 +72,8 @@ public struct CalendarConfig: Configurable { public init() {}
 
     private(set) var monthsViewBackground: Color = .clear
 
-    private(set) var monthLabel: (Date) -> any MonthLabel = DefaultMonthLabel.init
     private(set) var weekdaysView: () -> any WeekdaysView = DefaultWeekdaysView.init
+    private(set) var monthLabel: (Date) -> any MonthLabel = DefaultMonthLabel.init
     private(set) var dayView: (Date, Bool, Binding<Date?>?, Binding<MDateRange?>?) -> any DayView = DefaultDayView.init
 
     private(set) var scrollDate: Date? = nil
