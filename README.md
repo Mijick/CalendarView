@@ -218,9 +218,11 @@ CalendarView is released under the MIT license. See [LICENSE][License] for detai
 # Our other open source SwiftUI libraries
 [PopupView] - The most powerful popup library that allows you to present any popup
 <br>
-[Navigattie] - Easier and cleaner way of navigating through your app
+[NavigationView] - Easier and cleaner way of navigating through your app
 <br>
 [GridView] - Lay out your data with no effort
+<br>
+[CameraView] - The most powerful CameraController. Designed for SwiftUI
 <br>
 [Timer] - Modern API for Timer
 
@@ -237,6 +239,7 @@ CalendarView is released under the MIT license. See [LICENSE][License] for detai
 [generate_cocoapods]: https://github.com/square/cocoapods-generate
 
 [PopupView]: https://github.com/Mijick/PopupView
-[Navigattie]: https://github.com/Mijick/Navigattie 
+[NavigationView]: https://github.com/Mijick/NavigationView 
+[CameraView]: https://github.com/Mijick/CameraView
 [GridView]: https://github.com/Mijick/GridView
 [Timer]: https://github.com/Mijick/Timer
