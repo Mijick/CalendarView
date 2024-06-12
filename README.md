@@ -170,7 +170,7 @@ To declare a CalendarView, call the constructor:
 
 ```Swift
 struct ContentView: View {
-    @State private var selectedDate: Data? = nil
+    @State private var selectedDate: Date? = nil
     @State private var selectedRange: MDateRange? = .init()
 
     var body: some View {
@@ -184,7 +184,7 @@ Your MCalendarView can be customised by calling `configBuilder` inside the initi
 
 ```Swift
 struct ContentView: View {
-    @State private var selectedDate: Data? = nil
+    @State private var selectedDate: Date? = nil
     @State private var selectedRange: MDateRange? = .init()
 
     var body: some View {
