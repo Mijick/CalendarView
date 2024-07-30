@@ -74,9 +74,11 @@
 
 <!-- Demo Link -->
 <p align="center">
-<a href="https://github.com/Mijick/CalendarView-Demo" rel="nofollow">
-    Try demo we prepared
-</a>
+    <a href="https://github.com/Mijick/CalendarView-Demo" rel="nofollow">Try demo we prepared</a>
+    |
+    <a href="https://mijick.notion.site/c55a759a632e495baf43ab2d956e66ea?v=f1dd812b22874b7e875b963aab33b90f&pvs=25" rel="nofollow">Roadmap</a>
+    |
+    <a href="https://github.com/Mijick/CalendarView/issues/new" rel="nofollow">Propose a new feature</a>
 </p>
 
 <br>
