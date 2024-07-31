@@ -15,16 +15,19 @@ public struct MCalendarView: View {
     @StateObject var selectedData: Data.MCalendarView
     let monthsData: [Data.MonthView]
     let configData: CalendarConfig
+    let showWeekdays: Bool
 
-
-    init(_ selectedDate: Binding<Date?>?, _ selectedRange: Binding<MDateRange?>?, _ configBuilder: (CalendarConfig) -> CalendarConfig) {
+    init(_ selectedDate: Binding<Date?>?, _ selectedRange: Binding<MDateRange?>?, showWeekdays: Bool = true, _ configBuilder: (CalendarConfig) -> CalendarConfig) {
         self._selectedData = .init(wrappedValue: .init(selectedDate, selectedRange))
         self.configData = configBuilder(.init())
         self.monthsData = .generate()
+        self.showWeekdays = showWeekdays
     }
     public var body: some View {
         VStack(spacing: 12) {
-            createWeekdaysView()
+            if showWeekdays {
+                createWeekdaysView()
+            }
             createScrollView()
         }
     }
