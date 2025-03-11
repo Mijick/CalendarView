@@ -11,7 +11,7 @@
 
 import Foundation
 
-extension Data { struct MonthView {
+extension Data { struct MonthView: Hashable {
     let month: Date
     let items: [[Date]]
 }}

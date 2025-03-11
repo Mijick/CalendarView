@@ -14,6 +14,7 @@ import SwiftUI
 struct MonthView: View {
     @Binding var selectedDate: Date?
     @Binding var selectedRange: MDateRange?
+    @Binding var selectedMonthIndex: Int
     let data: Data.MonthView
     let config: CalendarConfig
 
@@ -22,9 +23,34 @@ struct MonthView: View {
         LazyVStack(spacing: config.daysSpacing.vertical) {
             ForEach(data.items, id: \.last, content: createSingleRow)
         }
+        .background {
+            GeometryReader { proxy in
+                let minX = proxy.frame(in: .global).minX
+                Color.clear
+                    .preference(key: MonthViewOffsetKey.self, value: minX)
+                    .onPreferenceChange(MonthViewOffsetKey.self, perform: { value in
+                        // we need to detect index change + stop of scrolling
+                        if value == 0.0{
+                            selectedMonthIndex+=1
+                        }
+//                        if value == 0.0 && (selectedMonthIndex == 0 || viewModel.selectedWeekIndex == 2) {
+//                            viewModel.addNeededWeek()
+//                            viewModel.updateSelectedDate()
+//                        }
+                    })
+            }
+        }
+
         .frame(maxWidth: .infinity)
         .animation(animation, value: selectedDate)
         .animation(animation, value: selectedRange?.getRange())
+    }
+}
+
+private struct MonthViewOffsetKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = nextValue()
     }
 }
 private extension MonthView {

@@ -15,6 +15,8 @@ public struct MCalendarView: View {
     @Binding var selectedRange: MDateRange?
     let monthsData: [Data.MonthView]
     let configData: CalendarConfig
+    
+    @State var monthIndex = 0
 
     init(
         _ selectedDate: Binding<Date?>, _ selectedRange: Binding<MDateRange?>,
@@ -24,45 +26,54 @@ public struct MCalendarView: View {
         _selectedRange = selectedRange
         self.configData = configBuilder(.init())
         self.monthsData = .generate()
+        _monthIndex = State(initialValue: monthsData.count - 1)
     }
 
     public var body: some View {
         VStack(spacing: 12) {
-            createWeekdaysView()
             createScrollView()
         }
     }
 }
 extension MCalendarView {
-    fileprivate func createWeekdaysView() -> some View {
-        configData.weekdaysView().erased()
-    }
+   
     fileprivate func createScrollView() -> some View {
-        ScrollViewReader { reader in
-            ScrollView(showsIndicators: false) {
-                LazyVStack(spacing: configData.monthsSpacing) {
-                    ForEach(monthsData, id: \.month, content: createMonthItem)
+//        ScrollViewReader { reader in
+            TabView(selection: $monthIndex) {
+                ForEach(Array(monthsData.enumerated()), id: \.element) { index, month in
+                    createMonthItem(month).tag(index)
                 }
+//                LazyHStack(spacing: configData.monthsSpacing) {
+//                    ForEach(monthsData, id: \.month, content: createMonthItem)
+//                }
                 .padding(.top, configData.monthsPadding.top)
                 .padding(.bottom, configData.monthsPadding.bottom)
                 .background(configData.monthsViewBackground)
             }
-            .onAppear { scrollToDate(reader, animatable: false) }
-            .onChange(of: selectedDate) { newdate in
-                guard let date = newdate else { return }
-                withAnimation {
-                    reader.scrollTo(date.start(of: .month), anchor: .top)
-                }
-            }
-        }
+            .frame(height: 425)
+            .tabViewStyle(.page(indexDisplayMode: .never))
+//            .scrollTargetBehavior(.paging)
+//            .onAppear { scrollToDate(reader, animatable: false) }
+//            .onChange(of: selectedDate) { newdate in
+//                guard let date = newdate else { return }
+//                withAnimation {
+//                    reader.scrollTo(date.start(of: .month), anchor: .top)
+//                }
+//            }
+//        }
     }
 }
 extension MCalendarView {
+    
+    
     fileprivate func createMonthItem(_ data: Data.MonthView) -> some View {
-        VStack(spacing: configData.monthLabelDaysSpacing) {
+        VStack(alignment: .leading,spacing: configData.monthLabelDaysSpacing) {
             createMonthLabel(data.month)
+            createWeekdaysView()
             createMonthView(data)
+            Spacer()
         }
+        .frame(maxHeight: .infinity, alignment: .leading)
     }
 }
 extension MCalendarView {
@@ -73,8 +84,16 @@ extension MCalendarView {
     }
     fileprivate func createMonthView(_ data: Data.MonthView) -> some View {
         MonthView(
-            selectedDate: $selectedDate, selectedRange: $selectedRange, data: data,
-            config: configData)
+            selectedDate: $selectedDate,
+            selectedRange: $selectedRange,
+            selectedMonthIndex: $monthIndex,
+            data: data,
+            config: configData
+        )
+    }
+    
+    fileprivate func createWeekdaysView() -> some View {
+        configData.weekdaysView().erased()
     }
 }
 
