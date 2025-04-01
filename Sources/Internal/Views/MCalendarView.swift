@@ -52,6 +52,36 @@ extension MCalendarView {
             }
             .frame(height: 425)
             .tabViewStyle(.page(indexDisplayMode: .never))
+            .onChange(of: selectedDate) { newdate in
+                guard let date = newdate else { return }
+                var index = 0
+                monthsData.forEach{ month in
+                    month.items.forEach{ week in
+                        week.forEach{ item in
+                            if item.dateOnly == date.dateOnly {
+                                monthIndex = index
+                            }
+                        }
+                    }
+                    index+=1
+                }
+                withAnimation {
+//                    reader.scrollTo(date.start(of: .month), anchor: .top)
+                }
+            }
+            .onAppear{
+                var index = 0
+                monthsData.forEach{ month in
+                    month.items.forEach{ week in
+                        week.forEach{ item in
+                            if item.dateOnly == selectedDate?.dateOnly {
+                                monthIndex = index
+                            }
+                        }
+                    }
+                    index+=1
+                }
+            }
 //            .scrollTargetBehavior(.paging)
 //            .onAppear { scrollToDate(reader, animatable: false) }
 //            .onChange(of: selectedDate) { newdate in
@@ -106,4 +136,14 @@ extension MCalendarView {
         withAnimation(animatable ? .default : nil) { reader.scrollTo(scrollDate, anchor: .center) }
     }
     fileprivate func onMonthChange(_ date: Date) { configData.onMonthChange(date) }
+}
+
+
+extension Date {
+    public var dateOnly: Date? {
+        let kalender = Calendar.current
+        let komponenTanggal = kalender.dateComponents([.year, .month, .day], from: self)
+
+        return kalender.date(from: komponenTanggal)
+    }
 }
