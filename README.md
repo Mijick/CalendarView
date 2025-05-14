@@ -1,13 +1,5 @@
 <br>
 <p align="center">
-    
-<!-- Mijick Header -->
-<picture> 
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/Assets/blob/main/Mijick/On%20Dark/Header.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/Assets/blob/main/Mijick/On%20Light/Header.svg">
-    <img alt="Mijick Header" width="100%">
-</picture>
-
 
 <!-- Social Buttons -->
 <p align="center">
@@ -218,13 +210,13 @@ CalendarView is released under the MIT license. See [LICENSE][License] for detai
 <br><br>
 
 # Our other open source SwiftUI libraries
-[PopupView] - The most powerful popup library that allows you to present any popup
+[Popups] - The most powerful popup library that allows you to present any popup
 <br>
 [NavigationView] - Easier and cleaner way of navigating through your app
 <br>
 [GridView] - Lay out your data with no effort
 <br>
-[CameraView] - The most powerful CameraController. Designed for SwiftUI
+[Camera] - The most powerful CameraController. Designed for SwiftUI
 <br>
 [Timer] - Modern API for Timer
 
@@ -240,8 +232,8 @@ CalendarView is released under the MIT license. See [LICENSE][License] for detai
 [cocoapods]: https://cocoapods.org/
 [generate_cocoapods]: https://github.com/square/cocoapods-generate
 
-[PopupView]: https://github.com/Mijick/PopupView
+[Popups]: https://github.com/Mijick/Popups
 [NavigationView]: https://github.com/Mijick/NavigationView 
-[CameraView]: https://github.com/Mijick/CameraView
+[Camera]: https://github.com/Mijick/Camera
 [GridView]: https://github.com/Mijick/GridView
 [Timer]: https://github.com/Mijick/Timer
