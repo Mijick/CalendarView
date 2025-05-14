@@ -1,50 +1,6 @@
 <br>
 <p align="center">
-
-<!-- Social Buttons -->
-<p align="center">
-
-<!-- GitHub -->
-<a href="https://github.com/Mijick">
-<picture> 
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/Assets/blob/main/Mijick/On%20Dark/Button/Github.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/Assets/blob/main/Mijick/On%20Light/Button/Github.svg">
-    <img alt="Mijick GitHub" height="32px">
-</picture>
-</a>
-
-<!-- Twitter -->
-<a href="https://twitter.com/MijickTeam">
-<picture> 
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/Assets/blob/main/Mijick/On%20Dark/Button/X.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/Assets/blob/main/Mijick/On%20Light/Button/X.svg">
-    <img alt="Mijick Twitter" height="32px">
-</picture>
-</a>
-
-<!-- Email -->
-<a href="mailto:team@mijick.com?subject=Hello">
-<picture> 
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/Assets/blob/main/Mijick/On%20Dark/Button/Email.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/Assets/blob/main/Mijick/On%20Light/Button/Email.svg">
-    <img alt="Mijick Mail" height="32px">
-</picture>
-</a>
-
-
-<!-- Separator -->
-<picture> 
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Mijick/Assets/blob/main/Mijick/On%20Dark/Separator.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mijick/Assets/blob/main/Mijick/On%20Light/Separator.svg">
-    <img alt="Separator" width="100%" height="0.25px">
-</picture>
-
-</p>
-
-<!-- Header End -->
-
-<br>
-
+    
 <!-- CalendarView Logo -->
 <p align="center">
 <picture> 
