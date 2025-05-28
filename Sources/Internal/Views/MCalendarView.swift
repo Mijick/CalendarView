@@ -39,6 +39,7 @@ extension MCalendarView {
    
     fileprivate func createScrollView() -> some View {
 //        ScrollViewReader { reader in
+    
             TabView(selection: $monthIndex) {
                 ForEach(Array(monthsData.enumerated()), id: \.element) { index, month in
                     createMonthItem(month).tag(index)
@@ -50,7 +51,7 @@ extension MCalendarView {
                 .padding(.bottom, configData.monthsPadding.bottom)
                 .background(configData.monthsViewBackground)
             }
-            .frame(height: 425)
+            .frame(maxHeight: .infinity)
             .tabViewStyle(.page(indexDisplayMode: .never))
             .onChange(of: selectedDate) { newdate in
                 guard let date = newdate else { return }
@@ -82,6 +83,7 @@ extension MCalendarView {
                     index+=1
                 }
             }
+            
 //            .scrollTargetBehavior(.paging)
 //            .onAppear { scrollToDate(reader, animatable: false) }
 //            .onChange(of: selectedDate) { newdate in
@@ -99,6 +101,7 @@ extension MCalendarView {
     fileprivate func createMonthItem(_ data: Data.MonthView) -> some View {
         VStack(alignment: .leading,spacing: configData.monthLabelDaysSpacing) {
             createMonthLabel(data.month)
+                .padding(.bottom)
             createWeekdaysView()
             createMonthView(data)
             Spacer()

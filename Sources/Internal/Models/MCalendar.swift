@@ -22,5 +22,8 @@ struct MCalendar {
 }
 
 extension MCalendar {
-    static func get() -> Calendar { _calendar }
+    static func get() -> Calendar {
+        _calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+        return _calendar
+    }
 }
