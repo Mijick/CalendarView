@@ -13,13 +13,13 @@ import SwiftUI
 public protocol WeekdaysView: View {
     // MARK: View Customisation
     @MainActor func createContent() -> AnyView
-    @MainActor func createWeekdayLabel(_ weekday: MWeekday) -> AnyWeekdayLabel
+    @MainActor func createWeekdayLabel(_ weekday: MWeekday) -> AnyView
 }
 
 // MARK: - Default View Implementation
 public extension WeekdaysView {
     @MainActor func createContent() -> AnyView { createWeekdaysView().erased() }
-    @MainActor func createWeekdayLabel(_ weekday: MWeekday) -> AnyWeekdayLabel { createDefaultWeekDayLabel(weekday).erased() }
+    @MainActor func createWeekdayLabel(_ weekday: MWeekday) -> AnyView { createDefaultWeekDayLabel(weekday).erased() }
 }
 private extension WeekdaysView {
     func createDefaultWeekDayLabel(_ weekday: MWeekday) -> DefaultWeekdayLabel { DefaultWeekdayLabel(weekday: weekday) }
