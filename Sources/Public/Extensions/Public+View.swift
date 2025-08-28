@@ -12,5 +12,5 @@
 import SwiftUI
 
 public extension View {
-    func erased() -> AnyView { .init(self) }
+    @MainActor func erased() -> AnyView { .init(self) }
 }

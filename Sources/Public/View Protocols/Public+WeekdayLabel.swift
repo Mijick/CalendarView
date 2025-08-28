@@ -15,12 +15,12 @@ public protocol WeekdayLabel: View {
     var weekday: MWeekday { get }
 
     // MARK: View Customisation
-    func createContent() -> AnyView
+    @MainActor func createContent() -> AnyView
 }
 
 // MARK: - Default View Implementation
 public extension WeekdayLabel {
-    func createContent() -> AnyView { createDefaultContent().erased() }
+    @MainActor func createContent() -> AnyView { createDefaultContent().erased() }
 }
 private extension WeekdayLabel {
     func createDefaultContent() -> some View {
@@ -41,5 +41,5 @@ public extension WeekdayLabel {
 
 // MARK: - Others
 public extension WeekdayLabel {
-    var body: some View { createContent() }
+    @MainActor var body: some View { createContent() }
 }

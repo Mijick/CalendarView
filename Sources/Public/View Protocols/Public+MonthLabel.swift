@@ -15,12 +15,12 @@ public protocol MonthLabel: View {
     var month: Date { get }
 
     // MARK: View Customisation
-    func createContent() -> AnyView
+    @MainActor func createContent() -> AnyView
 }
 
 // MARK: - Default View Implementation
 public extension MonthLabel {
-    func createContent() -> AnyView { createDefaultContent().erased() }
+    @MainActor func createContent() -> AnyView { createDefaultContent().erased() }
 }
 private extension MonthLabel {
     func createDefaultContent() -> some View {
@@ -38,5 +38,5 @@ public extension MonthLabel {
 
 // MARK: - Others
 public extension MonthLabel {
-    var body: some View { createContent() }
+    @MainActor var body: some View { createContent() }
 }
