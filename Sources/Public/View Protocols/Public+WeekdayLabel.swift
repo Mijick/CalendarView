@@ -10,17 +10,17 @@
 
 import SwiftUI
 
-public protocol WeekdayLabel: View {
+@MainActor public protocol WeekdayLabel: View {
     // MARK: Required Attributes
     var weekday: MWeekday { get }
 
     // MARK: View Customisation
-    @MainActor func createContent() -> AnyView
+    func createContent() -> AnyView
 }
 
 // MARK: - Default View Implementation
 public extension WeekdayLabel {
-    @MainActor func createContent() -> AnyView { createDefaultContent().erased() }
+    func createContent() -> AnyView { createDefaultContent().erased() }
 }
 private extension WeekdayLabel {
     func createDefaultContent() -> some View {
@@ -41,5 +41,5 @@ public extension WeekdayLabel {
 
 // MARK: - Others
 public extension WeekdayLabel {
-    @MainActor var body: some View { createContent() }
+    var body: some View { createContent() }
 }

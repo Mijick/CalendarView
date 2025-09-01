@@ -10,17 +10,17 @@
 
 import SwiftUI
 
-public protocol MonthLabel: View {
+@MainActor public protocol MonthLabel: View {
     // MARK: Required Attributes
     var month: Date { get }
 
     // MARK: View Customisation
-    @MainActor func createContent() -> AnyView
+    func createContent() -> AnyView
 }
 
 // MARK: - Default View Implementation
 public extension MonthLabel {
-    @MainActor func createContent() -> AnyView { createDefaultContent().erased() }
+    func createContent() -> AnyView { createDefaultContent().erased() }
 }
 private extension MonthLabel {
     func createDefaultContent() -> some View {
@@ -38,5 +38,5 @@ public extension MonthLabel {
 
 // MARK: - Others
 public extension MonthLabel {
-    @MainActor var body: some View { createContent() }
+    var body: some View { createContent() }
 }

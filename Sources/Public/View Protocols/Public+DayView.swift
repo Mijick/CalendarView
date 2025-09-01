@@ -11,7 +11,7 @@
 
 import SwiftUI
 
-public protocol DayView: View {
+@MainActor public protocol DayView: View {
     // MARK: Attributes
     var date: Date { get }
     var isCurrentMonth: Bool { get }
@@ -19,10 +19,10 @@ public protocol DayView: View {
     var selectedRange: Binding<MDateRange?>? { get }
 
     // MARK: View Customisation
-    @MainActor func createContent() -> AnyView
-    @MainActor func createDayLabel() -> AnyView
-    @MainActor func createSelectionView() -> AnyView
-    @MainActor func createRangeSelectionView() -> AnyView
+    func createContent() -> AnyView
+    func createDayLabel() -> AnyView
+    func createSelectionView() -> AnyView
+    func createRangeSelectionView() -> AnyView
 
     // MARK: Logic
     func onAppear()
@@ -31,29 +31,29 @@ public protocol DayView: View {
 
 // MARK: - Default View Implementation
 public extension DayView {
-    @MainActor func createContent() -> AnyView { createDefaultContent().erased() }
-    @MainActor func createDayLabel() -> AnyView { createDefaultDayLabel().erased() }
-    @MainActor func createSelectionView() -> AnyView { createDefaultSelectionView().erased() }
-    @MainActor func createRangeSelectionView() -> AnyView { createDefaultRangeSelectionView().erased() }
+    func createContent() -> AnyView { createDefaultContent().erased() }
+    func createDayLabel() -> AnyView { createDefaultDayLabel().erased() }
+    func createSelectionView() -> AnyView { createDefaultSelectionView().erased() }
+    func createRangeSelectionView() -> AnyView { createDefaultRangeSelectionView().erased() }
 }
 private extension DayView {
-    @MainActor func createDefaultContent() -> some View { ZStack {
+    func createDefaultContent() -> some View { ZStack {
         createSelectionView()
         createRangeSelectionView()
         createDayLabel()
     }}
-    @MainActor func createDefaultDayLabel() -> some View {
+    func createDefaultDayLabel() -> some View {
         Text(getStringFromDay(format: "d"))
             .font(.system(size: 14, weight: .medium))
             .foregroundColor(isSelected() ? .backgroundPrimary : .onBackgroundPrimary)
     }
-    @MainActor func createDefaultSelectionView() -> some View {
+    func createDefaultSelectionView() -> some View {
         Circle()
             .fill(Color.onBackgroundPrimary)
             .transition(.asymmetric(insertion: .scale(scale: 0.52).combined(with: .opacity), removal: .opacity))
             .active(if: isSelected())
     }
-    @MainActor func createDefaultRangeSelectionView() -> some View {
+    func createDefaultRangeSelectionView() -> some View {
         RoundedRectangle(corners: rangeSelectionViewCorners)
             .fill(Color.onBackgroundPrimary.opacity(0.12))
             .transition(.opacity)
