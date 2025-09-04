@@ -10,7 +10,7 @@
 
 import SwiftUI
 
-public protocol WeekdaysView: View {
+@MainActor public protocol WeekdaysView: View {
     // MARK: View Customisation
     func createContent() -> AnyView
     func createWeekdayLabel(_ weekday: MWeekday) -> AnyWeekdayLabel

@@ -10,7 +10,7 @@
 
 import SwiftUI
 
-public protocol WeekdayLabel: View {
+@MainActor public protocol WeekdayLabel: View {
     // MARK: Required Attributes
     var weekday: MWeekday { get }
 

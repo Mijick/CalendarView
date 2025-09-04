@@ -11,7 +11,7 @@
 
 import SwiftUI
 
-public protocol DayView: View {
+@MainActor public protocol DayView: View {
     // MARK: Attributes
     var date: Date { get }
     var isCurrentMonth: Bool { get }

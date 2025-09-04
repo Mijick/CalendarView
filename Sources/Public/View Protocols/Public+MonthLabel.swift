@@ -10,7 +10,7 @@
 
 import SwiftUI
 
-public protocol MonthLabel: View {
+@MainActor public protocol MonthLabel: View {
     // MARK: Required Attributes
     var month: Date { get }
 

@@ -22,6 +22,7 @@ extension MDateFormatter {
     static func getString(for weekday: MWeekday, format: WeekdaySymbolFormat) -> String {
         switch format {
             case .veryShort: return getFormatter().veryShortWeekdaySymbols[weekday.rawValue - 1].capitalized
+            case .abbreviated: return getFormatter().standaloneWeekdaySymbols[weekday.rawValue - 1].prefix(2).capitalized
             case .short: return getFormatter().shortWeekdaySymbols[weekday.rawValue - 1].capitalized
             case .full: return getFormatter().standaloneWeekdaySymbols[weekday.rawValue - 1].capitalized
         }
