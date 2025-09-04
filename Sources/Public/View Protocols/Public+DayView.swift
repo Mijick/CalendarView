@@ -103,13 +103,13 @@ public extension DayView {
 
 // MARK: - Others
 public extension DayView {
-    @MainActor var body: some View { Group {
+    var body: some View { Group {
         if isCurrentMonth { createBodyForCurrentMonth() }
         else { createBodyForOtherMonth() }
     }}
 }
 private extension DayView {
-    @MainActor func createBodyForCurrentMonth() -> some View {
+    func createBodyForCurrentMonth() -> some View {
         createContent()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .aspectRatio(1.0, contentMode: .fit)
